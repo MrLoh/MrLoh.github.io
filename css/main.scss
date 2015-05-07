@@ -1,0 +1,68 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+
+
+// Our variables
+$base-font-family:    "proxima-nova-alt", Helvetica, sans-serif;
+$base-font-family-sc: "proxima-nova-sc-osf-condensed", Helvetica, sans-serif;
+$alt-font-family:     "abril-text", Helvetica, sans-serif;
+$heading-font-family: "abril-titling-condensed", Helvetica, sans-serif;
+$mono-font-family:    "courier-prime", monospace, serif;
+
+$base-font-size:      18px;
+$small-font-size:     $base-font-size * 0.875;
+
+$unit:     28px;
+
+$text-color:           #17181d;
+$background-color:     #fafcfc;
+$brand-color:          #67a492;
+$alt-background-color: #2c2f38;
+
+$color0: #f1f0db;
+$color1: #87aebd;
+$color2: #88c1af;
+$color3: #bd9466;
+$color4: #8167ad;
+$color5: #a29e9d;
+$color6: #7680b7;
+
+
+
+$gray-color:       $alt-background-color;
+$gray-color-light: lighten($gray-color, 10%);
+$gray-color-dark:  darken($gray-color, 10%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "header",
+        "article",
+        "syntax-highlighting"
+;

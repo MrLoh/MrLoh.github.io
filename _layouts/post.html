@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<article class="post-content">
+    <header>
+        <p class="meta">
+        </p>
+        <h1>{{ page.title }}</h1>
+        <p class="meta">
+            {{ page.date | date: "%b %-d, %Y" }}
+            {% if page.updated %}
+                • updated: {{ page.updated | date: "%b %-d, %Y" }}
+            {% endif %}
+            {% if page.author %}
+                • {{ page.author }}
+            {% else %}
+                Tobias Lohse
+            {% endif %}
+            {% if page.meta %}
+                • {{ page.meta }}
+            {% endif %}
+        </p>
+    </header>
+    {{ content }}
+</article>
+<!-- Carneval Comments -->
+<script src="https://carnivalapp.io/sites/273/init.js"></script>
+<script>document.addEventListener("DOMContentLoaded", Carnival.init);</script>
+<!-- MathJax Rendering -->
+{% if page.latex %}
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endif %}

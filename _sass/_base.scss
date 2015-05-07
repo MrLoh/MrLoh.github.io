@@ -1,0 +1,150 @@
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/**
+ * Basic styling
+ */
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $unit;
+    font-weight: 300;
+    color: $text-color;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $unit / 2;
+}
+
+
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: $unit;
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+h1 {
+    font-family: $heading-font-family;
+    color: lighten($alt-background-color, 10%);
+    font-weight: 800;
+    font-style: italic;
+}
+
+pre, code {
+    font-family: $mono-font-family;
+}
+
+/**
+ * Links
+ */
+a {
+    color: $brand-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $text-color;
+        text-decoration: underline;
+    }
+}
+
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    color: lighten($alt-background-color, 5%);
+    border-left: 2px solid lighten($alt-background-color, 10%);
+    padding-left: $base-font-size;
+    font-family: $alt-font-family;
+    font-size: $base-font-size*1.25;
+    font-weight: 400;
+    font-style: italic;
+
+    cite {
+        display: block;
+        font-family: $base-font-family-sc;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
+
+::selection {
+    background: lighten($brand-color, 25%);
+}
+::-moz-selection {
+    background: lighten($brand-color, 25%);
+}
+
+
+
+/**
+ * Clearfix
+ */
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

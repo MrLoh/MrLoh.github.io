@@ -1,0 +1,16 @@
+header {
+    nav ul {
+        list-style-type: none;
+        li {
+            display: inline-block;
+            font-family: $base-font-family-sc;
+            font-size: 1.5*$base-font-size;
+            font-weight: 600;
+            font-style: normal;
+            text-transform: uppercase;
+            a {
+                color: lighten($alt-background-color, 6%);
+            }
+        }
+    }
+}

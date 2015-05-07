@@ -1,0 +1,100 @@
+$article-width: 35*$base-font-size;
+
+article {
+    width: 100%;
+    overflow-x: hidden;
+    & > * {
+        max-width: $article-width;
+        margin: 0 auto;
+        width: 100%;
+        margin-bottom: $unit;
+        line-height: $unit;
+        text-align: justify;
+    }
+
+    header {
+        // max-width: $article-width+10*$base-font-size;
+        color: lighten($alt-background-color, 6%);
+        text-align: center;
+        margin-bottom: $unit;
+    }
+
+    .meta {
+        font-family: $base-font-family-sc;
+        font-size: 1.25*$base-font-size;
+        font-weight: 600;
+        text-transform: lowercase;
+        color: $brand-color;
+        margin-bottom: 0;
+    }
+
+    h1 {
+        font-size: 3*$base-font-size;
+        line-height: 2*$unit;
+    }
+
+    h2 {
+        font-family: $base-font-family-sc;
+        font-size: 1.25*$base-font-size;
+        font-weight: 600;
+        text-transform: lowercase;
+        color: $alt-background-color;
+        margin-bottom: 0;
+    }
+
+    .highlighttable {
+        $line-color: lighten($alt-background-color, 10%);
+        max-width: 100%;
+        font-size: $small-font-size;
+        border: 0;
+        background-color: $alt-background-color;
+        padding: 0;
+        overflow-x: scroll;
+        margin: $unit 0;
+        border-top: 3px solid $line-color;
+        border-bottom: 3px solid $line-color;
+        border-collapse: collapse;
+        tbody {
+            display: block;
+            max-width: $article-width + 3*$base-font-size;
+            margin: 0 auto;
+            padding: 0;
+            tr {
+                padding: 0;
+                margin: 0;
+            }
+            td.linenos {
+                display: block;
+                float: left;
+                margin-left: -2*$base-font-size;
+                width: 2*$base-font-size;
+                border-right: 2px solid $line-color;
+                text-align: right;
+                padding: $base-font-size $base-font-size/2 $base-font-size 0;
+                code {
+                    color: $line-color;
+                }
+            }
+            td.code {
+                display: block;
+                float: left;
+                max-width: $article-width;
+                overflow-x: scroll;
+                padding: $base-font-size 0 $base-font-size $base-font-size;
+            }
+            pre, .highlight {
+                margin: 0;
+                line-height: 0.75*$unit;
+            }
+        }
+    }
+
+    code {
+        background-color: rgba($alt-background-color, 0.05);
+        padding: 0 $base-font-size/2;
+        border: 1px solid rgba($alt-background-color, 0.1);
+        border-radius: $base-font-size/2;
+        color: $alt-background-color;
+    }
+
+}
