@@ -21,6 +21,8 @@ body {
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
+    width: 100%;
+    overflow-x:hidden;
 }
 
 
@@ -147,4 +149,30 @@ blockquote {
         display: table;
         clear: both;
     }
+}
+
+%grayscale {
+	-webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: gray;
+    filter: grayscale(100%);
+    filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+}
+
+@mixin placeholder($color) {
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	   color: $color;
+	   opacity:  1;
+	}
+	&::-moz-placeholder { /* Mozilla Firefox 19+ */
+	   color: $color;
+	   opacity: 1;
+	}
+	&:-ms-input-placeholder { /* Internet Explorer 10+ */
+	   color: $color;
+	}
 }
