@@ -11,6 +11,10 @@ twitter_username: MrLoh
 github_username:  MrLoh
 
 # Build settings
+# Build settings
 markdown: redcarpet
+redcarpet:
+    extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
 highlighter: pygments
-pygments_options: ['lineanchors', 'linenos=table']
+sass:
+    sass_dir: assets/css

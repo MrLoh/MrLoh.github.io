@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="post-content">
+<article class="post-content" style="position: relative; left: 0px;">
     <header>
         <p class="meta">
         </p>
@@ -23,10 +23,38 @@ layout: default
     </header>
     {{ content }}
 </article>
+
+<!-- Markdown Bending -->
+<script  type="text/javascript" src="http://localhost:4000/assets/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/assets/js/markdow.js"></script>
+
 <!-- Carneval Comments -->
-<script src="https://carnivalapp.io/sites/273/init.js"></script>
-<script>document.addEventListener("DOMContentLoaded", Carnival.init);</script>
-<!-- MathJax Rendering -->
+<script  type="text/javascript" src="https://carnivalapp.io/sites/273/init.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Carnival.init({
+            enabled: true,
+            article_author: "{% if page.author %}{{ page.author }}{% else %}Tobias Lohse{% endif %}",
+            article_selector: "article",
+            block_selector: ":scope > p, :scope > blockquote, :scope .highlighttable .highlight, :scope .highlight",
+            onNewComment: function(comment) {
+                {% if page.latex %}
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                {% endif %}
+            }
+        });
+    });
+</script>
+
 {% if page.latex %}
+<!-- MathJax Rendering -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    });
+</script>
 {% endif %}

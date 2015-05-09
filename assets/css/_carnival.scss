@@ -1,11 +1,13 @@
 .carnival-comment-indicator {
+	z-index: 10000 !important;
+
 	svg path {
 		fill: lighten($brand-color, 25%) !important;
 	}
+
 	&:hover svg path, &.commenting svg path {
 		fill: $brand-color !important;
 	}
-	z-index: 10000 !important;
 }
 
 .carnival-branding {
@@ -32,10 +34,10 @@
 	background-color: $background-color;
 	border: $unit/2 solid $background-color;
 	border-bottom: 0;
-	border-top: 0;
+	// border-top: 0;
 	border-radius: $unit/2;
-	margin-top: -1px !important;
-	right: -35px-$unit/2 !important;
+	margin-top: -1px-$unit/2 !important;
+	right: -35px-$unit !important;
 
 	.carnival-comment {
 		border-top: 1.5px solid lighten($gray-color, 70%);
@@ -51,9 +53,32 @@
 		}
 	}
 
-	p {
+	p, code, pre {
 		text-align: left;
+		font-size: 10pt !important;
+		line-height: 1.4 !important;
+	}
+
+	p {
 		font-family: $base-font-family !important;
+	}
+
+	code {
+		font-family: $mono-font-family !important;
+	}
+
+	pre {
+		background-color: rgba($alt-background-color, 0.05);
+        padding: 0.5em;
+        border: 1px solid rgba($alt-background-color, 0.1);
+        color: $alt-background-color;
+		overflow-x: scroll;
+		border-radius: 0.4em;
+		margin: 0;
+		code {
+			border: none;
+			background: none;
+		}
 	}
 
 	li:first-child {

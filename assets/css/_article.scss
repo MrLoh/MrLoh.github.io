@@ -5,6 +5,8 @@ article {
     margin: 0 auto;
     width: 100%;
     max-width: $article-width;
+    transition: all 0.5s;
+
     & > * {
         margin-bottom: $unit;
         line-height: $unit;
@@ -39,10 +41,11 @@ article {
         text-transform: lowercase;
     }
 
-    .highlighttable {
+    .highlighttable, .CodeRay, & > .highlight {
         $line-color: lighten($alt-background-color, 10%);
         width: 5*$article-width;
         margin-left: -2*$article-width;
+        margin-bottom: $unit;
         font-size: $small-font-size;
         border: 0;
         background-color: $alt-background-color;
@@ -51,35 +54,53 @@ article {
         border-top: 3px solid $line-color;
         border-bottom: 3px solid $line-color;
         border-collapse: collapse;
-        tbody {
+
+        & > pre {
+            max-width: $article-width !important;
+        }
+
+        tbody, & > pre {
             display: block;
             max-width: $article-width + 3*$base-font-size;
             margin: 0 auto;
             padding: 0;
+
             tr {
                 padding: 0;
                 margin: 0;
             }
-            td.linenos {
-                display: block;
+
+            td.linenos, td.line-numbers {
                 float: left;
                 margin-left: -2*$base-font-size;
                 width: 2*$base-font-size;
                 border-right: 2px solid $line-color;
                 text-align: right;
                 padding: $base-font-size $base-font-size/2 $base-font-size 0;
-                code {
+
+                code, pre a, pre a:hover {
                     color: $line-color;
+                    text-decoration: none;
                 }
             }
+
             td.code {
                 display: block;
                 float: left;
                 max-width: $article-width;
-                overflow-x: scroll;
                 padding: $base-font-size 0 $base-font-size $base-font-size;
+                pre {
+                    margin: 0;
+                }
             }
-            pre, .highlight {
+
+            .highlight {
+                margin: 0;
+                position: relative;
+            }
+
+            pre {
+                overflow-x: scroll;
                 margin: 0;
                 line-height: 0.75*$unit;
             }
@@ -87,10 +108,11 @@ article {
     }
 
     code {
+        font-size: 0.9em;
         background-color: rgba($alt-background-color, 0.05);
-        padding: 0 $base-font-size/2;
+        padding: 0.2em 0.5em 0 0.5em;
         border: 1px solid rgba($alt-background-color, 0.1);
-        border-radius: $base-font-size/2;
+        border-radius: 0.4em;
         color: $alt-background-color;
     }
 

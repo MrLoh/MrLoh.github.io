@@ -31,3 +31,24 @@
         color: $color5;
     }
 }
+
+.CodeRay .code pre {
+    color: $color0;
+    @extend %vertical-rhythm;
+
+    .function {
+        color: $color1;
+    }
+    .keyword {
+        color: $color3;
+    }
+    .integer {
+        color: $color4;
+    }
+    .string {
+        color: $color2;
+    }
+    .comment {
+        color: $color5;
+    }
+}
