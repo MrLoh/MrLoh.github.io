@@ -9,7 +9,7 @@
         <url><loc>{{ site.url }}{{ post.url }}/</loc></url>
     {% endfor %}
 
-    {% for tag in site.pagetags %}
-        <url><loc>{{ site.url }}/tag/{{ tag }}</loc></url>
+    {% for tag in site.tags %}
+        <url><loc>{{ site.url }}/tag/{{ tag[0] }}</loc></url>
     {% endfor %}
 </urlset>
