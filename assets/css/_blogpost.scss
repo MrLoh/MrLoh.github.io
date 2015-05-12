@@ -215,7 +215,7 @@ article {
     blockquote {
         position: relative;
         /* $border-color: lighten($alt-background-color, 15%); */
-        $border-color: $color5;
+        $border-color: $gray-color;
         $border-width: 3px;
 
         border: $border-width solid $border-color;

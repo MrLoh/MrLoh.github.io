@@ -2,9 +2,6 @@
 ---
 @charset "utf-8";
 
-
-
-// Our variables
 $font:         "proxima-nova", Helvetica, sans-serif;
 $font-narrow:  "proxima-nova-condensed", Helvetica, sans-serif;
 $alt-font:     "abril-text", Helvetica, sans-serif;
@@ -18,8 +15,9 @@ $unit:     26px;
 
 $text-color:           #17181d;
 $background-color:     #fafcfc;
-$brand-color:          #67a492;
+$action-color:         #67a492;
 $alt-background-color: #2c2f38;
+$gray-color:           #a29e9d;
 
 $color0: #f1f0db;
 $color1: #87aebd;
@@ -32,17 +30,11 @@ $color6: #7680b7;
 $transparent: rgba(white, 0);
 
 
-$gray-color:       $alt-background-color;
-$gray-color-light: lighten($gray-color, 10%);
-$gray-color-dark:  darken($gray-color, 10%);
-
-
-
-// Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "nav",
-        "article",
-        "syntax-highlighting",
-        "carnival"
+    "base",
+    "nav",
+    "blogpost",
+    "pygments",
+    "carnival",
+    "kudos"
 ;

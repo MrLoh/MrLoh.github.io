@@ -2,11 +2,11 @@
 	z-index: 10000 !important;
 
 	svg path {
-		fill: lighten($brand-color, 25%) !important;
+		fill: lighten($action-color, 25%) !important;
 	}
 
 	&:hover svg path, &.commenting svg path {
-		fill: $brand-color !important;
+		fill: $action-color !important;
 	}
 }
 
@@ -115,7 +115,7 @@
 
 		a.carnival-cancel {
 			font-family: $font;
-			color: $brand-color;
+			color: $action-color;
 
 			&:hover {
 				text-decoration: none;
@@ -142,7 +142,7 @@
 		text-align: center;
 		input[type=submit] {
 			border: none;
-			background: $brand-color;
+			background: $action-color;
 			color: $background-color;
 			font-family: $font-narrow;
 			-webkit-font-feature-settings: "lnum", "c2sc", "smcp";
@@ -151,7 +151,7 @@
 			text-align: center;
 			text-transform: lowercase;
 			text-decoration: none;
-			text-shadow: 1px 1px 0 darken($brand-color, 7%);
+			text-shadow: 1px 1px 0 darken($action-color, 7%);
 			cursor: pointer;
 			padding: 0.1em 0.7em !important;
 			border-radius:4px;
@@ -159,11 +159,11 @@
 			display: block;
 			position: relative;
 			top: 0;
-			box-shadow: 0 $button-height 0 darken($brand-color, 10%) !important;
+			box-shadow: 0 $button-height 0 darken($action-color, 10%) !important;
 			&:hover, &:focus, &:active {
-				background: darken($brand-color, 3%);
+				background: darken($action-color, 3%);
 				color: darken($background-color, 3%);
-				box-shadow: 0 2/3*$button-height 0 darken($brand-color, 10%) !important;
+				box-shadow: 0 2/3*$button-height 0 darken($action-color, 10%) !important;
 				top: 1/3*$button-height;
 			}
 		}

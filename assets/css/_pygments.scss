@@ -1,17 +1,8 @@
-/**
- * Syntax highlighting styles
- */
+/* https://github.com/richleland/pygments-css/blob/master/borland.css */
 
-
-.highlight, .highlighttable {
+.highlight, .highlighttable, .code {
     color: $color0;
-    @extend %vertical-rhythm;
-    pre code {
-        display: block;
-        white-space: pre;
-        overflow-x: auto;
-        word-wrap: normal;
-    }
+
     .hll, .kt, .ni, .err, .l, .n, .x, .p, .ld, .nc, .nd, .ne, .nl, .nn, .nx, .py, .ow, .w, .bp, .o {
         color: $color0;
     }
@@ -30,11 +21,6 @@
     .c, .cm, .c1, .cs {
         color: $color5;
     }
-}
-
-.CodeRay .code pre {
-    color: $color0;
-    @extend %vertical-rhythm;
 
     .function {
         color: $color1;

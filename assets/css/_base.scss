@@ -109,7 +109,7 @@ pre, code {
 a {
     text-decoration: none;
 
-    color: $brand-color;
+    color: $action-color;
 
     &:hover {
         text-decoration: underline;
@@ -120,11 +120,11 @@ a {
 
 
 ::-moz-selection {
-    background: lighten($brand-color, 25%);
+    background: lighten($action-color, 25%);
 }
 
 ::selection {
-    background: lighten($brand-color, 25%);
+    background: lighten($action-color, 25%);
 }
 
 
