@@ -12,9 +12,6 @@ article {
             transition: all 0.5s;
 
     & > p {
-        -webkit-font-feature-settings: "ss01";
-           -moz-font-feature-settings: "ss01";
-                font-feature-settings: "ss01";
         margin-bottom: $unit;
     }
 
@@ -32,15 +29,11 @@ article {
 
         text-transform: lowercase;
 
-        color: $color5;
+        color: $gray-color;
 
-        font-family: $font-narrow;
+        font-family: $font-sc;
         font-size: 1.25*$base-font-size;
         font-weight: 600;
-
-        -webkit-font-feature-settings: "lnum", "c2sc", "smcp";
-           -moz-font-feature-settings: "lnum", "c2sc", "smcp";
-                font-feature-settings: "lnum", "c2sc", "smcp";
     }
 
     h1 {
@@ -55,13 +48,11 @@ article {
     h2 {
         color: lighten($alt-background-color, 10%);
 
-        font-family: $font-narrow;
+        font-family: $font-sc;
         font-size: 1.25*$base-font-size;
         font-weight: 800;
 
-        -webkit-font-feature-settings: "c2sc", "smcp";
-           -moz-font-feature-settings: "c2sc", "smcp";
-                font-feature-settings: "c2sc", "smcp";
+        text-transform: lowercase;
     }
 
 
@@ -114,7 +105,7 @@ article {
             }
 
             td {
-                padding: $unit/2 0;
+                padding: $unit/3*2 0;
             }
 
             td.linenos, td.line-numbers {
@@ -139,7 +130,7 @@ article {
                 float: left;
 
                 max-width: $article-width;
-                padding-left: $base-font-size/4;
+                padding-left: $base-font-size/2;
             }
 
             .highlight {
@@ -156,6 +147,7 @@ article {
 
         code {
             background-color: $transparent;
+            padding: 0;
         }
     }
 
@@ -192,8 +184,10 @@ article {
             color: $background-color;
             background: $alt-background-color;
 
-            font-family: $font-narrow;
-            font-weight: 600;
+            font-family: $alt-font;
+            font-style: italic;
+            font-weight: 400;
+            letter-spacing: 0.05em;
         }
         &:hover, &:focus {
             figcaption {
@@ -216,20 +210,23 @@ article {
         position: relative;
         /* $border-color: lighten($alt-background-color, 15%); */
         $border-color: $gray-color;
-        $border-width: 3px;
+        $border-width: 5px;
 
-        border: $border-width solid $border-color;
-        border-radius: $unit;
-        background: $background-color;
-        margin: $unit 1*$unit;
-        padding: 1.5*$unit $unit $unit/2 $unit;
+        $border-color-light: darken(white, 5%);
+
+        border-left: $border-width solid $border-color;
+        background: $border-color-light;
+        margin: $unit 0*$unit $unit/3*5 -2*$border-width;
+        padding: $unit/2 $unit/2 $unit/3 $unit/2;
+        border-radius: $border-width $border-width $border-width 0;
 
         p {
             margin: 0;
-            font-family: $heading-font;
+            font-family: $alt-font;
             font-size: 1.1*$base-font-size;
             font-weight: 400;
             font-style: italic;
+            text-align: left;
             position: relative;
             text-indent: 1.6*$unit;
             color: darken($border-color, 4%);
@@ -240,7 +237,9 @@ article {
 
             &:first-child::before {
                 content: '\201C';
+                font-family: $alt-font;
                 font-size: 3.5*$unit;
+                font-style: italic;
                 position: absolute;
                 color: $border-color;
                 top: 0.2em;
@@ -256,28 +255,27 @@ article {
         & > cite {
             display: block;
             position: absolute;
-            top: -0.5%;
-            left: -0.4%;
-            padding-left: 3*$unit;
+            top: 100%;
+            left: -$border-width;
+            padding: 0 0 0 3*$unit;
+            height: $unit/3*2;
+            border-radius: 0 0 0 $border-width;
 
-            width: 100.8%;
             box-sizing: border-box;
-            border-radius: $unit $unit 0 0;
             background: $border-color;
             color: $background-color;
 
-            font-family: $font-narrow;
+            font-family: $font-sc;
+            text-transform: lowercase;
             font-size: 0.9*$base-font-size;
             font-weight: 600;
             font-style: normal;
             text-align: left;
+            line-height: 1.1em;
 
-            -webkit-font-feature-settings: "c2sc", "smcp";
-               -moz-font-feature-settings: "c2sc", "smcp";
-                    font-feature-settings: "c2sc", "smcp";
 
-            &::after {
-                bottom: 0;
+            &::before {
+                top: 0;
                 left: 1.2*$unit;
                 border: solid transparent;
                 content: " ";
@@ -286,8 +284,19 @@ article {
                 position: absolute;
                 pointer-events: none;
                 border-color: rgba(white, 0);
-                border-bottom-color: $background-color;
+                border-top-color: $border-color-light;
                 border-width: $unit/2;
+            }
+
+            &::after {
+                content: " ";
+                width: 2*$unit;
+                height: $unit/3*2;
+                position: absolute;
+                top: 0;
+                left: 100%;
+                background: $border-color;
+                border-radius: 0 0 100% 0;
             }
 
             a, a:hover, a:focus {

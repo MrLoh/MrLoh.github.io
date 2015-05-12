@@ -6,25 +6,34 @@
     <body>
         {% include nav.html %}
 
-        <article class="post-content" style="position: relative; left: 0px;">
+        <article style="position: relative; left: 0px;">
             <header>
                 <p class="meta">
-                </p>
-                <h1>{{ page.title }}</h1>
-                <p class="meta">
+                    <span>published: </span>
                     {{ page.date | date: "%b %-d, %Y" }}
                     {% if page.updated %}
-                        • updated: {{ page.updated | date: "%b %-d, %Y" }}
+                        <span> • updated: </span>
+                        {{ page.updated | date: "%b %-d, %Y" }}
                     {% endif %}
+                    <span> • length: </span>
+                    {{ content | number_of_words | plus:100 | divided_by:180 }} min
+                </p>
+
+                <h1>{{ page.title }}</h1>
+
+                <p class="meta">
+                    <span>author: </span>
                     {% if page.author %}
-                        • {{ page.author }}
+                        <a href="{{ page.author-link }}">{{ page.author }}</a>
                     {% else %}
-                        Tobias Lohse
+                        <a href="{{ '/about' | prepend: site.baseurl }}">Tobias Lohse</a>
                     {% endif %}
-                    {% if page.meta %}
-                        • {{ page.meta }}
+                    {% if page.tags %}
+                        <span> • tags: </span>
+                        {% for tag in page.tags %}
+                            <a href="{{ tag | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a> 
+                        {% endfor %}
                     {% endif %}
-                    • {{ content | number_of_words | plus:100 | divided_by:180 }} min read
                 </p>
             </header>
 

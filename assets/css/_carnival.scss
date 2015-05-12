@@ -12,8 +12,8 @@
 
 .carnival-branding {
 	text-align: left;
-	font-family: $font-narrow;
-	-webkit-font-feature-settings: "c2sc", "smcp";
+	text-transform: lowercase;
+	font-family: $font-sc;
 	font-weight: 600;
 	font-size: 10px !important;
 	padding-top: 0;
@@ -91,8 +91,7 @@
 	text-align: center;
 
 	a.carnival-create {
-		font-family: $font-narrow;
-		-webkit-font-feature-settings: "lnum", "c2sc", "smcp";
+		font-family: $font-sc;
 		text-transform: lowercase;
 		font-weight: 600;
 
@@ -125,8 +124,7 @@
 
 		.carnival-validation-error {
 			color: $color3;
-			font-family: $font-narrow;
-			-webkit-font-feature-settings: "lnum", "c2sc", "smcp";
+			font-family: $font-sc;
 			font-weight: 600;
 			text-align: left;
 			text-transform: lowercase;
@@ -144,8 +142,7 @@
 			border: none;
 			background: $action-color;
 			color: $background-color;
-			font-family: $font-narrow;
-			-webkit-font-feature-settings: "lnum", "c2sc", "smcp";
+			font-family: $font-sc;
 			font-weight: 600;
 			font-size: 12px !important;
 			text-align: center;

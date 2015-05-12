@@ -2,10 +2,9 @@
 ---
 @charset "utf-8";
 
-$font:         "proxima-nova", Helvetica, sans-serif;
-$font-narrow:  "proxima-nova-condensed", Helvetica, sans-serif;
-$alt-font:     "abril-text", Helvetica, sans-serif;
-$heading-font: "abril-titling-condensed", Helvetica, sans-serif;
+$font:         "proxima-nova-alt", Helvetica, sans-serif;
+$font-sc:      "proxima-nova-sc-osf-condensed", Helvetica, sans-serif;
+$alt-font:     "abril-titling-condensed", Helvetica, sans-serif;
 $mono-font:    "courier-prime", monospace, serif;
 
 $base-font-size:      18px;
@@ -28,7 +27,6 @@ $color5: #a29e9d;
 $color6: #7680b7;
 
 $transparent: rgba(white, 0);
-
 
 @import
     "base",
