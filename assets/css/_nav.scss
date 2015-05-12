@@ -1,0 +1,29 @@
+nav {
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    z-index: 99;
+    width: 100%;
+    background: $brand-color;
+    box-sizing: border-box;
+    height: 2*$unit;
+    padding: 0.5em;
+    margin-bottom: 2*$unit;
+
+    font-family: $font-narrow;
+    font-size: 1.5*$base-font-size;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+
+    ul {
+        margin: 0;
+        list-style-type: none;
+        li {
+            display: inline-block;
+            a {
+                color: $background-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<!-- Markdown Bending -->
+<script  type="text/javascript" src="{{ "/assets/lib/jquery-2.1.4.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/assets/js/markdow.js" | prepend: site.baseurl }}"></script>
+
+<!-- Carneval Comments -->
+<script  type="text/javascript" src="https://carnivalapp.io/sites/273/init.js"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		Carnival.init({
+			enabled: true,
+			article_author: "{% if page.author %}{{ page.author }}{% else %}Tobias Lohse{% endif %}",
+			article_selector: "article",
+			block_selector: ":scope > p, :scope > blockquote, :scope > figure, :scope .highlight",
+			onNewComment: function(comment) {
+				{% if page.latex %}
+					MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+				{% endif %}
+			}
+		});
+	});
+</script>
+
+{% if page.latex %}
+<!-- MathJax Rendering -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ['$','$'] ],
+			processEscapes: true
+		}
+	});
+</script>
+{% endif %}

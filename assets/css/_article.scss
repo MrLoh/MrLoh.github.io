@@ -1,32 +1,46 @@
-$article-width: 35*$base-font-size;
+$article-width: 36*$base-font-size;
 
 article {
     width: 100%;
-    margin: 0 auto;
     width: 100%;
     max-width: $article-width;
-    transition: all 0.5s;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: $unit;
 
-    & > * {
+    -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+
+    & > p {
+        -webkit-font-feature-settings: "ss01";
+           -moz-font-feature-settings: "ss01";
+                font-feature-settings: "ss01";
         margin-bottom: $unit;
-        line-height: $unit;
-        text-align: justify;
     }
 
     header {
-        // max-width: $article-width+10*$base-font-size;
-        color: lighten($alt-background-color, 6%);
-        text-align: center;
         margin-bottom: $unit;
+
+        text-align: center;
+        // max-width: $article-width+10*$base-font-size;
+
+        color: lighten($alt-background-color, 6%);
     }
 
     .meta {
-        font-family: $base-font-family-sc;
+        margin-bottom: 0;
+
+        text-transform: lowercase;
+
+        color: $color5;
+
+        font-family: $font-narrow;
         font-size: 1.25*$base-font-size;
         font-weight: 600;
-        text-transform: lowercase;
-        color: $brand-color;
-        margin-bottom: 0;
+
+        -webkit-font-feature-settings: "lnum", "c2sc", "smcp";
+           -moz-font-feature-settings: "lnum", "c2sc", "smcp";
+                font-feature-settings: "lnum", "c2sc", "smcp";
     }
 
     h1 {
@@ -34,26 +48,54 @@ article {
         line-height: 2*$unit;
     }
 
+
+
+
+    /***************************** SUBHEADING *********************************/
     h2 {
-        font-family: $base-font-family-sc;
+        color: lighten($alt-background-color, 10%);
+
+        font-family: $font-narrow;
         font-size: 1.25*$base-font-size;
-        font-weight: 600;
-        text-transform: lowercase;
+        font-weight: 800;
+
+        -webkit-font-feature-settings: "c2sc", "smcp";
+           -moz-font-feature-settings: "c2sc", "smcp";
+                font-feature-settings: "c2sc", "smcp";
     }
 
-    .highlighttable, .CodeRay, & > .highlight {
+
+
+
+    /********************************* CODE ***********************************/
+    code {
+        padding: 0.2em 0.5em 0 0.5em;
+
+        color: $alt-background-color;
+        border: 1px solid rgba($alt-background-color, 0.1);
+        border-radius: 0.4em;
+        background-color: rgba($alt-background-color, 0.05);
+
+        font-size: 0.9em;
+    }
+
+    .codeblock, .highlighttable, .CodeRay, & > .highlight {
         $line-color: lighten($alt-background-color, 10%);
-        width: 5*$article-width;
-        margin-left: -2*$article-width;
-        margin-bottom: $unit;
-        font-size: $small-font-size;
-        border: 0;
-        background-color: $alt-background-color;
-        padding: 0;
+
         overflow-x: scroll;
+
+        width: 5*$article-width;
+        margin-bottom: $unit;
+        margin-left: -2*$article-width;
+        padding: 0;
+
+        border: 0;
+        border-collapse: collapse;
         border-top: 3px solid $line-color;
         border-bottom: 3px solid $line-color;
-        border-collapse: collapse;
+        background-color: $alt-background-color;
+
+        font-size: 0.8*$base-font-size;
 
         & > pre {
             max-width: $article-width !important;
@@ -61,59 +103,197 @@ article {
 
         tbody, & > pre {
             display: block;
+
             max-width: $article-width + 3*$base-font-size;
             margin: 0 auto;
             padding: 0;
 
             tr {
-                padding: 0;
                 margin: 0;
+                padding: 0;
+            }
+
+            td {
+                padding: $unit/2 0;
             }
 
             td.linenos, td.line-numbers {
                 float: left;
-                margin-left: -2*$base-font-size;
+
                 width: 2*$base-font-size;
-                border-right: 2px solid $line-color;
+                margin-left: -1.75*$base-font-size;
+                padding-right: $base-font-size/2;
+
                 text-align: right;
-                padding: $base-font-size $base-font-size/2 $base-font-size 0;
+
+                border-right: 2px solid $line-color;
 
                 code, pre a, pre a:hover {
-                    color: $line-color;
                     text-decoration: none;
+                    color: $line-color;
                 }
             }
 
             td.code {
                 display: block;
                 float: left;
+
                 max-width: $article-width;
-                padding: $base-font-size 0 $base-font-size $base-font-size;
-                pre {
-                    margin: 0;
-                }
+                padding-left: $base-font-size/4;
             }
 
             .highlight {
-                margin: 0;
                 position: relative;
+
+                margin: 0;
             }
 
             pre {
-                overflow-x: scroll;
-                margin: 0;
                 line-height: 0.75*$unit;
+                margin: 0;
+            }
+        }
+
+        code {
+            background-color: $transparent;
+        }
+    }
+
+
+
+
+    /********************************* FIGURE *********************************/
+    figure {
+        position: relative;
+
+        overflow: hidden;
+        img {
+            position: relative;
+
+            display: block;
+
+            width: 100%;
+        }
+        figcaption {
+            position: absolute;
+            bottom:0;
+
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0.5em 1em;
+
+            -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+                    transition: transform 0.4s, opacity 0.1s 0.3s;
+            -webkit-transform: translateY(100%);
+                -ms-transform: translateY(100%);
+                    transform: translateY(100%);
+
+            opacity: 0;
+            color: $background-color;
+            background: $alt-background-color;
+
+            font-family: $font-narrow;
+            font-weight: 600;
+        }
+        &:hover, &:focus {
+            figcaption {
+                -webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+                        transition: transform 0.4s, opacity 0.1s;
+                -webkit-transform: translateY(0);
+                    -ms-transform: translateY(0);
+                        transform: translateY(0);
+
+                opacity: 0.7;
             }
         }
     }
 
-    code {
-        font-size: 0.9em;
-        background-color: rgba($alt-background-color, 0.05);
-        padding: 0.2em 0.5em 0 0.5em;
-        border: 1px solid rgba($alt-background-color, 0.1);
-        border-radius: 0.4em;
-        color: $alt-background-color;
+
+
+
+    /********************************* BLOCKQUOTE *****************************/
+    blockquote {
+        position: relative;
+        /* $border-color: lighten($alt-background-color, 15%); */
+        $border-color: $color5;
+        $border-width: 3px;
+
+        border: $border-width solid $border-color;
+        border-radius: $unit;
+        background: $background-color;
+        margin: $unit 1*$unit;
+        padding: 1.5*$unit $unit $unit/2 $unit;
+
+        p {
+            margin: 0;
+            font-family: $heading-font;
+            font-size: 1.1*$base-font-size;
+            font-weight: 400;
+            font-style: italic;
+            position: relative;
+            text-indent: 1.6*$unit;
+            color: darken($border-color, 4%);
+
+            a {
+                color: inherit;
+            }
+
+            &:first-child::before {
+                content: '\201C';
+                font-size: 3.5*$unit;
+                position: absolute;
+                color: $border-color;
+                top: 0.2em;
+                left: -1.8*$unit;
+            }
+
+            a::before {
+                content: "\2014";
+                padding-right: 0.5em;
+            }
+        }
+
+        & > cite {
+            display: block;
+            position: absolute;
+            top: -0.5%;
+            left: -0.4%;
+            padding-left: 3*$unit;
+
+            width: 100.8%;
+            box-sizing: border-box;
+            border-radius: $unit $unit 0 0;
+            background: $border-color;
+            color: $background-color;
+
+            font-family: $font-narrow;
+            font-size: 0.9*$base-font-size;
+            font-weight: 600;
+            font-style: normal;
+            text-align: left;
+
+            -webkit-font-feature-settings: "c2sc", "smcp";
+               -moz-font-feature-settings: "c2sc", "smcp";
+                    font-feature-settings: "c2sc", "smcp";
+
+            &::after {
+                bottom: 0;
+                left: 1.2*$unit;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(white, 0);
+                border-bottom-color: $background-color;
+                border-width: $unit/2;
+            }
+
+            a, a:hover, a:focus {
+                color: inherit;
+            }
+        }
     }
 
 }

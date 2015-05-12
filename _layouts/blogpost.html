@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include head.html %}
+    </head>
+    <body>
+        {% include nav.html %}
+
+        <article class="post-content" style="position: relative; left: 0px;">
+            <header>
+                <p class="meta">
+                </p>
+                <h1>{{ page.title }}</h1>
+                <p class="meta">
+                    {{ page.date | date: "%b %-d, %Y" }}
+                    {% if page.updated %}
+                        • updated: {{ page.updated | date: "%b %-d, %Y" }}
+                    {% endif %}
+                    {% if page.author %}
+                        • {{ page.author }}
+                    {% else %}
+                        Tobias Lohse
+                    {% endif %}
+                    {% if page.meta %}
+                        • {{ page.meta }}
+                    {% endif %}
+                    • {{ content | number_of_words | plus:100 | divided_by:180 }} min read
+                </p>
+            </header>
+
+            {{ content }}
+        </article>
+        {% include footer.html %}
+
+        {% include blogpost_scripts.html %}
+
+    </body>
+</html>
