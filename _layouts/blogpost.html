@@ -8,33 +8,39 @@
 
         <article style="position: relative; left: 0px;">
             <header>
-                <p class="meta">
-                    <span>published: </span>
-                    {{ page.date | date: "%b %-d, %Y" }}
-                    {% if page.updated %}
-                        <span> • updated: </span>
-                        {{ page.updated | date: "%b %-d, %Y" }}
-                    {% endif %}
-                    <span> • length: </span>
-                    {{ content | number_of_words | plus:100 | divided_by:180 }} min
-                </p>
 
                 <h1>{{ page.title }}</h1>
 
-                <p class="meta">
-                    <span>author: </span>
-                    {% if page.author %}
-                        <a href="{{ page.author-link }}">{{ page.author }}</a>
-                    {% else %}
-                        <a href="{{ '/about' | prepend: site.baseurl }}">Tobias Lohse</a>
-                    {% endif %}
-                    {% if page.tags %}
-                        <span> • tags: </span>
+                <div class="meta">
+                    <p class="author">
+                        <span>author: </span>
+                        {% if page.author %}
+                            <a href="{{ page.author-link }}">{{ page.author }}</a>
+                        {% else %}
+                            <a href="{{ '/about' | prepend: site.baseurl }}">Tobias Lohse</a>
+                        {% endif %}
+                    </p>
+                    <p class="tags">
+                        <span>tags: </span>
                         {% for tag in page.tags %}
-                            <a href="{{ tag | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a> 
+                            <a href="{{ tag | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a>
                         {% endfor %}
+                    </p>
+                    <p class="length">
+                        <span>length: </span>
+                        {{ content | number_of_words | plus:100 | divided_by:180 }} min
+                    </p>
+                    <p class="date">
+                        <span>published: </span>
+                        {{ page.date | date: "%b %-d, %Y" }}
+                    </p>
+                    {% if page.updated %}
+                        <span>updated: </span>
+                        {{ page.updated | date: "%b %-d, %Y" }}
                     {% endif %}
-                </p>
+                </div>
+
+
             </header>
 
             {{ content }}

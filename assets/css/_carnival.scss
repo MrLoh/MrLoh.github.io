@@ -20,9 +20,9 @@
 	text-align: center;
 	padding: 0 0 0.5em 0 !important;
 	&, a {
-		color: lighten($alt-background-color, 65%);
+		color: lighten($gray-color, 20%);
 		&:hover {
-			color: lighten($alt-background-color, 65%);
+			/* color: $gray-color; */
 			text-decoration: none;
 		}
 	}
@@ -30,7 +30,7 @@
 
 
 .carnival-comments {
-	color: lighten($alt-background-color, 20%);
+	color: darken($gray-color, 10%);
 	background-color: $background-color;
 	border: $unit/2 solid $background-color;
 	border-bottom: 0;
@@ -40,7 +40,7 @@
 	right: -35-$unit !important;
 
 	.carnival-comment {
-		border-top: 1.5px solid lighten($alt-background-color, 70%);
+		border-top: 1.5px solid lighten($gray-color, 20%);
 	}
 
 	.carnival-author {
@@ -65,13 +65,17 @@
 
 	code {
 		font-family: $mono-font !important;
+		font-size: 0.8em;
+		color: inherit;
+		background-color: rgba($gray-color, 0.05);
+        border: 1px solid rgba($gray-color, 0.1);
 	}
 
 	pre {
-		background-color: rgba($alt-background-color, 0.05);
-        padding: 0.5em;
-        border: 1px solid rgba($alt-background-color, 0.1);
-        color: $alt-background-color;
+		background-color: rgba($gray-color, 0.05);
+        border: 1px solid rgba($gray-color, 0.1);
+		padding: 0.5em;
+        color: inherit;
 		overflow-x: scroll;
 		border-radius: 0.4em;
 		margin: 0;
@@ -133,8 +137,8 @@
 		textarea {
 			font-family: $font !important;
 			background-color: $background-color;
-			color: lighten($alt-background-color, 20%);
-			@include placeholder(lighten($alt-background-color, 65%));
+			color: darken($gray-color, 10%);
+			@include placeholder(lighten($gray-color, 20%));
 		}
 
 		text-align: center;

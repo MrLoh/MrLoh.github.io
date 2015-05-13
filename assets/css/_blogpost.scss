@@ -11,40 +11,70 @@ article {
     -webkit-transition: all 0.5s;
             transition: all 0.5s;
 
+
+
+
+
+    /****************************** PARAGRAPH *********************************/
     & > p {
         margin-bottom: $unit;
     }
 
+
+
+
+
+    /******************************** TITLE ***********************************/
     header {
-        margin-bottom: $unit;
+        margin-bottom: 2*$unit;
 
         text-align: center;
-        // max-width: $article-width+10*$base-font-size;
-
-        color: lighten($alt-background-color, 6%);
-    }
-
-    .meta {
-        margin-bottom: 0;
-
-        text-transform: lowercase;
-
-        color: $gray-color;
-
-        font-family: $font-sc;
-        font-size: 1.25*$base-font-size;
-        font-weight: 600;
     }
 
     h1 {
         font-size: 3*$base-font-size;
         line-height: 2*$unit;
+        margin: $unit/2 0 $unit/4 0;
+    }
+
+    .meta {
+        margin: 0;
+        line-height: 1.1em;
+
+        color: $action-color;
+
+        font-family: $font-sc;
+        font-size: $base-font-size;
+        font-weight: 800;
+        text-transform: lowercase;
+
+        p {
+            display: inline-block;
+            &:first-child::before {
+                content: '\2022 ';
+            }
+            &::after {
+                content: '\2022 ';
+            }
+        }
+
+        span {
+            color: $gray-color;
+        }
+
+        a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
     }
 
 
 
 
-    /***************************** SUBHEADING *********************************/
+
+    /***************************** SECTION HEADING ****************************/
     h2 {
         color: lighten($alt-background-color, 10%);
 
@@ -154,6 +184,7 @@ article {
 
 
 
+
     /********************************* FIGURE *********************************/
     figure {
         position: relative;
@@ -201,6 +232,7 @@ article {
             }
         }
     }
+
 
 
 
@@ -301,6 +333,7 @@ article {
 
             a, a:hover, a:focus {
                 color: inherit;
+                text-decoration: none;
             }
         }
     }

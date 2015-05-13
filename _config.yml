@@ -17,3 +17,6 @@ redcarpet:
 highlighter: pygments
 sass:
     sass_dir: assets/css
+
+#output settings
+permalink: '/:year/:month/:title'
