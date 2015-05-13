@@ -13,10 +13,21 @@ github_username:  MrLoh
 # Build settings
 markdown: redcarpet
 redcarpet:
-    extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
+  extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
 highlighter: pygments
 sass:
-    sass_dir: assets/css
+  sass_dir: assets/css
 
 #output settings
 permalink: '/:year/:month/:title'
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "blogpost"
+      author: "Tobias Lohse"
+      author-link: /about/
+...

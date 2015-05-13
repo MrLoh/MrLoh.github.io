@@ -1,28 +1,78 @@
 nav {
-    /* position: fixed;
-    top: 0;
-    left: 0; */
-    z-index: 99;
     width: 100%;
-    background: $action-color;
+    max-width: 75*$base-font-size;
+    margin: 0 auto;
     box-sizing: border-box;
-    height: 2*$unit;
-    padding: 0.5em;
-    margin-bottom: 2*$unit;
+    padding: $unit 3*$unit;
+    margin-bottom: 4*$unit;
 
     font-family: $font-sc;
-    font-size: 1.5*$base-font-size;
-    font-weight: 600;
+    font-size: $base-font-size;
+    font-weight: 400;
     font-style: normal;
     text-transform: uppercase;
+
+    #logo {
+        float: left;
+        padding: 0 $unit/4 0 $unit/6;
+
+        svg {
+            float: left;
+            padding: $unit/12;
+            width: 1.3*$base-font-size;
+            path {
+                fill: $action-color;
+            }
+        }
+
+        div {
+            margin: 0 0 0 $unit/6;
+            font-family: $font;
+            text-transform: none;
+            float: left;
+            span {
+                color: $action-color;
+                font-family: $alt-font;
+            }
+        }
+
+        transition: all 0.6s;
+        &:hover, &:focus {
+            transition: all 0.6s;
+            background: $action-color;
+            border-radius: $unit/4;
+            svg path {
+                fill: $background-color;
+            }
+            div span {
+                color: $background-color;
+            }
+        }
+    }
+
+    a {
+        transition: none;
+        color: $text-color;
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
 
     ul {
         margin: 0;
         list-style-type: none;
+        float: right;
+
         li {
             display: inline-block;
-            a {
-                color: $background-color;
+            margin-right: $unit;
+            &.active, &:hover, &:focus {
+                border-bottom: 3px solid lighten($action-color, 10%);
+            }
+            a:hover, a:focus {
+                color: $action-color;
+                font-weight: 600;
+                letter-spacing: -0.02em;
             }
         }
     }

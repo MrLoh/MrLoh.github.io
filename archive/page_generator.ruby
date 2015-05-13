@@ -1,3 +1,5 @@
+require 'fileutils'
+
 # Read Tags into array
 tags = []
 taglist_path = File.expand_path("../../_site/archive/taglist.txt", __FILE__)
@@ -23,8 +25,6 @@ for tag in tags
           f2.puts "---"
         end
         puts "created #{tag.downcase}.md"
-    else
-        puts "found #{tag.downcase}.md, did nothing"
     end
 end
 
@@ -48,27 +48,31 @@ puts "\nfound following dates: #{dates}\n\n"
 month_names = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "Oktober", "November", "December"]
 for date in dates
     year = date[0]
-    month = date[1]
-
     yearpage_path = File.expand_path("../#{year}/index.md", __FILE__)
-    monthpage_path = File.expand_path("../#{year}/month/index.md", __FILE__)
-
-    File.open(yearpage_path, 'w') do |f2|
-      f2.puts "---"
-      f2.puts "layout: archive_year"
-      f2.puts "title: #{year}"
-      f2.puts "date: '#{year}'"
-      f2.puts "permalink: #{year}/"
-      f2.puts "---"
+    unless File.exists?(yearpage_path)
+        FileUtils.mkdir_p(File.dirname(yearpage_path))
+        File.open(yearpage_path, 'w') do |f2|
+          f2.puts "---"
+          f2.puts "layout: archive_year"
+          f2.puts "title: #{year}"
+          f2.puts "date: '#{year}'"
+          f2.puts "permalink: #{year}/"
+          f2.puts "---"
+        end
+        puts "created #{tag.downcase}.md"
     end
-    puts "created #{tag.downcase}.md"
 
-    File.open(monthpage_path, 'w') do |f3|
-      f3.puts "---"
-      f3.puts "layout: archive_month"
-      f3.puts "title: #{month_names[Integer(month)]} #{year}"
-      f3.puts "date: '#{year}-#{month}'"
-      f3.puts "permalink: #{year}/#{month}/"
-      f3.puts "---"
+    month = date[1]
+    monthpage_path = File.expand_path("../#{year}/#{month}/index.md", __FILE__)
+    unless File.exists?(monthpage_path)
+        FileUtils.mkdir_p(File.dirname(monthpage_path))
+        File.open(monthpage_path, 'w') do |f3|
+          f3.puts "---"
+          f3.puts "layout: archive_month"
+          f3.puts "title: #{month_names[Integer(month)]} #{year}"
+          f3.puts "date: '#{year}-#{month}'"
+          f3.puts "permalink: #{year}/#{month}/"
+          f3.puts "---"
+        end
     end
 end

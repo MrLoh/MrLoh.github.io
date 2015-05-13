@@ -2,56 +2,37 @@ $article-width: 36*$base-font-size;
 
 article {
     width: 100%;
-    width: 100%;
-    max-width: $article-width;
-    margin: 0 auto;
-    text-align: justify;
-    line-height: $unit;
-
-    -webkit-transition: all 0.5s;
-            transition: all 0.5s;
-
-
-
-
-
-    /****************************** PARAGRAPH *********************************/
-    & > p {
-        margin-bottom: $unit;
-    }
-
-
-
+    margin: 0;
 
 
     /******************************** TITLE ***********************************/
     header {
-        margin-bottom: 2*$unit;
-
+        margin-bottom: 1.5*$unit;
         text-align: center;
     }
 
     h1 {
         font-size: 3*$base-font-size;
         line-height: 2*$unit;
-        margin: $unit/2 0 $unit/4 0;
+        margin-bottom: $unit/4;
     }
 
     .meta {
         margin: 0;
         line-height: 1.1em;
 
-        color: $action-color;
+        color: $gray-color;
 
         font-family: $font-sc;
-        font-size: $base-font-size;
-        font-weight: 800;
+        font-size: 1.1*$base-font-size;
+        font-weight: 600;
         text-transform: lowercase;
 
         p {
+            margin: 0;
             display: inline-block;
-            &:first-child::before {
-                content: '\2022 ';
+            &:last-child::after {
+                content: '';
             }
             &::after {
                 content: '\2022 ';
@@ -60,11 +41,13 @@ article {
 
         span {
             color: $gray-color;
+            font-weight: 400;
         }
 
         a {
             &:hover {
                 text-decoration: none;
+                color: lighten($alt-background-color, 15%);
             }
         }
 
@@ -74,16 +57,109 @@ article {
 
 
 
-    /***************************** SECTION HEADING ****************************/
-    h2 {
-        color: lighten($alt-background-color, 10%);
+    /******************************** FOOTER ***********************************/
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: $background-color;
+        padding: $unit/4 $unit/2;
+        height: 2*$unit;
 
-        font-family: $font-sc;
-        font-size: 1.25*$base-font-size;
-        font-weight: 800;
+        box-shadow: -$unit/3 0 $unit/3 rgba($gray-color, 0.5);
 
-        text-transform: lowercase;
+        .author {
+            display: block;
+            float: left;
+            margin: $unit/5 $unit/2 0 0;
+
+            img {
+                position: relative;
+                float: left;
+                @extend %grayscale;
+
+                height: 1.5*$unit;
+                width: auto;
+                border-radius: 50%;
+
+                border: 1px solid $gray-color;
+
+                &:hover, &:focus {
+                    border: 1px solid $action-color;
+                }
+            }
+        }
+
+        .meta {
+            margin-top: $unit/6;
+            font-weight: 400;
+            font-size: 0.9*$base-font-size;
+            a {
+                font-weight: 400;
+                color: $gray-color;
+                transition: all 0.6s;
+                &:hover, &:focus {
+                    transition: all 0.6s;
+                    color: $action-color;
+                }
+            }
+            &::after {
+                content: '';
+            }
+        }
+
+
+        ul.tags {
+            margin-top: $unit/3;
+            position: relative;
+            $tag-color: lighten($gray-color, 10%);
+            $tag-height: 0.65*$unit;
+
+            list-style-type: none;
+            li {
+                @include tag($tag-color, $tag-height);
+
+                float: left;
+                margin-right: $tag-height;
+
+                &:first-child {
+                    margin-left: $tag-height/2;
+                }
+
+                transition: all 0.6s;
+
+                &:hover, &:focus {
+                    transition: all 0.6s;
+
+                    $tag-highlight-color: $action-color;
+                    background-color: $tag-highlight-color;
+                    &::before {
+                        border-right-color: $tag-highlight-color;
+                    }
+                }
+            }
+        }
     }
+
+
+
+
+
+    /****************************** PARAGRAPH *********************************/
+    .content {
+        max-width: $article-width;
+        margin: 0 auto;
+
+        line-height: $unit;
+
+        -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+
+        & > p {
+            margin-bottom: $unit;
+        }
+    }
+
 
 
 
@@ -116,7 +192,7 @@ article {
         border-bottom: 3px solid $line-color;
         background-color: $alt-background-color;
 
-        font-size: 0.8*$base-font-size;
+        font-size: 0.9*$base-font-size;
 
         & > pre {
             max-width: $article-width !important;
@@ -315,7 +391,7 @@ article {
                 width: 0;
                 position: absolute;
                 pointer-events: none;
-                border-color: rgba(white, 0);
+                border-color: $transparent;
                 border-top-color: $border-color-light;
                 border-width: $unit/2;
             }

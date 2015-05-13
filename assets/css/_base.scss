@@ -1,6 +1,3 @@
-/**
- * Reset some basic elements
- */
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
@@ -13,9 +10,6 @@ html {
     overflow-x: hidden;
 }
 
-/**
- * Basic styling
- */
 body {
     overflow-x: hidden;
     width: 100%;
@@ -32,46 +26,12 @@ body {
 }
 
 
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-    margin-bottom: $unit / 2;
-}
-
-
-
-/**
- * Images
- */
 img {
     max-width: 100%;
-
     vertical-align: middle;
 }
 
 
-
-/**
- * Figures
- */
-figure > img {
-    display: block;
-}
-
-figcaption {
-    font-size: $small-font-size;
-}
-
-
-
-/**
- * Lists
- */
 ul, ol {
     margin-left: $unit;
 }
@@ -83,29 +43,37 @@ li {
     }
 }
 
-
-
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
-}
 h1 {
     color: lighten($alt-background-color, 10%);
-
     font-family: $alt-font;
+    font-size: 3*$base-font-size;
     font-weight: 800;
     font-style: italic;
+    line-height: 2*$unit;
+}
+
+h2 {
+    color: lighten($alt-background-color, 10%);
+    font-family: $font-sc;
+    font-size: 1.25*$base-font-size;
+    font-weight: 800;
+    text-transform: lowercase;
+}
+
+h1, h2, h3 {
+    a {
+        color: inherit;
+        &:hover, &:focus {
+            text-decoration: none;
+            color: $action-color;
+        }
+    }
 }
 
 pre, code {
     font-family: $mono-font;
 }
 
-/**
- * Links
- */
 a {
     text-decoration: none;
     color: $action-color;
@@ -125,10 +93,6 @@ a {
     background: lighten($action-color, 25%);
 }
 
-
-/**
- * Clearfix
- */
 %clearfix {
     &:after {
         display: table;
@@ -180,31 +144,70 @@ svg.title {
     }
 }
 
-// Arrow helper mixin
-// ---
-// @param [string] $direction: arrow direction
-// @param [list] $position: list of offsets and values
-// @param [color] $color (inherit): arrow color
-// @param [number] $size (1em): arrow size
-// ---
-@mixin triangle($dir: "down", $size: 1em, $color: currentColor) {
-    border: $size transparent solid;
 
-    @if ( $dir == "up" or $dir == "left" ) {
+
+@mixin tag($tag-color, $tag-height) {
+    position: relative;
+    display: block;
+
+    height: $tag-height;
+    width: auto;
+    padding: 0.09*$tag-height $tag-height/3 0 $tag-height/2;
+    box-sizing: border-box;
+    border-radius: 0 $tag-height/4 $tag-height/4 0;
+
+    background-color: $tag-color;
+    color: $background-color;
+
+    font-family: $font-sc;
+    font-weight: 600;
+    font-size: 0.8*$tag-height;
+    text-transform: lowercase;
+    line-height: 1em;
+
+    a, a:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &::after {
+        $circle-size: $tag-height/4;
+        content: '';
+        position: absolute;
+        top: $tag-height/2-$circle-size/2;
+        left: 0;
+        width: $circle-size;
+        height: $circle-size;
+        border-radius: 50%;
+        background: $background-color;
+    }
+
+    &::before {
+        transition: all 0.2s;
+        content: '';
+        top: 0;
+        right: 100%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: $transparent;
+        border-right-color: $tag-color;
+        border-width: $tag-height/2;
+    }
+
+    transition: all 0.2s;
+
+    &:hover {
+        $tag-highlight-color: $action-color;
+        background-color: $tag-highlight-color;
         &::before {
-            @if ( $dir == "up" ) {
-                border-bottom-color: $color;
-            } @else if ( $dir == "right" ) {
-                border-left-color: $color;
-            }
-        }
-    } @else if ( "down" or $dir == "left" ) {
-        &::after {
-            @if ( $dir == "down") {
-                border-top-color: $color;
-            } @else if ( $dir == "left" ) {
-                border-right-color: $color;
-            }
+            border-right-color: $tag-highlight-color;
         }
     }
+}
+
+.tag {
+    @include tag(lighten($alt-background-color, 10%), $unit);
 }

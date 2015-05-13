@@ -6,45 +6,55 @@
     <body>
         {% include nav.html %}
 
-        <article style="position: relative; left: 0px;">
+        <article>
             <header>
-
                 <h1>{{ page.title }}</h1>
 
                 <div class="meta">
-                    <p class="author">
-                        <span>author: </span>
-                        {% if page.author %}
-                            <a href="{{ page.author-link }}">{{ page.author }}</a>
-                        {% else %}
-                            <a href="{{ '/about' | prepend: site.baseurl }}">Tobias Lohse</a>
-                        {% endif %}
-                    </p>
-                    <p class="tags">
-                        <span>tags: </span>
-                        {% for tag in page.tags %}
-                            <a href="{{ tag | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a>
-                        {% endfor %}
-                    </p>
-                    <p class="length">
-                        <span>length: </span>
-                        {{ content | number_of_words | plus:100 | divided_by:180 }} min
-                    </p>
                     <p class="date">
                         <span>published: </span>
-                        {{ page.date | date: "%b %-d, %Y" }}
+                        <a href="{{ page.date | date: '/%Y/%m/' | prepend: site.baseurl }}">{{ page.date | date: "%b %-d, %Y" }}</a>
+                    </p>
+                    <p class="author">
+                        <span>author: </span>
+                        <a href="{{ page.author-link }}">{{ page.author }}</a>
                     </p>
                     {% if page.updated %}
+                    <p class="updated">
                         <span>updated: </span>
-                        {{ page.updated | date: "%b %-d, %Y" }}
+                        <a href="{{ page.updated | date: '/%Y/%m/' | prepend: site.baseurl }}">{{ page.updated | date: "%b %-d, %Y" }}</a>
+                    </p>
                     {% endif %}
+                    <p class="length">
+                        <span>length: </span>
+                        <a href="#">{{ content | number_of_words | plus:100 | divided_by:180 }} min</a>
+                    </p>
                 </div>
-
-
             </header>
 
-            {{ content }}
+            <div class="content" style="position: relative; left: 0px;">
+                {{ content }}
+            </div>
+
+            <footer>
+                <a class="author" href="{{ page.author-link }}">
+                    <img src="{{ page.author | append: '.jpg' | prepend: '/assets/img/author/' | prepend: site.baseurl }}" alt="{{ page.author }}" />
+                </a>
+                <p class="meta">
+                        by <a href="{{ page.author-link }}">{{ page.author }}</a>
+                        on <a href="{{ {{ page.date | date: '/%Y/%m/' | prepend: site.baseurl }} }}">{{ page.date | date: '%b %-d, %Y' }}</a>
+                </p>
+                {% if page.tags %}
+                    <ul class="tags">
+                        {% for tag in page.tags %}
+                            <li><a href="{{ tag | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </footer>
+
         </article>
+
         {% include footer.html %}
 
         {% include blogpost_scripts.html %}
