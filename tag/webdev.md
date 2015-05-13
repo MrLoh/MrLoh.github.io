@@ -1,6 +1,4 @@
 ---
 layout: tagpage
-tag: webdev
-title: WebDevelopment
+title: WebDev
 ---
-

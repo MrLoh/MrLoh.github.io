@@ -31,7 +31,7 @@
                     {% if page.tags %}
                         <span> • tags: </span>
                         {% for tag in page.tags %}
-                            <a href="{{ tag | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a> 
+                            <a href="{{ tag | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a> 
                         {% endfor %}
                     {% endif %}
                 </p>

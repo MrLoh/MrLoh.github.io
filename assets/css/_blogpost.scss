@@ -242,8 +242,8 @@ article {
                 font-style: italic;
                 position: absolute;
                 color: $border-color;
-                top: 0.2em;
-                left: -1.8*$unit;
+                top: 0.3em;
+                left: -1.7*$unit;
             }
 
             a::before {
@@ -275,10 +275,10 @@ article {
 
 
             &::before {
+                content: " ";
                 top: 0;
                 left: 1.2*$unit;
                 border: solid transparent;
-                content: " ";
                 height: 0;
                 width: 0;
                 position: absolute;

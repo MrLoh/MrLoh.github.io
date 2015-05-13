@@ -1,7 +1,9 @@
 /* https://github.com/richleland/pygments-css/blob/master/borland.css */
 
 .highlight, .highlighttable, .code {
-    color: $color0;
+    pre code {
+        color: $color0;
+    }
 
     .hll, .kt, .ni, .err, .l, .n, .x, .p, .ld, .nc, .nd, .ne, .nl, .nn, .nx, .py, .ow, .w, .bp, .o {
         color: $color0;

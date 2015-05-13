@@ -4,8 +4,9 @@ title: 'Hi & Welcome to My Blog!'
 date: 2015-05-05T18:43:24.000Z
 updated: 2015-05-12T00:00:00.000Z
 tags:
-  - jekyll
-  - markdown
+  - Jekyll
+  - Markdown
+  - WebDev
 ---
 
 You'll find this post in your `_posts` directory. Go ahead and edit it and rebuild the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
@@ -45,6 +46,57 @@ Check out the [Jekyll docs][jekyll] for more info on how to get the most out of 
 > I'm 100% sure that once we release PrettyLights (our native highlighter), it will become the default in Jekyll [Vicent Marti on GitHub](https://github.com/github/pages-gem/pull/79)
 
 Vivamus dapibus tincidunt justo ut pulvinar. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris blandit sollicitudin metus, a rutrum sapien mattis placerat. Nulla facilisi. Vestibulum vestibulum vitae nulla eu tristique. Sed lacinia venenatis dolor eu fermentum. Donec cursus ligula sit amet elementum rutrum. Vivamus posuere mollis dolor at vehicula. Suspendisse lobortis viverra justo quis sagittis.
+
+## Automatic Tag Pages
+I was inspired by the implementation on [minddust](http://www.minddust.com/post/tags-and-categories-on-github-pages/) and learned a little bit from the code on  [Jekyll-Bootstrap](https://github.com/plusjade/jekyll-bootstrap/)
+
+```
+{% raw %}
+---
+---
+{% for tag in site.tags %}{{ tag[0] }}
+{% endfor %}
+{% endraw %}
+```
+
+```ruby
+# Read Tags into array
+tags = []
+taglist_path = File.expand_path("../../_site/tag/list.txt", __FILE__)
+File.open(taglist_path, 'r') do |f1|
+    while tag = f1.gets
+        tag = tag.strip
+        unless tag == "" || tag == "\n"
+            tags += [tag]
+        end
+    end
+end
+
+# Create .md files for each tag
+for tag in tags
+    tagpage_path = File.expand_path("../#{tag.downcase}.md", __FILE__)
+    unless File.exists?(tagpage_path)
+        File.open(tagpage_path, 'w') do |f2|
+          f2.puts "---"
+          f2.puts "layout: tagpage"
+          f2.puts "title: #{tag}"
+          f2.puts "---"
+        end
+    end
+end
+```
+
+I run the script automatically from the `_site` directory as `$ ruby ../tag/page_generator.ruby` via [LifeReload](http://livereload.com), so I don't have any manual tasks left in my development environment.
+
+```html
+{% raw %}
+{% for tag in page.tags %}
+    <a href="{{ tag | downcase | prepend:'/tag/' | prepend:site.baseurl }}">{{ tag }}</a>
+{% endfor %}
+{% endraw %}
+```
+
+The links to the tags won't work on localhost, because the local Jekyll server needs `.html` endings for pages to work. But don't worry, GitHub Pages does not need them so just ignore this problem in your development environment. A future Jekyll release [might fix this](http://jekyllrb.com/docs/permalinks/index.html#extensionless-permalinks).
 
 ## Images
 ![The inspiration for the color scheme of this blog](/assets/img/color-sheme.jpg)
