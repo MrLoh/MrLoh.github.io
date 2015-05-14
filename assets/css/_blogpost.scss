@@ -155,7 +155,7 @@ article {
         -webkit-transition: all 0.5s;
                 transition: all 0.5s;
 
-        & > p {
+        & > p, & > ul, & > ol, & > h2 {
             margin-bottom: $unit;
         }
     }
@@ -246,7 +246,7 @@ article {
             }
 
             pre {
-                line-height: 0.75*$unit;
+                /* line-height: 0.75*$unit; */
                 margin: 0;
             }
         }
