@@ -1,0 +1,22 @@
+<h1>{{ page.title }}</h1>
+
+<div class="meta">
+    <p class="date">
+        <span>published: </span>
+        <a href="{{ page.date | date: '/%Y/%m/' | prepend: site.baseurl }}">{{ page.date | date: "%b %-d, %Y" }}</a>
+    </p>
+    <p class="author">
+        <span>author: </span>
+        <a href="{{ page.author-link }}">{{ page.author }}</a>
+    </p>
+    {% if page.updated %}
+    <p class="updated">
+        <span>updated: </span>
+        <a href="{{ page.updated | date: '/%Y/%m/' | prepend: site.baseurl }}">{{ page.updated | date: "%b %-d, %Y" }}</a>
+    </p>
+    {% endif %}
+    <p class="length">
+        <span>length: </span>
+        <a href="#">{{ content | number_of_words | plus:100 | divided_by:180 }} min</a>
+    </p>
+</div>

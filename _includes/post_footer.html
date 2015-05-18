@@ -1,0 +1,76 @@
+<div class="left">
+    <a class="author" href="{{ page.author-link }}">
+        <img src="{{ page.author | downcase | append: '.jpg' | prepend: '/assets/img/author/' | prepend: site.baseurl}}" alt="{{ page.author }}" />
+    </a>
+    <p class="meta">
+            by <a href="{{ page.author-link }}">{{ page.author }}</a>
+            on <a href="{{ {{ page.date | date: '/%Y/%m/' | prepend: site.baseurl }} }}">{{ page.date | date: '%b %-d, %Y' }}</a>
+    </p>
+    {% if page.tags %}
+    <ul class="tags">
+        {% for tag in page.tags %}
+        <li><a href="{{ tag | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<div class="right">
+    <div class="share round-button">
+        <input type="checkbox" id="share-dropup-button" />
+        <label for="share-dropup-button">
+            {% include icons/share.svg %}
+        </label>
+        <p class="dropup">
+            <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | prepend: site.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">
+                <!-- {% include icons/twitter.svg %} -->
+                Share on Twitter
+            </a>
+
+            <a href="https://facebook.com/sharer.php?u={{ page.url | prepend: site.url }}" rel="nofollow" target="_blank" title="Share on Facebook">
+                <!-- {% include icons/facebook.svg %} -->
+                Share on Facebook
+            </a>
+            <a href="https://plus.google.com/share?url={{ page.url | prepend: site.url }}" rel="nofollow" target="_blank" title="Share on Google+">
+                <!-- {% include icons/gplus.svg %} -->
+                Share on Google+
+            </a>
+        </p>
+    </div>
+    <div class="round-button">
+        <a href="/{{ site.baseurl }}">
+            {% include icons/overview.svg %}
+            <p class="dropup">
+                Archive
+            </p>
+        </a>
+    </div>
+    {% if page.previous.url %}
+    <div class="round-button">
+        <a href="{{ page.previous.url }}">
+            {% include icons/prev.svg %}
+            <p class="dropup">
+                {{ page.previous.title }}
+            </p>
+        </a>
+    </div class="round-button">
+    {% endif %}
+    {% if page.next.url %}
+    <div class="round-button">
+        <a href="{{ page.next.url }}">
+            {% include icons/next.svg %}
+            <p class="dropup">
+                {{ page.next.title }}
+            </p>
+        </a>
+    </div>
+    {% endif %}
+    <div class="round-button">
+        <a href="{{ '/feed.xml' | prepend: site.baseurl }}">
+            {% include icons/rss.svg %}
+            <p class="dropup">
+                RSS Feed
+            </p>
+        </a>
+    </div>
+</div>

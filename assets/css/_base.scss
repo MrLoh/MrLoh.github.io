@@ -77,7 +77,7 @@ pre, code {
 a {
     text-decoration: none;
     color: $action-color;
-    transition: color 0.2s;
+    transition: color 0.5s;
 
     &:hover {
         text-decoration: underline;
@@ -183,7 +183,7 @@ svg.title {
     }
 
     &::before {
-        transition: all 0.2s;
+        transition: all 0.5s;
         content: '';
         top: 0;
         right: 100%;
@@ -197,13 +197,15 @@ svg.title {
         border-width: $tag-height/2;
     }
 
-    transition: all 0.2s;
+    transition: all 0.5s;
 
     &:hover {
         $tag-highlight-color: $action-color;
         background-color: $tag-highlight-color;
+        transition: all 0.5s;
         &::before {
             border-right-color: $tag-highlight-color;
+            transition: all 0.5s;
         }
     }
 }

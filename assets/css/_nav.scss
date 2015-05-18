@@ -104,9 +104,9 @@ nav {
             }
 
             &.active {
-                color: darken($gray-color, 10%);
+                color: lighten($gray-color, 20%);
                 &::before, &::after {
-                    background: darken($gray-color, 20%);
+                    background: lighten($gray-color, 15%);
                 }
             }
 

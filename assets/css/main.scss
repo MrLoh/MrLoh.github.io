@@ -17,7 +17,8 @@ $background-color:     #fafcfc;
 $action-color:         #67a492;
 $alt-action-color:     #8167ad;
 $alt-background-color: #2c2f38;
-$gray-color:           #a29e9d;
+$alt-background-color: lighten($text-color, 10%);
+$gray-color:           lighten($text-color, 30%);
 
 $color0: #f1f0db;
 $color1: #87aebd;

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include head.html %}
+    </head>
+
+    <body>
+
+
+        <header class="article">
+            {% include nav.html %}
+
+            {% include post_title.html %}
+        </header>
+
+        <article>
+            <div class="content" style="position: relative; left: 0px;">
+                <h1 style="display: none">
+                    {{ page.title }}
+                </h1>
+
+                {{ content }}
+            </div>
+        </article>
+
+        <footer class="article">
+            {% include post_footer.html %}
+        </footer>
+
+        <footer>
+            {% include footer.html %}
+        </footer>
+
+        {% include post_scripts.html %}
+    </body>
+</html>

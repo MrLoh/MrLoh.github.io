@@ -5,7 +5,10 @@ tags:
   - Jekyll
   - Markdown
   - WebDev
+  - jQuery
 ---
+
+This is my new blog. It is powered by [Jekyll](http://jekyll.com). The theme is completely hand coded. With a lot of love and [CSS3](). I hope you like it.
 
 You'll find this post in your `_posts` directory. Go ahead and edit it and rebuild the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
@@ -15,7 +18,7 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 - carnival comments
 - code highlighting
 - blockquotes
-- kudos
+- [kudos]()
 - tags
 
 ## Code Snippets

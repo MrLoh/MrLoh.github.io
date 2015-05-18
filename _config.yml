@@ -1,6 +1,6 @@
 # Site settings
 title: MrLoh
-email: Tobias@MrLoh.se
+email: Hi@MrLoh.se
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -12,6 +12,8 @@ github_username:  MrLoh
 
 # Build settings
 markdown: redcarpet
+kramdown:
+  input: GFM
 redcarpet:
   extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
 highlighter: pygments
@@ -27,7 +29,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "blogpost"
+      layout: "post"
       author: "Tobias Lohse"
       author-link: /about/
 ...
