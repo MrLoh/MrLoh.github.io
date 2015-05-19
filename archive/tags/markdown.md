@@ -1,5 +1,6 @@
 ---
-layout: archive_tag
+layout: archive
 title: Markdown
+tag: Markdown
 permalink: tag/markdown/
 ---

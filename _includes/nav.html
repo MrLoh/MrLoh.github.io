@@ -14,10 +14,10 @@
         <!-- <li>
             <a href="https://www.flickr.com/photos/flojoto/">Photos</a>
         </li> -->
-        <li {% if page.layout == 'blogpost' %} class="active" {% endif %}>
+        <li {% if page.layout == 'post' or page.title == 'Blog' %} class="active" {% endif %}>
             <a href="{{ site.baseurl }}/">Blog</a>
         </li>
-        <li {% if page.layout == 'archive_month' or page.layout == 'archive_tag' or page.layout == 'archive_year' or page.title == 'Archive' %} class="active" {% endif %}>
+        <li {% if page.layout == 'archive' %} class="active" {% endif %}>
             <a href="{{ '/archive' | prepend: site.baseurl }}">Archive</a>
         </li>
         <li>

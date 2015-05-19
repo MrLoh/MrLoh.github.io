@@ -1,5 +1,6 @@
 ---
-layout: archive_tag
+layout: archive
 title: Jekyll
+tag: Jekyll
 permalink: tag/jekyll/
 ---

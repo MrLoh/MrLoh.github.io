@@ -80,7 +80,7 @@ footer.article {
         float: left;
         margin: $unit/5 $unit/2 0 0;
         height: 1.5*$unit;
-        border: 2px solid $gray-color;
+        border: 1.5px solid $gray-color;
         border-radius: 50%;
         transition: all 0.3s;
 
@@ -101,6 +101,7 @@ footer.article {
     .meta {
         font-weight: 400;
         font-size: 0.9*$base-font-size;
+        color: $gray-color;
         a {
             font-weight: 400;
             color: $gray-color;
@@ -155,7 +156,7 @@ footer.article {
             height: 100%;
             cursor: pointer;
             border-radius: 50%;
-            border: 2px solid $gray-color;
+            border: 1.5px solid $gray-color;
 
             transition: all 0.5s;
 
@@ -163,10 +164,10 @@ footer.article {
                 width: 100%;
                 height: 100%;
                 box-sizing: border-box;
-                /* padding: $unit/4; */
 
                 g {
                     stroke: $gray-color;
+                    stroke-width: 3;
                 }
             }
         }
@@ -182,7 +183,7 @@ footer.article {
         .dropup {
             position: absolute;
             bottom: 100%;
-            width: 5.5*$unit;
+            width: 4.5*$unit;
             right: -$unit/5;
             /* box-shadow: 0 0 $unit rgba($gray-color, 0.5); */
             border-radius: $unit/4;
@@ -221,13 +222,9 @@ footer.article {
                 color: $background-color;
 
                 font-family: $font-sc;
-                /* font-size: 0.9em; */
-                font-weight: 600;
+                font-size: 0.9em;
+                font-weight: 400;
                 text-transform: lowercase;
-
-                &:hover, &:focus {
-                    text-decoration: none;
-                }
             }
 
             svg {

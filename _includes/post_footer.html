@@ -45,16 +45,6 @@
             </p>
         </a>
     </div>
-    {% if page.previous.url %}
-    <div class="round-button">
-        <a href="{{ page.previous.url }}">
-            {% include icons/prev.svg %}
-            <p class="dropup">
-                {{ page.previous.title }}
-            </p>
-        </a>
-    </div class="round-button">
-    {% endif %}
     {% if page.next.url %}
     <div class="round-button">
         <a href="{{ page.next.url }}">
@@ -64,6 +54,16 @@
             </p>
         </a>
     </div>
+    {% endif %}
+    {% if page.previous.url %}
+    <div class="round-button">
+        <a href="{{ page.previous.url }}">
+            {% include icons/prev.svg %}
+            <p class="dropup">
+                {{ page.previous.title }}
+            </p>
+        </a>
+    </div class="round-button">
     {% endif %}
     <div class="round-button">
         <a href="{{ '/feed.xml' | prepend: site.baseurl }}">

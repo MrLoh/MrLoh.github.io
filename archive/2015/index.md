@@ -1,6 +1,7 @@
 ---
-layout: archive_year
+layout: archive
 title: 2015
-date: '2015'
+year: '2015'
 permalink: 2015/
 ---
+

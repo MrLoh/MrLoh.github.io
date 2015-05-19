@@ -15,12 +15,14 @@ puts "found following tags: #{tags} \n\n"
 
 # Create .md files for each tag
 for tag in tags
-    tagpage_path = File.expand_path("../#{tag.downcase}.md", __FILE__)
+    tagpage_path = File.expand_path("../tags/#{tag.downcase}.md", __FILE__)
     unless File.exists?(tagpage_path)
+        FileUtils.mkdir_p(File.dirname(tagpage_path))
         File.open(tagpage_path, 'w') do |f2|
           f2.puts "---"
-          f2.puts "layout: archive_tag"
+          f2.puts "layout: archive"
           f2.puts "title: #{tag}"
+          f2.puts "tag: #{tag}"
           f2.puts "permalink: tag/#{tag.downcase}/"
           f2.puts "---"
         end
@@ -53,9 +55,9 @@ for date in dates
         FileUtils.mkdir_p(File.dirname(yearpage_path))
         File.open(yearpage_path, 'w') do |f2|
           f2.puts "---"
-          f2.puts "layout: archive_year"
+          f2.puts "layout: archive"
           f2.puts "title: #{year}"
-          f2.puts "date: '#{year}'"
+          f2.puts "year: '#{year}'"
           f2.puts "permalink: #{year}/"
           f2.puts "---"
         end
@@ -68,9 +70,10 @@ for date in dates
         FileUtils.mkdir_p(File.dirname(monthpage_path))
         File.open(monthpage_path, 'w') do |f3|
           f3.puts "---"
-          f3.puts "layout: archive_month"
+          f3.puts "layout: archive"
           f3.puts "title: #{month_names[Integer(month)]} #{year}"
-          f3.puts "date: '#{year}-#{month}'"
+          f3.puts "year: '#{year}'"
+          f3.puts "month: '#{month}'"
           f3.puts "permalink: #{year}/#{month}/"
           f3.puts "---"
         end

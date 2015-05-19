@@ -3,7 +3,7 @@
 <div class="meta">
     <p class="date">
         <span>published: </span>
-        <a href="{{ page.date | date: '/%Y/%m/' | prepend: site.baseurl }}">{{ page.date | date: "%b %-d, %Y" }}</a>
+        <a href="{{ page.date | date: '/%Y/%m/' | prepend: site.baseurl }}"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%b %-d, %Y" }}</time></a>
     </p>
     <p class="author">
         <span>author: </span>

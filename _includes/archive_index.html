@@ -1,0 +1,27 @@
+<h2 class="tags">Tags</h2>
+<ul class="all-tags">
+    <li class="post">
+        <p class="meta">List of All Tags</p>
+        <p class="tags">
+        {% for tag in site.tags %}
+            <a href="{{ tag[0] | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
+        {% endfor %}
+        </p>
+    </li>
+</ul>
+
+{% for post in site.posts %}
+    {% capture month %}{{ post.date | date: '%m%Y' }}{% endcapture %}
+    {% capture nmonth %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
+
+    {% if month != nmonth %}
+        {% if forloop.index != 1 %}
+            </ul>
+        {% endif %}
+
+        <h2 class="year-month"><a href="{{ post.date | date: '/%Y/%m/' | prepend: site.baseurl }}">{{ post.date | date: '%b %Y' }}</a></h2>
+        <ul>
+    {% endif %}
+
+    {% include archive_postlisting.html%}
+{% endfor %}
