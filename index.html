@@ -11,7 +11,7 @@ title: Blog
 <ul>
 {% for tag in site.tags %}
     <li class="tag" style="display: inline-block">
-        <a href="{{ tag[0] | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
+        <a href="{{ tag[0] | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
     </li>
 {% endfor %}
 

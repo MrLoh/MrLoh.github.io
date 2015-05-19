@@ -4,7 +4,7 @@
         <p class="meta">List of All Tags</p>
         <p class="tags">
         {% for tag in site.tags %}
-            <a href="{{ tag[0] | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
+            <a href="{{ tag[0] | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
         {% endfor %}
         </p>
     </li>
