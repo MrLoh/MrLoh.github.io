@@ -1,6 +1,6 @@
 <div class="left">
     <a class="author" href="{{ page.author-link }}">
-        <img src="{{ page.author | downcase | append: '.jpg' | prepend: '/assets/img/author/' | prepend: site.baseurl}}" alt="{{ page.author }}" />
+        <img src="{{ page.author | downcase | replace: ' ', '-' | append: '-thumb.jpg' | prepend: '/assets/img/author/' | prepend: site.baseurl}}" alt="{{ page.author }}" />
     </a>
     <p class="meta">
             by <a href="{{ page.author-link }}">{{ page.author }}</a>
@@ -9,7 +9,7 @@
     {% if page.tags %}
     <ul class="tags">
         {% for tag in page.tags %}
-        <li><a href="{{ tag | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a></li>
+        <li><a href="{{ tag | downcase | replace: ' ', '-' | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a></li>
         {% endfor %}
     </ul>
     {% endif %}
@@ -38,10 +38,10 @@
         </p>
     </div>
     <div class="round-button">
-        <a href="/{{ site.baseurl }}">
-            {% include icons/overview.svg %}
+        <a href="{{ '/feed.xml' | prepend: site.baseurl }}">
+            {% include icons/rss.svg %}
             <!-- <p class="dropup">
-                Archive
+                RSS Feed
             </p> -->
         </a>
     </div>
@@ -68,10 +68,10 @@
     </div class="round-button">
     {% endif %}
     <div class="round-button">
-        <a href="{{ '/feed.xml' | prepend: site.baseurl }}">
-            {% include icons/rss.svg %}
+        <a href="/{{ site.baseurl }}">
+            {% include icons/overview.svg %}
             <!-- <p class="dropup">
-                RSS Feed
+                Archive
             </p> -->
         </a>
     </div>

@@ -12,6 +12,8 @@ This is my new blog. It is powered by [Jekyll](http://jekyll.com). The theme is 
 
 You'll find this post in your `_posts` directory. Go ahead and edit it and rebuild the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
+<!--/--> 
+
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
 ## Awesome Perks
@@ -66,8 +68,6 @@ Vivamus dapibus tincidunt justo ut pulvinar. Cum sociis natoque penatibus et mag
 This even has support for $\LaTeX$[^1] typesetting if needed. It's a bit slow, but if you need mathematical formulas, this is the way to go. Here's the Shrödinger Equation for a wave function $\varphi(\vec{r},t)$:
 
 $$ -\frac{\hbar^2}{2m} \;\nabla^2_{\vec{r}}\;\varphi(\vec{r},t) = \mathrm{i}\hbar\;\partial_t\;\varphi(\vec{r},t) $$
-
-[^1]: LaTeX rocks!
 
 [http://carlosbecker.com/posts/jekyll-reading-time-without-plugins/](http://carlosbecker.com/posts/jekyll-reading-time-without-plugins/) [http://blog.webink.com/opentype-features-css/](http://blog.webink.com/opentype-features-css/)
 

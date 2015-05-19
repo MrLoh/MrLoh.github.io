@@ -86,7 +86,7 @@ footer.article {
 
         img {
             position: relative;
-            @extend %grayscale;
+            /* @extend %grayscale; */
 
             height: 1.5*$unit;
             width: auto;

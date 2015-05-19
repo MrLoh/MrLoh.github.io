@@ -1,0 +1,156 @@
+$color: $background-color;
+$alt-color: lighten($gray-color, 5%);
+$index-width: 30*$base-font-size;
+
+.index {
+    background: $alt-background-color;
+    color: $color;
+}
+
+
+
+
+
+
+.index header {
+    max-width: $index-width;
+    margin: 0 auto 2*$unit auto;
+    padding-top: $unit;
+
+    svg.title {
+        display: block;
+        width: 20*$unit;
+        margin: 0 auto;
+
+        .mrloh path {
+            fill: $color;
+        }
+
+        .amp path, .code path, .thoughts path {
+            fill: $alt-color;
+        }
+
+        path {
+            transition: fill 1s;
+        }
+
+        &:hover {
+            .mrloh path {
+                fill: $color0;
+            }
+            .amp path {
+                fill: $color3;
+            }
+            .thoughts path {
+                fill: $color2;
+            }
+            .code path {
+                fill: $color4;
+            }
+        }
+    }
+}
+
+
+
+
+.index section {
+    max-width: $index-width;
+    margin: 0 auto;
+}
+
+ul.posts {
+    list-style-type: none;
+    margin: 0;
+
+    li {
+        margin: 0 0 3*$unit 0;
+
+        h3 {
+            font-family: $alt-font;
+            font-size: 2*$base-font-size;
+            font-style: italic;
+            font-weight: 800;
+            line-height: 1.75*$unit;
+        }
+
+        .meta {
+            padding-left: $unit/4;
+            color: $alt-color;
+
+            font-family: $font-sc;
+            font-size: 0.9*$base-font-size;
+            text-transform: lowercase;
+
+            a {
+                color: inherit;
+
+                &:hover, &:focus {
+                    text-decoration: none;
+                    color: $action-color;
+                }
+            }
+        }
+
+        .excerpt {
+            border-top: 2px solid $alt-color;
+            border-bottom: 2px solid $alt-color;
+            font-size: 0.9*$base-font-size;
+            padding-top: 0.5em;
+
+            color: $color;
+
+            p, a, h2, ul, li, ol, code {
+                color: inherit;
+                font-family: $font;
+                line-height: $unit/4*3;
+            }
+
+            p, ul, ol, pre {
+                margin-bottom: 0.5em;
+            }
+
+            p {
+                text-align: justify;
+            }
+
+            blockquote {
+                border-left: 2px solid $color;
+                background: rgba($alt-color, 0.3);
+                padding: $unit/4 $unit/2;
+                margin: 0 0 $unit/2 $unit/8;
+                border-radius: 0 $unit/4 $unit/4 0;
+                p:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .tags {
+            margin: $unit/6 0 0 $unit/2;
+
+            a {
+                @include tag($alt-color, $unit/3*2);
+                display: inline-block;
+                color: $alt-background-color;
+                &::after {
+                    background: $alt-background-color;
+                }
+
+                margin-right: $unit/2;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &:hover, &:focus {
+                    text-decoration: none;
+                    background-color: $action-color;
+                    &::before {
+                        border-right-color: $action-color;
+                    }
+                }
+            }
+        }
+    }
+}

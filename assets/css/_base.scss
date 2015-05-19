@@ -135,22 +135,6 @@ a {
 	}
 }
 
-svg.title {
-    .mrloh path {
-        fill: $color0;
-    }
-    .thoughts path {
-        fill: $color2;
-    }
-    .amp path {
-        fill: $color3;
-    }
-    .code path {
-        fill: $color4;
-    }
-}
-
-
 
 @mixin tag($tag-color, $tag-height) {
     position: relative;
