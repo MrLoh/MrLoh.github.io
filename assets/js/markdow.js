@@ -22,4 +22,4 @@ $('article blockquote').append(function() {
 }).children('a').wrap('<cite></cite>');
 
 // make links in article open in new tab
-$('article p a, article ul a, article ol a').attr('target','_blank');
+$('article a').attr('target','_blank');

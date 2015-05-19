@@ -26,6 +26,12 @@ body {
 }
 
 
+section {
+    max-width: 36*$base-font-size;
+    margin: 0 auto;
+}
+
+
 img {
     max-width: 100%;
     vertical-align: middle;

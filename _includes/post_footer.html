@@ -40,9 +40,9 @@
     <div class="round-button">
         <a href="/{{ site.baseurl }}">
             {% include icons/overview.svg %}
-            <p class="dropup">
+            <!-- <p class="dropup">
                 Archive
-            </p>
+            </p> -->
         </a>
     </div>
     {% if page.next.url %}
@@ -50,6 +50,7 @@
         <a href="{{ page.next.url }}">
             {% include icons/next.svg %}
             <p class="dropup">
+                next post: <br>
                 {{ page.next.title }}
             </p>
         </a>
@@ -60,6 +61,7 @@
         <a href="{{ page.previous.url }}">
             {% include icons/prev.svg %}
             <p class="dropup">
+                previous post: <br>
                 {{ page.previous.title }}
             </p>
         </a>
@@ -68,9 +70,9 @@
     <div class="round-button">
         <a href="{{ '/feed.xml' | prepend: site.baseurl }}">
             {% include icons/rss.svg %}
-            <p class="dropup">
+            <!-- <p class="dropup">
                 RSS Feed
-            </p>
+            </p> -->
         </a>
     </div>
 </div>
