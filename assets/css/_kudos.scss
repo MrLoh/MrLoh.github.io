@@ -1,0 +1,104 @@
+$kudo-size: 2.5*$unit;
+
+.kudo {
+    position: fixed;
+    bottom: $kudo-size+$unit;
+    right: $kudo-size+1.5*$unit;
+    text-align:center;
+
+    .kudobject {
+        display: block;
+        position: absolute;
+        bottom: 2.5*$unit;
+        left: 0;
+        cursor: pointer;
+        width: $kudo-size;
+        height: $kudo-size;
+
+        &::after, &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: transform 1s, background 0.3s;
+            border: 2.5px solid $action-color;
+        }
+
+        &::before {
+            background: $action-color;
+            transform: scale(0.12);
+            transition-style: preserve-3d;
+        }
+    }
+
+    $finalscale: 0.85;
+    &.complete .kudobject {
+        &::before, &::after {
+            transition: transform 1s, background 0.3s 0.8s;
+        }
+
+        &::before {
+            background: url(../svg/heart.svg) center no-repeat;
+            background-size: 110%;
+            animation: bounce 1.3s;
+            transform: scale(0.85);
+        }
+    }
+
+    &.active .kudobject {
+        &::before {
+            transform: scale(0.85);
+        }
+    }
+
+    .count {
+        text-decoration: none;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: $kudo-size+5px;
+        margin-top: $unit;
+
+        font-family: $font-sc;
+        font-weight: 800;
+        text-transform: lowercase;
+        text-align: center;
+
+        & > span {
+            font-size: 1.2*$base-font-size;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .num {
+            font-family: $font;
+            font-size: 1.8*$base-font-size;
+            font-weight: 700;
+            line-height: 0.8;
+        }
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(0.85);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    60% {
+        transform: scale(0.7);
+        opacity: 1;
+    }
+    80% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(0.85)
+    }
+}

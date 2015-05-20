@@ -1,7 +1,8 @@
-<!-- Markdown Bending -->
+<!-- Bend Markdown -->
 <script type="text/javascript" src="{{ '/assets/js/markdow.js' | prepend: site.baseurl }}"></script>
 
-<!-- Carneval Comments -->
+{% if page.comments %}
+<!-- Add Comments with Carnival -->
 <script  type="text/javascript" src="https://carnivalapp.io/sites/273/init.js"></script>
 <script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", function() {
@@ -18,9 +19,10 @@
 		});
 	});
 </script>
+{% endif %}
 
 {% if page.latex %}
-<!-- MathJax Rendering -->
+<!-- Render LaTeX with MathJax -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
@@ -31,3 +33,12 @@
 	});
 </script>
 {% endif %}
+
+{% if page.kudos %}
+<!-- Enable Kudos -->
+<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+<script type="text/javascript" src="{{ '/assets/lib/kudos.min.js' | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ '/assets/js/parse-kudos.js' | prepend: site.baseurl }}"></script>
+{% endif %}
+
+<!-- End of Blogost Scripts -->

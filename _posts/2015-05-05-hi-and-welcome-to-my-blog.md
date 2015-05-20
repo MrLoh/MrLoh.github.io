@@ -11,17 +11,18 @@ tags:
 This is my new blog. It is powered by [Jekyll](http://jekyll.com). The theme is completely hand coded. With a lot of love and [CSS3](). I hope you like it.
 
 You'll find this post in your `_posts` directory. Go ahead and edit it and rebuild the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
-
-<!--/--> 
+<!--/-->
 
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
 ## Awesome Perks
-- carnival comments
+- [carnival comments]()
 - code highlighting
 - blockquotes
-- [kudos]()
+- [kudos](http://amitu.com/2013/04/kudos-using-parse-for-jekyll/)
 - tags
+- [balance text](https://github.com/adobe-webplatform/balance-text)
+- [google analytics]()
 
 ## Code Snippets
 Jekyll also offers powerful support for code snippets with syntax highlighting and line numbering. It's pretty cool, check it out:

@@ -80,7 +80,7 @@ footer.article {
         float: left;
         margin: $unit/5 $unit/2 0 0;
         height: 1.5*$unit;
-        border: 1.5px solid $gray-color;
+        border: 2px solid $gray-color;
         border-radius: 50%;
         transition: all 0.3s;
 
@@ -103,7 +103,7 @@ footer.article {
         font-size: 0.9*$base-font-size;
         color: $gray-color;
         a {
-            font-weight: 400;
+            font-weight: inherit;
             color: $gray-color;
             &:hover, &:focus {
                 color: $action-color;
@@ -156,7 +156,7 @@ footer.article {
             height: 100%;
             cursor: pointer;
             border-radius: 50%;
-            border: 1.5px solid $gray-color;
+            border: 2px solid $gray-color;
 
             transition: all 0.5s;
 
@@ -167,7 +167,7 @@ footer.article {
 
                 g {
                     stroke: $gray-color;
-                    stroke-width: 3;
+                    stroke-width: 5;
                 }
             }
         }
@@ -224,14 +224,14 @@ footer.article {
                 color: $background-color;
 
                 font-family: $font-sc;
-                font-size: 0.9em;
+                font-size: 0.85*$base-font-size;
                 font-weight: 400;
                 text-transform: lowercase;
                 line-height: 1;
             }
             a {
                 display: block;
-                margin-bottom: $unit/2;
+                margin-bottom: $unit/4;
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -250,15 +250,15 @@ footer.article {
         }
 
         &:hover, &:focus, & > input[type='checkbox']:checked {
-            & > a, label, & + label {
+            & > a, label, & ~ label {
                 background: $action-color;
                 border-color: $action-color;
             }
-            & > a > svg g, & + label > svg g, & > label > svg g  {
+            & > a > svg g, & ~ label > svg g, & > label > svg g  {
                 stroke: $background-color;
             }
 
-            & + .dropup, .dropup {
+            & ~ .dropup, .dropup {
                 transform: scale3d(1,1,1);
             }
         }
@@ -274,8 +274,6 @@ article {
     width: 100%;
     margin: 0;
     margin-bottom: 10*$unit;
-
-
 
     /****************************** PARAGRAPH *********************************/
     .content {

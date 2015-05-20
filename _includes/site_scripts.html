@@ -1,0 +1,15 @@
+<!-- Load latest jQuery -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+    if(typeof jQuery === 'undefined'){
+        document.write(unescape("%3Cscript type=\"text/javascript\" src=\"{{ '/assets/lib/jquery-2.1.4.min.js' | prepend: site.baseurl }}\"%3E%3C/script%3E"));
+    }
+</script>
+
+<!-- Balance Headings -->
+<script  type="text/javascript" src="{{ '/assets/lib/balancetext.min.js' | prepend: site.baseurl }}"></script>
+<script  type="text/javascript">
+    $(function() {
+        $('h1, h2, h3').balanceText();
+    })
+</script>

@@ -32,4 +32,8 @@ defaults:
       layout: "post"
       author: "Tobias Lohse"
       author-link: /about/
+      kudos: true
+      comments: true
+
+kudos_server: 'https://mrloh-kudos-server.herokuapp.com/kudos'
 ...
