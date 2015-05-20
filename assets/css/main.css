@@ -1345,7 +1345,9 @@ section.archive {
             transform: scale(1); }
   .kudo.new .kudobject::before {
     -webkit-animation: none;
-            animation: none; }
+            animation: none;
+    -webkit-transition: none;
+            transition: none; }
   .kudo.active .kudobject::before {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);

@@ -54,6 +54,7 @@ $kudo-size: 2.5*$unit;
 
     &.new .kudobject::before {
         animation: none;
+        transition: none;
     }
 
     &.active .kudobject {
