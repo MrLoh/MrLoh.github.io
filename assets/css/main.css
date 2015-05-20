@@ -1338,12 +1338,14 @@ section.archive {
   .kudo.complete .kudobject::before {
     background: url(../svg/heart.svg) center no-repeat;
     background-size: 110%;
+    -webkit-animation: bounce 1.3s;
+            animation: bounce 1.3s;
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1); }
-  .kudo.animate .kudobject::before {
-    -webkit-animation: bounce 1.3s;
-            animation: bounce 1.3s; }
+  .kudo.new .kudobject::before {
+    -webkit-animation: none;
+            animation: none; }
   .kudo.active .kudobject::before {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);

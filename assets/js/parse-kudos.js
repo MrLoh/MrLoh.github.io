@@ -50,6 +50,10 @@ $(function(){
                 score = 0;
             }
             updateScore(score);
+            if ( $.cookie(key) ) {
+                $(".kudo").removeClass("animate").addClass("complete").addClass("new");
+                updateScore(kudo.get("score"), kudo);
+            }
         },
         error: function (error) {
             kudo = new Kudos();
@@ -59,11 +63,6 @@ $(function(){
             kudo.save();
         }
     });
-
-    if ( $.cookie(key) ) {
-        $(".kudoable").removeClass("animate").addClass("complete");
-        updateScore(kudo.get("score"), kudo);
-    }
 
     $(".kudo").bind("kudo:added", function(e) {
         console.log("kudod :)");
@@ -78,6 +77,7 @@ $(function(){
     $(".kudo").bind("kudo:removed", function(e) {
         console.log("Unkudod :(");
         $.removeCookie(key);
+        $(".kudoable").removeClass("new");
 
         kudo.increment("score", -1);
         kudo.save(null, {success: function(k) {
