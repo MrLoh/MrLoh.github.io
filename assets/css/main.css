@@ -1321,12 +1321,12 @@ section.archive {
       border-radius: 50%;
       -webkit-transition: -webkit-transform 1s, background 0.3s;
               transition: transform 1s, background 0.3s;
-      border: 2.5px solid #67a492; }
+      border: 2px solid #67a492; }
     .kudo .kudobject::before {
-      top: 7.5%;
-      left: 7.5%;
-      width: 85%;
-      height: 85%;
+      top: 6.66%;
+      left: 6.66%;
+      width: 86.66%;
+      height: 86.66%;
       background: #67a492;
       -webkit-transform: scale(0.12);
           -ms-transform: scale(0.12);

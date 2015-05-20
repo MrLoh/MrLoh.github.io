@@ -24,14 +24,14 @@ $kudo-size: 2.5*$unit;
             height: 100%;
             border-radius: 50%;
             transition: transform 1s, background 0.3s;
-            border: 2.5px solid $action-color;
+            border: 2px solid $action-color;
         }
 
         &::before {
-            top: 7.5%;
-            left: 7.5%;
-            width: 85%;
-            height: 85%;
+            top: 6.66%;
+            left: 6.66%;
+            width: 86.66%;
+            height: 86.66%;
             background: $action-color;
             transform: scale(0.12);
             transition-style: preserve-3d;
