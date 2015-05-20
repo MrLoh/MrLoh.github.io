@@ -1,6 +1,6 @@
 $color: $background-color;
 $alt-color: lighten($gray-color, 5%);
-$index-width: 30*$base-font-size;
+$index-width: 32*$base-font-size;
 
 .index {
     background: $alt-background-color;
@@ -64,7 +64,7 @@ ul.posts {
     margin: 0;
 
     li {
-        margin: 0 0 3*$unit 0;
+        margin: 0 0 1*$unit 0;
 
         h3 {
             font-family: $alt-font;
@@ -72,6 +72,10 @@ ul.posts {
             font-style: italic;
             font-weight: 800;
             line-height: 1.75*$unit;
+
+            a {
+                transition: color 0.2s;
+            }
         }
 
         .meta {
@@ -104,6 +108,7 @@ ul.posts {
                 color: inherit;
                 font-family: $font;
                 line-height: $unit/4*3;
+                transition: all 0s;
             }
 
             p, ul, ol, pre {
@@ -149,6 +154,68 @@ ul.posts {
                     &::before {
                         border-right-color: $action-color;
                     }
+                }
+
+                transition: color 0.1s 0.1s, background-color 0.5s;
+                &::after {
+                    transition: background 0.1s 0.1s;
+                }
+            }
+        }
+
+        .hover-target {
+            display: inline-block;
+        }
+
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $background-color;
+            border-radius: $unit/4;
+
+            transition: transform 0.5s;
+            transform: scale3d(0.8,0,1);
+            transform-origin: 50% 2.7*$unit;
+        }
+
+        padding: $unit;
+        transition: all 0.5s;
+        &.hover {
+            transition: all 1s;
+
+            &::before {
+                transform: scale3d(1,1,1);
+            }
+
+            h3 {
+                color: $gray-color;
+            }
+
+            .meta {
+                color: darken($gray-color, 5%);
+            }
+
+            .excerpt {
+                color: darken($gray-color, 15%);
+
+                blockquote {
+                    background: rgba($alt-color, 0.05);
+                    border-left-color: $alt-color;
+                }
+            }
+
+            .tags a {
+                color: $background-color;
+                transition: color 0.1s 0.2s, background 0.5s;
+                &::after {
+                    background: $background-color;
+                    transition: background 0.1s 0.2s;
                 }
             }
         }

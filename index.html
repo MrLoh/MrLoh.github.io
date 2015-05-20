@@ -30,7 +30,7 @@ blogindex: true
                         by <a href="{{ post.author-link }}">{{ post.author }}</a>
                         on <a href="{{ post.date | date: '/%Y/%m/' | prepend: site.baseurl }}"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %-d, %Y" }}</time></a>
                     </div>
-                    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                    <h3 class="hover-target"><a href="{% if post.link %} {{ post.link | append: '\" target=\"blank' }} {% else %} {{ post.url }} {% endif %}">{{ post.title }}</a></h3>
                     <div class="excerpt">
                         {% if post.content contains site.excerpt_separator %}
                             {% capture excerpt %} {{ post.content | split: site.excerpt_separator | first | split: '</p>' }} {% endcapture %}
@@ -53,7 +53,16 @@ blogindex: true
                 </li>
             {% endfor %}
             </ul>
-
         </section>
+        {% include footer_scripts.html %}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".hover-target").mouseenter(function() {
+                    $(this).parent().addClass("hover").mouseleave(function() {
+                        $(this).removeClass("hover");
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

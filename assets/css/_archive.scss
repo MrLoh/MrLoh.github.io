@@ -27,39 +27,41 @@ section.archive {
             font-weight: 600;
             font-size: 2*$base-font-size;
             text-transform: lowercase;
+            line-height: 1.2*$unit;
             color: $action-color;
 
-            margin: $unit/6 0 $unit/4 0;
+            display: inline-block;
+            position: relative;
+            margin: -$unit/4 0 -$unit/2 0;
+            padding: $unit/3 $unit/2 $unit/3 $unit/2;
+            transition: all 0.2s 0.1s;
 
-            a {
-                $link-color: $action-color;
-                position: relative;
-                transition: all 0.2s 0.1s;
+            $link-color: $action-color;
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                top: 5%;
+                left: 0;
+                width: 100%;
+                height: 95%;
+                background: $link-color;
+                border-radius: $unit/4;
 
-                &::before {
-                    content: '';
-                    position: absolute;
-                    z-index: -1;
-                    top: 5%;
-                    left: -$unit/2;
-                    width: 100%;
-                    height: 95%;
-                    padding: 0 $unit/2;
-                    background: $link-color;
-                    border-radius: $unit/4;
+                transform: scale3d(1,0,1);
+                transform-origin: 50% 100%;
+                transition: transform 0.2s;
+            }
 
-                    transform: scale3d(1,0,1);
-                    transform-origin: 50% 100%;
-                    transition: transform 0.2s;
-                }
+            &:hover, &:focus {
 
-                &:hover, &:focus {
+                a {
                     text-decoration: none;
                     color: $background-color;
+                }
 
-                    &::before {
-                        transform: translateY(0);
-                    }
+                &::before {
+                    transform: translateY(0);
                 }
             }
         }

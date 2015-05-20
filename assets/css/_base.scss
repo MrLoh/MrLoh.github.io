@@ -67,6 +67,7 @@ h2 {
 }
 
 h1, h2, h3 {
+    text-wrap: balanced;
     a {
         color: inherit;
         &:hover, &:focus {
@@ -185,17 +186,18 @@ a {
         border-color: $transparent;
         border-right-color: $tag-color;
         border-width: $tag-height/2;
+        transition: border-color 0.5s;
     }
 
-    transition: all 0.5s;
+    transition: background-color 0.5s;
 
     &:hover {
         $tag-highlight-color: $action-color;
         background-color: $tag-highlight-color;
-        transition: all 0.5s;
+        transition: background-color 0.5s;
         &::before {
             border-right-color: $tag-highlight-color;
-            transition: all 0.5s;
+            transition: border-color 0.5s;
         }
     }
 }
