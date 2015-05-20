@@ -1,9 +1,9 @@
 {
-  "name": "KijaniWebDesign",
+  "name": "MrLoh",
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/MrLoh/KijaniWebdesign.git"
+    "url": "https://github.com/MrLoh/MrLoh.github.io"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
@@ -13,5 +13,15 @@
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-sass": "^0.8.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/MrLoh/MrLoh.github.io/issues"
+  },
+  "homepage": "http://MrLoh.se",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

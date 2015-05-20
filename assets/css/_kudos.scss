@@ -28,6 +28,10 @@ $kudo-size: 2.5*$unit;
         }
 
         &::before {
+            top: 7.5%;
+            left: 7.5%;
+            width: 85%;
+            height: 85%;
             background: $action-color;
             transform: scale(0.12);
             transition-style: preserve-3d;
@@ -44,13 +48,13 @@ $kudo-size: 2.5*$unit;
             background: url(../svg/heart.svg) center no-repeat;
             background-size: 110%;
             animation: bounce 1.3s;
-            transform: scale(0.85);
+            transform: scale(1);
         }
     }
 
     &.active .kudobject {
         &::before {
-            transform: scale(0.85);
+            transform: scale(1);
         }
     }
 
@@ -84,21 +88,21 @@ $kudo-size: 2.5*$unit;
 
 @keyframes bounce {
     0% {
-        transform: scale(0.85);
+        transform: scale(1);
         opacity: 1;
     }
     50% {
-        transform: scale(1.2);
+        transform: scale(1.4);
         opacity: 0.8;
     }
-    60% {
-        transform: scale(0.7);
+    70% {
+        transform: scale(0.8);
         opacity: 1;
     }
-    80% {
-        transform: scale(0.9);
+    85% {
+        transform: scale(1.1);
     }
     100% {
-        transform: scale(0.85)
+        transform: scale(1);
     }
 }
