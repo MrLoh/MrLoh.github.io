@@ -10,7 +10,7 @@
 			enabled: true,
 			article_author: "{% if page.author %}{{ page.author }}{% else %}Tobias Lohse{% endif %}",
 			article_selector: ".content",
-			block_selector: ":scope > p, :scope > blockquote, :scope > figure, :scope .highlight",
+			block_selector: ":scope > p, :scope > ol, :scope > ul, :scope > blockquote, :scope > figure, :scope .highlight",
 			onNewComment: function(comment) {
 				{% if page.latex %}
 					MathJax.Hub.Queue(["Typeset", MathJax.Hub]);

@@ -23,5 +23,7 @@ $(function() {
 	}).children('a').wrap('<cite></cite>');
 
 	// make links in article open in new tab
-	$('article a').attr('target','_blank');
+	$('article a').attr('target','_blank').html(function(i, str) {
+		return str.replace(/ /g,'&nbsp;');
+	});
 });

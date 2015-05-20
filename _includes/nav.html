@@ -14,7 +14,7 @@
         <!-- <li>
             <a href="https://www.flickr.com/photos/flojoto/">Photos</a>
         </li> -->
-        <li {% if page.layout %} class="active" {% endif %}>
+        <li {% if page.layout == 'post' %} class="active" {% endif %}>
             <a href="{{ site.baseurl }}/">Blog</a>
         </li>
         <li {% if page.layout == 'archive' %} class="active" {% endif %}>
