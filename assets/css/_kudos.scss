@@ -47,9 +47,12 @@ $kudo-size: 2.5*$unit;
         &::before {
             background: url(../svg/heart.svg) center no-repeat;
             background-size: 110%;
-            animation: bounce 1.3s;
             transform: scale(1);
         }
+    }
+
+    &.animate .kudobject::before { 
+        animation: bounce 1.3s;
     }
 
     &.active .kudobject {
