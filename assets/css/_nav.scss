@@ -103,6 +103,14 @@ nav {
                 margin-right: 0;
             }
 
+            @include media(25*$unit) {
+                margin-right: $unit/2;
+            }
+
+            @include media(20*$unit) {
+                display: none;
+            }
+
             &.active {
                 color: lighten($gray-color, 15%);
                 &::before, &::after {

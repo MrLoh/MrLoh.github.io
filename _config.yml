@@ -34,6 +34,16 @@ defaults:
       author-link: /about/
       kudos: true
       comments: true
+  -
+    scope:
+      path: ""
+      type: "drafts"
+    values:
+      layout: "post"
+      author: "Tobias Lohse"
+      author-link: /about/
+      kudos: false
+      comments: false
 
 kudos_server: 'https://mrloh-kudos-server.herokuapp.com/kudos'
 ...

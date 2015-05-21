@@ -1,12 +1,10 @@
 ---
-layout: post
-title: "A Simple Traceroute in C"
-description: ""
-category:
-tags: []
+title: 'A Simple Traceroute in C'
+tags:
+    - C
 ---
-{% include JB/setup %}
 
+Traceroute
 
 ```c
 

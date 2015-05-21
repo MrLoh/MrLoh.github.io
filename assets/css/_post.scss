@@ -1,16 +1,30 @@
 $article-width: 36*$base-font-size;
-
+$padding: 5%;
+$padding-factor: 1/0.9;
 
 /******************************** TITLE ***********************************/
 header.article {
     margin-bottom: 1.5*$unit;
     text-align: center;
 
+    @include media($article-width) {
+        padding: 0 $padding;
+
+        .meta p::after {
+            content: '' !important;
+        }
+    }
+
     h1 {
         font-size: 3*$base-font-size;
         line-height: 2.3*$unit;
-        width: $article-width;
+        max-width: $article-width;
         margin: 0 auto $unit/4 auto;
+
+        @include media(15*$unit) {
+            font-size: 2.2*$base-font-size;
+            line-height: 1.8*$unit;
+        }
     }
 
     .meta {
@@ -59,37 +73,68 @@ footer.article {
     bottom: 0;
     width: 100%;
     background: $background-color;
-    padding: $unit/4 $unit/2;
-    height: 2*$unit;
+    box-sizing: border-box;
+    height: 2.5*$unit;
     z-index: 99999;
 
     box-shadow: 0 0 $unit/3 rgba($gray-color, 0.5);
 
+    @include media($article-width) {
+        position: relative;
+        box-shadow: none;
+    }
+
+    .left, .right {
+        position: absolute;
+        top: 0;
+        padding: $unit/4 $unit/2;
+        height: 2*$unit;
+    }
+
     .left {
-        float: left;
-        width: 70%;
+        left: 0;
+        width: 100%;
+
+        a:hover, a:focus {
+            text-decoration: none;
+        }
+
+        .author {
+            display: block;
+            position: absolute;
+            top: $unit/2;
+            left: $unit/2;
+        }
+
+        .container {
+            display: block;
+            position: absolute;
+            top: $unit/3;
+            left: 2.5*$unit;
+            margin-right: (1+5)*2.25*$unit;
+            height: 100%;
+            overflow: scroll;
+        }
     }
 
     .right {
-        float: right;
-        margin-right: $unit/3*2;
+        right: 0;
+        width: 5*2.25*$unit;
+        text-align: right;
     }
 
     .author {
-        display: block;
-        float: left;
-        margin: $unit/5 $unit/2 0 0;
         height: 1.5*$unit;
+        width: 1.5*$unit;
         border: 2px solid $gray-color;
         border-radius: 50%;
         transition: all 0.3s;
 
         img {
             position: relative;
-            /* @extend %grayscale; */
 
-            height: 1.5*$unit;
-            width: auto;
+            height: 100%;
+            width: 100%;
             border-radius: 50%;
         }
 
@@ -115,18 +160,18 @@ footer.article {
     }
 
 
-    ul.tags {
-        margin-top: $unit/8;
+    .tags {
         position: relative;
         $tag-color: lighten($gray-color, 10%);
         $tag-height: $unit/3*2;
 
         list-style-type: none;
-        li {
+        a {
+            display: inline-block;
             @include tag($tag-color, $tag-height);
 
             float: left;
-            margin-right: $tag-height;
+            margin: 0 0 $unit/4 $tag-height;
 
             &:first-child {
                 margin-left: $tag-height/2;
@@ -143,12 +188,16 @@ footer.article {
     }
 
     .round-button {
-        float: left;
+        display: inline-block;
         position: relative;
         margin: $unit/5 $unit/2 0 0;
         height: 1.5*$unit;
         width: 1.5*$unit;
         text-align: center;
+
+        &:last-child {
+            margin-right: 4px;
+        }
 
         & > label, & > a {
             display: inline-block;
@@ -280,6 +329,19 @@ article {
         max-width: $article-width;
         margin: 0 auto;
 
+        @include media($article-width) {
+            padding: 0 $padding;
+        }
+        @include media($article-width+18*$unit) {
+            margin-right: 2*$unit;
+        }
+        @include media($article-width+12*$unit) {
+            margin-right: 5*$unit;
+        }
+        @include media($article-width+6*$unit) {
+            margin-right: auto;
+        }
+
         line-height: $unit;
 
         transition: all 0.5s;
@@ -391,6 +453,7 @@ article {
         background-color: $alt-background-color;
 
         font-size: 0.9*$base-font-size;
+        line-height: $unit/6*5;
 
         & > pre {
             max-width: $article-width !important;
@@ -462,7 +525,12 @@ article {
     /********************************* FIGURE *********************************/
     figure {
         position: relative;
+        width: 100%;
 
+        @include media($article-width) {
+            margin: 0 -$padding-factor*$padding;
+            width: $padding-factor*100%;
+        }
         overflow: hidden;
         img {
             position: relative;
@@ -518,7 +586,7 @@ article {
 
         border-left: $border-width solid $border-color;
         background: $border-color-light;
-        margin: $unit 0*$unit $unit/3*5 -2*$border-width;
+        margin: $unit 0 $unit/3*5 -2*$border-width;
         padding: $unit/2 $unit/2 $unit/3 $unit/2;
         border-radius: $border-width $border-width $border-width 0;
 

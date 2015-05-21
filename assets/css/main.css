@@ -223,6 +223,12 @@ nav {
       height: 24px; }
       nav ul li:last-child {
         margin-right: 0; }
+      @media (max-width: 600px) {
+        nav ul li {
+          margin-right: 12px; } }
+      @media (max-width: 480px) {
+        nav ul li {
+          display: none; } }
       nav ul li.active {
         color: #80849a; }
         nav ul li.active::before, nav ul li.active::after {
@@ -279,11 +285,20 @@ nav {
 header.article {
   margin-bottom: 36px;
   text-align: center; }
+  @media (max-width: 612px) {
+    header.article {
+      padding: 0 5%; }
+      header.article .meta p::after {
+        content: '' !important; } }
   header.article h1 {
     font-size: 51px;
     line-height: 55.2px;
-    width: 612px;
+    max-width: 612px;
     margin: 0 auto 6px auto; }
+    @media (max-width: 360px) {
+      header.article h1 {
+        font-size: 37.4px;
+        line-height: 43.2px; } }
   header.article .meta {
     margin: 0;
     line-height: 1.1em;
@@ -312,30 +327,52 @@ footer.article {
   bottom: 0;
   width: 100%;
   background: #fafcfc;
-  padding: 6px 12px;
-  height: 48px;
+  box-sizing: border-box;
+  height: 60px;
   z-index: 99999;
   box-shadow: 0 0 8px rgba(91, 95, 114, 0.5); }
+  @media (max-width: 612px) {
+    footer.article {
+      position: relative;
+      box-shadow: none; } }
+  footer.article .left, footer.article .right {
+    position: absolute;
+    top: 0;
+    padding: 6px 12px;
+    height: 48px; }
   footer.article .left {
-    float: left;
-    width: 70%; }
+    left: 0;
+    width: 100%; }
+    footer.article .left a:hover, footer.article .left a:focus {
+      text-decoration: none; }
+    footer.article .left .author {
+      display: block;
+      position: absolute;
+      top: 12px;
+      left: 12px; }
+    footer.article .left .container {
+      display: block;
+      position: absolute;
+      top: 8px;
+      left: 60px;
+      margin-right: 324px;
+      height: 100%;
+      overflow: scroll; }
   footer.article .right {
-    float: right;
-    margin-right: 16px; }
+    right: 0;
+    width: 270px;
+    text-align: right; }
   footer.article .author {
-    display: block;
-    float: left;
-    margin: 4.8px 12px 0 0;
     height: 36px;
+    width: 36px;
     border: 2px solid #5b5f72;
     border-radius: 50%;
     -webkit-transition: all 0.3s;
             transition: all 0.3s; }
     footer.article .author img {
       position: relative;
-      /* @extend %grayscale; */
-      height: 36px;
-      width: auto;
+      height: 100%;
+      width: 100%;
       border-radius: 50%; }
     footer.article .author:hover, footer.article .author:focus {
       border-color: #67a492; }
@@ -350,11 +387,11 @@ footer.article {
         color: #67a492; }
     footer.article .meta::after {
       content: ''; }
-  footer.article ul.tags {
-    margin-top: 3px;
+  footer.article .tags {
     position: relative;
     list-style-type: none; }
-    footer.article ul.tags li {
+    footer.article .tags a {
+      display: inline-block;
       position: relative;
       display: block;
       height: 16px;
@@ -372,11 +409,11 @@ footer.article {
       -webkit-transition: background-color 0.5s;
               transition: background-color 0.5s;
       float: left;
-      margin-right: 16px; }
-      footer.article ul.tags li a, footer.article ul.tags li a:hover {
+      margin: 0 0 6px 16px; }
+      footer.article .tags a a, footer.article .tags a a:hover {
         color: inherit;
         text-decoration: none; }
-      footer.article ul.tags li::after {
+      footer.article .tags a::after {
         content: '';
         position: absolute;
         top: 6px;
@@ -385,7 +422,7 @@ footer.article {
         height: 4px;
         border-radius: 50%;
         background: #fafcfc; }
-      footer.article ul.tags li::before {
+      footer.article .tags a::before {
         -webkit-transition: all 0.5s;
                 transition: all 0.5s;
         content: '';
@@ -401,27 +438,29 @@ footer.article {
         border-width: 8px;
         -webkit-transition: border-color 0.5s;
                 transition: border-color 0.5s; }
-      footer.article ul.tags li:hover {
+      footer.article .tags a:hover {
         background-color: #67a492;
         -webkit-transition: background-color 0.5s;
                 transition: background-color 0.5s; }
-        footer.article ul.tags li:hover::before {
+        footer.article .tags a:hover::before {
           border-right-color: #67a492;
           -webkit-transition: border-color 0.5s;
                   transition: border-color 0.5s; }
-      footer.article ul.tags li:first-child {
+      footer.article .tags a:first-child {
         margin-left: 8px; }
-      footer.article ul.tags li:hover, footer.article ul.tags li:focus {
+      footer.article .tags a:hover, footer.article .tags a:focus {
         background-color: #67a492; }
-        footer.article ul.tags li:hover::before, footer.article ul.tags li:focus::before {
+        footer.article .tags a:hover::before, footer.article .tags a:focus::before {
           border-right-color: #67a492; }
   footer.article .round-button {
-    float: left;
+    display: inline-block;
     position: relative;
     margin: 4.8px 12px 0 0;
     height: 36px;
     width: 36px;
     text-align: center; }
+    footer.article .round-button:last-child {
+      margin-right: 4px; }
     footer.article .round-button > label, footer.article .round-button > a {
       display: inline-block;
       width: 100%;
@@ -523,6 +562,18 @@ article {
     line-height: 24px;
     -webkit-transition: all 0.5s;
             transition: all 0.5s; }
+    @media (max-width: 612px) {
+      article .content {
+        padding: 0 5%; } }
+    @media (max-width: 1044px) {
+      article .content {
+        margin-right: 48px; } }
+    @media (max-width: 900px) {
+      article .content {
+        margin-right: 120px; } }
+    @media (max-width: 756px) {
+      article .content {
+        margin-right: auto; } }
     article .content > p, article .content > ul, article .content > ol, article .content > h2, article .content > figure {
       margin-bottom: 24px; }
     article .content > p a, article .content > ul a, article .content > ol a {
@@ -608,7 +659,8 @@ article {
     border-top: 3px solid #444756;
     border-bottom: 3px solid #444756;
     background-color: #2e3039;
-    font-size: 15.3px; }
+    font-size: 15.3px;
+    line-height: 20px; }
     article .codeblock > pre, article .highlighttable > pre, article .CodeRay > pre, article > .highlight > pre {
       max-width: 612px !important; }
     article .codeblock tbody, article .codeblock > pre, article .highlighttable tbody, article .highlighttable > pre, article .CodeRay tbody, article .CodeRay > pre, article > .highlight tbody, article > .highlight > pre {
@@ -647,7 +699,12 @@ article {
       padding: 0; }
   article figure {
     position: relative;
+    width: 100%;
     overflow: hidden; }
+    @media (max-width: 612px) {
+      article figure {
+        margin: -5.55556%;
+        width: 111.11111%; } }
     article figure img {
       position: relative;
       display: block;
@@ -682,7 +739,7 @@ article {
     /* $border-color: lighten($alt-background-color, 15%); */
     border-left: 5px solid #5b5f72;
     background: #f1f3f4;
-    margin: 24px 0px 40px -10px;
+    margin: 24px 0 40px -10px;
     padding: 12px 12px 8px 12px;
     border-radius: 5px 5px 5px 0; }
     article blockquote p {
@@ -757,11 +814,12 @@ article {
 
 .index header {
   max-width: 544px;
-  margin: 0 auto 48px auto;
+  margin: 24px auto 24px auto;
   padding-top: 24px; }
   .index header svg.title {
     display: block;
-    width: 480px;
+    max-width: 480px;
+    width: 100%;
     margin: 0 auto; }
     .index header svg.title .mrloh path {
       fill: #fafcfc; }
@@ -788,10 +846,14 @@ ul.posts {
   margin: 0; }
   ul.posts li {
     margin: 0 0 24px 0;
-    position: relative;
     padding: 24px;
+    position: relative;
     -webkit-transition: all 0.5s;
             transition: all 0.5s; }
+    @media (max-width: 544px) {
+      ul.posts li {
+        padding: 6px 12px;
+        margin: 12px; } }
     ul.posts li h3 {
       font-family: "abril titling condensed", "abril-titling-condensed", Helvetica, sans-serif;
       font-size: 34px;
@@ -1303,6 +1365,12 @@ section.archive {
   bottom: 84px;
   right: 96px;
   text-align: center; }
+  @media (max-width: 756px) {
+    .kudo {
+      position: relative;
+      width: 60px;
+      right: 0;
+      margin: 0 auto; } }
   .kudo .kudobject {
     display: block;
     position: absolute;

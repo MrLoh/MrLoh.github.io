@@ -205,3 +205,9 @@ a {
 .tag {
     @include tag(lighten($alt-background-color, 10%), $unit);
 }
+
+@mixin media($max-width) {
+    @media (max-width: #{$max-width}) {
+        @content;
+    }
+}

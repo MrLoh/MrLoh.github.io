@@ -6,6 +6,13 @@ $kudo-size: 2.5*$unit;
     right: $kudo-size+1.5*$unit;
     text-align:center;
 
+    @include media($article-width+6*$unit) {
+        position: relative;
+        width: $kudo-size;
+        right: 0;
+        margin: 0 auto;
+    }
+
     .kudobject {
         display: block;
         position: absolute;

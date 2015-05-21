@@ -14,12 +14,13 @@ $index-width: 32*$base-font-size;
 
 .index header {
     max-width: $index-width;
-    margin: 0 auto 2*$unit auto;
+    margin: $unit auto $unit auto;
     padding-top: $unit;
 
     svg.title {
         display: block;
-        width: 20*$unit;
+        max-width: 20*$unit;
+        width: 100%;
         margin: 0 auto;
 
         .mrloh path {
@@ -64,7 +65,13 @@ ul.posts {
     margin: 0;
 
     li {
-        margin: 0 0 1*$unit 0;
+        margin: 0 0 $unit 0;
+        padding: $unit;
+
+        @include media($index-width) {
+            padding: $unit/4 $unit/2;
+            margin: $unit/2;
+        }
 
         h3 {
             font-family: $alt-font;
@@ -184,7 +191,6 @@ ul.posts {
             transform-origin: 50% 2.7*$unit;
         }
 
-        padding: $unit;
         transition: all 0.5s;
         &.hover {
             transition: all 1s;
