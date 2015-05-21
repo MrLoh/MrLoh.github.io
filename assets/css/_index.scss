@@ -15,7 +15,8 @@ $index-width: 32*$base-font-size;
 .index header {
     max-width: $index-width;
     margin: $unit auto $unit auto;
-    padding-top: $unit;
+    padding: $unit $unit/2 0 $unit/2;
+    box-sizing: border-box;
 
     svg.title {
         display: block;
