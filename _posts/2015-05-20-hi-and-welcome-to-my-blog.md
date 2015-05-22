@@ -18,7 +18,7 @@ This blog is powered by [Jekyll](http://jekyll.com) --- the static blog generato
 I'm gonna write more about some of the features of this blog and how they are set up. Some of the highlights include:
 
 - Inline comments powered by [carnival](https://carnivalapp.io/)
-- [Kudos](http://amitu.com/2013/04/kudos-using-parse-for-jekyll/) that let you show your appreciation
+- [Kudos](http://amitu.com/2013/04/kudos-using-parse-for-jekyll/) that let you show your appreciation anonymously
 - Full year, month and tag archives (more about the set up soon)
 - Beautiful styles for
   - Codeblocks

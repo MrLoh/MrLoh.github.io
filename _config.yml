@@ -11,9 +11,14 @@ twitter_username: MrLoh
 github_username:  MrLoh
 
 # Build settings
+safe: true
+lsi: false
+source: "."
+exclude: [node_modules, Gruntfile.js, package.json, main.css]
+
 markdown: redcarpet
 redcarpet:
-  extensions: ["smart", "tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
+  extensions: ["smart", "tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks", "footnotes"]
 highlighter: pygments
 excerpt_separator: <!--/-->
 

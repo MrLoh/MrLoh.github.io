@@ -1,10 +1,16 @@
 ---
-title: Jekyll Archives for GitHub Pages
+title: Automatic Jekyll Archives for GitHub Pages
 date: 2015-05-13T00:00:00.000Z
 tags:
   - Jekyll
   - WebDev
   - GitHub
+  - Ruby
+keywords:
+  - GitHub Pages
+  - Web Development
+  - Archive
+  - Ruby
 ---
 
 I was inspired by the implementation on [minddust](http://www.minddust.com/post/tags-and-categories-on-github-pages/) and learned a little bit from the code on  [Jekyll-Bootstrap](https://github.com/plusjade/jekyll-bootstrap/)
