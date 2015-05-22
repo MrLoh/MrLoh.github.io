@@ -74,6 +74,7 @@ footer.article {
     width: 100%;
     background: $background-color;
     box-sizing: border-box;
+    padding: 0;
     height: 2.5*$unit;
     z-index: 99999;
 
@@ -316,30 +317,36 @@ footer.article {
 }
 
 
-
+@include media($article-width+15*$unit) {
+    article, header.article, footer {
+        padding-right: 2*$unit;
+    }
+}
+@include media($article-width+12*$unit) {
+    article, header.article, footer {
+        padding-right: 4*$unit;
+    }
+}
+@include media($article-width+6*$unit) {
+    article, header.article, footer {
+        padding-right: 0;
+    }
+}
 
 
 article {
     width: 100%;
-    margin: 0;
     margin-bottom: 10*$unit;
+    box-sizing: border-box;
 
     /****************************** PARAGRAPH *********************************/
     .content {
         max-width: $article-width;
         margin: 0 auto;
+        padding: 0;
 
         @include media($article-width) {
             padding: 0 $padding;
-        }
-        @include media($article-width+18*$unit) {
-            margin-right: 2*$unit;
-        }
-        @include media($article-width+12*$unit) {
-            margin-right: 5*$unit;
-        }
-        @include media($article-width+6*$unit) {
-            margin-right: auto;
         }
 
         line-height: $unit;

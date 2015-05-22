@@ -328,6 +328,7 @@ footer.article {
   width: 100%;
   background: #fafcfc;
   box-sizing: border-box;
+  padding: 0;
   height: 60px;
   z-index: 99999;
   box-shadow: 0 0 8px rgba(91, 95, 114, 0.5); }
@@ -548,10 +549,19 @@ footer.article {
       -webkit-transform: scale3d(1, 1, 1);
               transform: scale3d(1, 1, 1); }
 
+@media (max-width: 972px) {
+  article, header.article, footer {
+    padding-right: 48px; } }
+@media (max-width: 900px) {
+  article, header.article, footer {
+    padding-right: 96px; } }
+@media (max-width: 756px) {
+  article, header.article, footer {
+    padding-right: 0; } }
 article {
   width: 100%;
-  margin: 0;
   margin-bottom: 240px;
+  box-sizing: border-box;
   /****************************** PARAGRAPH *********************************/
   /********************************* CODE ***********************************/
   /********************************* FIGURE *********************************/
@@ -559,21 +569,13 @@ article {
   article .content {
     max-width: 612px;
     margin: 0 auto;
+    padding: 0;
     line-height: 24px;
     -webkit-transition: all 0.5s;
             transition: all 0.5s; }
     @media (max-width: 612px) {
       article .content {
         padding: 0 5%; } }
-    @media (max-width: 1044px) {
-      article .content {
-        margin-right: 48px; } }
-    @media (max-width: 900px) {
-      article .content {
-        margin-right: 120px; } }
-    @media (max-width: 756px) {
-      article .content {
-        margin-right: auto; } }
     article .content > p, article .content > ul, article .content > ol, article .content > h2, article .content > figure {
       margin-bottom: 24px; }
     article .content > p a, article .content > ul a, article .content > ol a {
@@ -1447,21 +1449,17 @@ section.archive {
     -webkit-transform: scale(1);
             transform: scale(1);
     opacity: 1; }
-
   50% {
     -webkit-transform: scale(1.4);
             transform: scale(1.4);
     opacity: 0.8; }
-
   70% {
     -webkit-transform: scale(0.8);
             transform: scale(0.8);
     opacity: 1; }
-
   85% {
     -webkit-transform: scale(1.1);
             transform: scale(1.1); }
-
   100% {
     -webkit-transform: scale(1);
             transform: scale(1); } }
@@ -1471,21 +1469,17 @@ section.archive {
     -webkit-transform: scale(1);
             transform: scale(1);
     opacity: 1; }
-
   50% {
     -webkit-transform: scale(1.4);
             transform: scale(1.4);
     opacity: 0.8; }
-
   70% {
     -webkit-transform: scale(0.8);
             transform: scale(0.8);
     opacity: 1; }
-
   85% {
     -webkit-transform: scale(1.1);
             transform: scale(1.1); }
-
   100% {
     -webkit-transform: scale(1);
             transform: scale(1); } }

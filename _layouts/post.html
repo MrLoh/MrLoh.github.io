@@ -6,14 +6,14 @@
 
     <body>
 
-
-        <header class="article">
+        <header>
             {% include nav.html %}
-
+        </header>
+        <header class="article">
             {% include post_title.html %}
         </header>
 
-        <article title="{{ page.title }}">
+        <article class="article" title="{{ page.title }}">
             <div class="content" style="position: relative; left: 0px;">
                 <h1 style="display: none">
                     {{ page.title }}
