@@ -156,7 +156,7 @@ ul.posts {
                     margin-right: 0;
                 }
 
-                &:hover, &:focus, &:active {
+                &:hover, &:focus {
                     text-decoration: none;
                     background-color: $action-color;
                     &::before {
