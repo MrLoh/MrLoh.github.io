@@ -58,7 +58,7 @@ $('article a').not('[rel="footnote"], [rev="footnote"]').html(function(i, str) {
 }).attr('target','_blank');
 ```
 
-## Is the hope for the future?
+## Is there hope for the future?
 
 This solution is of course a little dirty, because it doesn't compile the final HTML and serves it statically. So is there hope this could be done on the backend? Not so much unless you are willing to precompile the whole site locally and not via GitHub Pages, which of course is an option. The Markdown converter on GitHub will probably also stay uncustomizable in the future, but maybe some more functionality (like figures and line-numbers in code blocks) could be added. GitHub also seems to be working on their own Markdown editor, so that might bring some change.
 
