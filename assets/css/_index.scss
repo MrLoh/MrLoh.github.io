@@ -97,7 +97,7 @@ ul.posts {
             a {
                 color: inherit;
 
-                &:hover, &:focus {
+                &:hover, &:focus, &:active {
                     text-decoration: none;
                     color: $action-color;
                 }
@@ -156,7 +156,7 @@ ul.posts {
                     margin-right: 0;
                 }
 
-                &:hover, &:focus {
+                &:hover, &:focus, &:active {
                     text-decoration: none;
                     background-color: $action-color;
                     &::before {
