@@ -679,6 +679,8 @@ article {
 
         @include media($article-width) {
             margin: 0 -$padding-factor*$padding;
+            margin-bottom: $unit;
+            margin-top: $unit;
             width: $padding-factor*100%;
         }
         overflow: hidden;
@@ -738,6 +740,18 @@ article {
         margin: $unit 0 $unit/3*5 -2*$border-width;
         padding: $unit/2 $unit/2 $unit/3 $unit/2;
         border-radius: $border-width $border-width $border-width 0;
+
+        @include media($article-width) {
+            margin-left: -$padding-factor*$padding;
+            margin-right: -$padding-factor*$padding;
+            width: $padding-factor*100%;
+            box-sizing: border-box;
+            padding-left: 5%;
+            padding-right: 5%;
+            border-left: none;
+            border-top: 1px solid lighten($border-color, 15%);
+            border-radius: 0;
+        }
 
         p {
             margin: 0;
@@ -816,6 +830,19 @@ article {
                 left: 100%;
                 background: $border-color;
                 border-radius: 0 0 100% 0;
+            }
+
+            @include media($article-width) {
+                margin-right: -$padding-factor*$padding;
+                width: $padding-factor*100%;
+
+                &::before {
+                    left: 7%;
+                }
+
+                &::after {
+                    display: none;
+                }
             }
 
             a, a:hover, a:focus {
