@@ -125,6 +125,15 @@ ul.posts {
 
             p {
                 text-align: justify;
+                hyphens: auto;
+            }
+
+            sup {
+                line-height: 1;
+                a {
+                    display: inline-block;
+                    line-height: $base-font-size/3;
+                }
             }
 
             blockquote {

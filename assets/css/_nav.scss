@@ -3,7 +3,7 @@ nav {
     max-width: 75*$base-font-size;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: $unit $unit;
+    padding: $unit;
     margin-bottom: 4*$unit;
 
     font-family: $font-sc;
@@ -12,12 +12,17 @@ nav {
     font-style: normal;
     text-transform: uppercase;
 
+    @include media(30*$unit) {
+        margin-bottom: 3*$unit;
+    }
+
     @include media(20*$unit) {
-        margin-bottom: 2*$unit;
+        margin-bottom: 1.5*$unit;
     }
 
     @include media(16*$unit) {
-        margin-bottom: $unit;
+        margin-bottom: 2*$unit;
+        padding: $unit/2;
     }
 
     #logo {
