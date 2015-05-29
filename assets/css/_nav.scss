@@ -12,6 +12,14 @@ nav {
     font-style: normal;
     text-transform: uppercase;
 
+    @include media(20*$unit) {
+        margin-bottom: 2*$unit;
+    }
+
+    @include media(16*$unit) {
+        margin-bottom: $unit;
+    }
+
     #logo {
         position: relative;
         float: left;

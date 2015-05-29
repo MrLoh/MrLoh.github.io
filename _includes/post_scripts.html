@@ -5,6 +5,7 @@
 <!-- Add Comments with Carnival -->
 <script  type="text/javascript" src="https://carnivalapp.io/sites/273/init.js"></script>
 <script type="text/javascript">
+if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) {
 	document.addEventListener("DOMContentLoaded", function() {
 		Carnival.init({
 			enabled: true,
@@ -18,6 +19,7 @@
 			}
 		});
 	});
+}
 </script>
 {% endif %}
 

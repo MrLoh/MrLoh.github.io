@@ -5,38 +5,28 @@
         color: $color0;
     }
 
-    .hll, .kt, .ni, .err, .l, .n, .x, .p, .ld, .nc, .nd, .ne, .nl, .nn, .nx, .py, .ow, .w, .bp, .o {
-        color: $color0;
+    .hll, .ni, .err, .l, .n, .x, .p, .ld, .nc, .nd, .ne, .nl, .nn, .py, .ow, .w, .na, .nx {
+        color: $background-color;
     }
-    .nv, .nb, .vc, .vg, .vi {
-        color: $color1;
-    }
-    .s, .sb, .sc, .sd, .s2, .se, .gs, , .sh, .si, .sx, .sr, .s1, .ss {
+    .function, .nv, .vc, .vg, .vi, .nf, .cp, .si {
         color: $color2;
     }
-    .k, .kc, .kd, .kn, .kp, .kr, .nt, .cp, .gh, .gu, .na, .nf, .no {
+    .string, .s, .sb, .sc, .sd, .s2, .se, .gs, , .sh, .sx, .s1, .ss {
         color: $color3;
     }
-    .m, .mf, .mh, .mi, .mo, .il {
+    .keyword, .k, .kc, .kd, .kn, .kp, .kr, .gh, .gu, .no, .o {
         color: $color4;
+        &.o {
+            font-weight: bold;
+        }
     }
-    .c, .cm, .c1, .cs {
-        color: $color5;
-    }
-
-    .function {
+    .integer, .m, .mf, .mh, .mi, .mo, .il, .nb, .sr, .bp {
         color: $color1;
     }
-    .keyword {
-        color: $color3;
-    }
-    .integer {
-        color: $color4;
-    }
-    .string {
-        color: $color2;
-    }
-    .comment {
+    .comment, .c, .cm, .c1, .cs {
         color: $color5;
+    }
+    .type, .kt, .nt {
+        color: $color6;
     }
 }
