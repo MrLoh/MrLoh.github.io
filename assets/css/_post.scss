@@ -1,6 +1,24 @@
 $article-width: 36*$base-font-size;
 $padding: 5%;
-$padding-factor: 1/0.9;
+$padding-factor: 1/0.8999;
+
+
+@include media($article-width+15*$unit) {
+    article, header.article, footer {
+        padding-right: 2*$unit;
+    }
+}
+@include media($article-width+12*$unit) {
+    article, header.article, footer {
+        padding-right: 4*$unit;
+    }
+}
+@include media($article-width+6*$unit) {
+    article, header.article, footer {
+        padding-right: 0;
+    }
+}
+
 
 /******************************** TITLE ***********************************/
 header.article {
@@ -8,6 +26,8 @@ header.article {
     text-align: center;
 
     @include media($article-width) {
+        box-sizing: border-box;
+        max-width: $article-width;
         padding: 0 $padding;
 
         .meta p::after {
@@ -21,9 +41,17 @@ header.article {
         max-width: $article-width;
         margin: 0 auto $unit/4 auto;
 
-        @include media(15*$unit) {
+        @include media($article-width) {
             font-size: 2.2*$base-font-size;
-            line-height: 1.8*$unit;
+            line-height: 1.1;
+        }
+
+        @include media(20*$unit) {
+            font-size: 2*$base-font-size;
+        }
+
+        @include media(16*$unit) {
+            font-size: 1.8*$base-font-size;
         }
     }
 
@@ -37,6 +65,14 @@ header.article {
         font-size: 1.1*$base-font-size;
         font-weight: 600;
         text-transform: lowercase;
+
+        @include media(20*$unit) {
+            font-size: 0.9*$base-font-size;
+        }
+
+        @include media(16*$unit) {
+            font-size: 0.8*$base-font-size;
+        }
 
         p {
             margin: 0;
@@ -317,21 +353,7 @@ footer.article {
 }
 
 
-@include media($article-width+15*$unit) {
-    article, header.article, footer {
-        padding-right: 2*$unit;
-    }
-}
-@include media($article-width+12*$unit) {
-    article, header.article, footer {
-        padding-right: 4*$unit;
-    }
-}
-@include media($article-width+6*$unit) {
-    article, header.article, footer {
-        padding-right: 0;
-    }
-}
+
 
 
 article {
@@ -450,7 +472,7 @@ article {
             border-radius: 50%;
             margin-left: -$base-font-size/8;
 
-            border: 1.5px solid $link-color;
+            border: 1px solid $link-color;
             color: $link-color;
 
             font-size: $base-font-size/3*2;
@@ -466,9 +488,10 @@ article {
     }
 
     .footnotes {
+        $footnote-color: lighten($gray-color, 10%);
         font-family: $alt-font;
         font-style: italic;
-        color: lighten($gray-color, 10%);
+        color: $footnote-color;
 
         a {
             color: inherit;
@@ -485,12 +508,15 @@ article {
             margin-right: $base-font-size/6;
             line-height: 1;
             vertical-align: 1px;
+            border: none;
+            background: rgba($footnote-color, 0.075);
         }
 
         hr {
             border: none;
-            border-top: 2px solid lighten($gray-color, 20%);
-            margin: 3*$unit 0 $unit/2 0;
+            border-top: 1px solid lighten($footnote-color, 15%);
+            width: 130%;
+            margin: 3*$unit 15% $unit/2 -15%;
         }
 
         [rev="footnote"] {
@@ -503,7 +529,7 @@ article {
             box-sizing: border-box;
             padding-top: $base-font-size/3;
 
-            border: 1.5px solid lighten($action-color, 15%);
+            border: 1px solid lighten($action-color, 15%);
             border-radius: 50%;
             background: lighten($action-color, 15%);
             color: $background-color;
@@ -517,8 +543,8 @@ article {
 
             transition: all 0.5s;
             &:hover, &:focus, &:active {
-                background: lighten($gray-color, 20%);
-                border-color: lighten($gray-color, 20%);
+                background: lighten($footnote-color, 10%);
+                border-color: lighten($footnote-color, 10%);
                 color: $background-color;
             }
         }
@@ -571,8 +597,10 @@ article {
             padding: 0;
 
             tr {
+                display: block;
                 margin: 0;
                 padding: 0;
+                margin-left: -1.75*$base-font-size;
             }
 
             td {
@@ -580,10 +608,7 @@ article {
             }
 
             td.linenos, td.line-numbers {
-                float: left;
-
-                width: 2*$base-font-size;
-                margin-left: -1.75*$base-font-size;
+                min-width: 2*$base-font-size;
                 padding-right: $base-font-size/2;
 
                 text-align: right;
@@ -597,21 +622,16 @@ article {
             }
 
             td.code {
-                display: block;
-                float: left;
-
                 max-width: $article-width;
                 padding-left: $base-font-size/2;
             }
 
             .highlight {
                 position: relative;
-
                 margin: 0;
             }
 
             pre {
-                /* line-height: 0.75*$unit; */
                 margin: 0;
             }
         }
@@ -619,6 +639,32 @@ article {
         code {
             background-color: $transparent;
             padding: 0;
+        }
+
+        @include media($article-width+3*$base-font-size) {
+            display: block;
+            overflow-x: scroll;
+            margin: 0 -$padding-factor*$padding;
+            margin-bottom: $unit;
+            margin-top: $unit;
+            width: $padding-factor*100%;
+
+            tbody, & > pre {
+                width: 100%;
+                margin: 0;
+
+                tr {
+                    margin-left: 0;
+                }
+
+                td.linenos, td.line-numbers {
+                    min-width: $base-font-size;
+                }
+
+                td.code {
+                    padding-right: 2*$unit;
+                }
+            }
         }
     }
 
@@ -681,7 +727,6 @@ article {
     /********************************* BLOCKQUOTE *****************************/
     blockquote {
         position: relative;
-        /* $border-color: lighten($alt-background-color, 15%); */
         $border-color: $gray-color;
         $border-width: 5px;
 
@@ -718,6 +763,7 @@ article {
                 color: $border-color;
                 top: 0.3em;
                 left: -1.7*$unit;
+                width: 1.5em;
             }
 
             a::before {
