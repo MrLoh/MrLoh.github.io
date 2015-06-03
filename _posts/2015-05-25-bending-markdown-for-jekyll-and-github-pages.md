@@ -1,8 +1,8 @@
 ---
 title: Bending Markdown for Jekyll and GitHub Pages
 date: 2015-05-26-15:45
-tags: [Jekyll, Markdown, GitHub, WebDev, jQuery, HTML]
-keywords: [RedCarpet, GitHub Pages, Kramdown, JavaScript]
+tags: [Jekyll, Markdown, GitHub Pages, Web Development, jQuery, HTML]
+keywords: [RedCarpet, GitHub, Kramdown, JavaScript]
 ---
 
 If you are using [Jekyll](http://jekyll.com/) you probably love writing in [Markdown](http://daringfireball.net/projects/markdown/syntax). So do I and over time I've really gotten used to so called GitHub flavored markdown ([GFM](https://help.github.com/articles/github-flavored-markdown/)). This adds some nice features to Markdown, most notably: strike-through, checkmarks, tables, **and** fenced code blocks [^1]. One might think that when using Jekyll on [GitHub Pages](https://pages.github.com/) it would be standard to have GFM, but it's not that simple.
@@ -58,7 +58,7 @@ $('article a').not('[rel="footnote"], [rev="footnote"]').html(function(i, str) {
 }).attr('target','_blank');
 ```
 
-## Is there hope for the future?
+## Is there hope for a better solution in the future?
 
 This solution is of course a little dirty, because it doesn't compile the final HTML and serves it statically. So is there hope this could be done on the backend? Not so much unless you are willing to precompile the whole site locally and not via GitHub Pages, which of course is an option. The Markdown converter on GitHub will probably also stay uncustomizable in the future, but maybe some more functionality (like figures and line-numbers in code blocks) could be added. GitHub also seems to be working on their own Markdown editor, so that might bring some change.
 

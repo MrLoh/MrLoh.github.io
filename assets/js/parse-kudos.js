@@ -12,9 +12,9 @@ String.prototype.hashCode = function() {
 function updateScore(score) {
     $("#kudo .num").html(score);
     if ( score == 1 ) {
-        $("#kudo .txt").html('Kudo');
+        $("#kudo .txt").html('Like');
     } else {
-        $("#kudo .txt").html('Kudos');
+        $("#kudo .txt").html('Likes');
     }
 }
 

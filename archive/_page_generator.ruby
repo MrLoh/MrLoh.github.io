@@ -11,7 +11,7 @@ File.open(taglist_path, 'r') do |f1|
         end
     end
 end
-puts "found following tags: #{tags} \n\n"
+puts "found following tags: #{tags}"
 
 # Create .md files for each tag
 for tag in tags
@@ -45,7 +45,7 @@ File.open(datelist_path, 'r') do |f1|
         end
     end
 end
-puts "\nfound following dates: #{dates}\n\n"
+puts "found following dates: #{dates}"
 
 # Create .md files for each year, month, and day
 month_names = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "Oktober", "November", "December"]

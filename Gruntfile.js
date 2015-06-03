@@ -1,9 +1,16 @@
 module.exports = function (grunt) {
+	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
 
+		// CSS Processors
+
 		sass: {
-			my_target: {
+			options: {
+				compress: false,
+				sourcemap: 'none'
+			},
+			scss: {
 				files: [{
 					expand: true,
 					cwd: 'assets/css/',
@@ -11,10 +18,6 @@ module.exports = function (grunt) {
 					dest: 'assets/css/',
 					ext: '.min.css'
 				}]
-			},
-			options: {
-				compress: false,
-				sourcemap: 'none'
 			}
 		},
 
@@ -22,13 +25,13 @@ module.exports = function (grunt) {
 			options: {
 				browsers: ['> 0.5%']
 			},
-			allcss: {
+			mincss: {
 				src: 'assets/css/*.css'
 			}
 		},
 
 		cssmin: {
-			my_target: {
+			mincss: {
 				files: [{
 					expand: true,
 					cwd: 'assets/css/',
@@ -39,41 +42,92 @@ module.exports = function (grunt) {
 			}
 		},
 
+		// JS Processors
+
+		import: {
+			js: {
+				expand: true,
+				cwd: 'assets/js/',
+				src: ['*.js', '!*.min.js'],
+				dest: 'assets/js/',
+				ext: '.min.js'
+			}
+		},
+
 		uglify: {
-			my_target: {
+			minjs: {
 				files: [{
 					expand: true,
 					cwd: 'assets/js/',
-					src: ['*.js', '!*.min.js'],
+					src: ['*.min.js'],
 					dest: 'assets/js/',
 					ext: '.min.js'
 				}]
 			}
 		},
 
-		watch: {
-			// sass_compile: {
-			// 	files: ['assets/css/*.scss'],
-			// 	tasks: ['sass']
-			// },
-			postcss: {
-				files: ['assets/css/*.scss'],
-				tasks: ['sass', 'autoprefixer', 'cssmin']
+		// Copy JS and CSS
+
+		copy: {
+			mincss: {
+				expand: true,
+				cwd: 'assets/css/',
+				src: ['*.min.css'],
+				dest: '_site/assets/css/'
 			},
-			postjs: {
-				files: ['assets/js/*.js'],
-				tasks: ['uglify']
+			minjs: {
+				expand: true,
+				cwd: 'assets/js/',
+				src: ['*.min.js'],
+				dest: '_site/assets/js/'
+			}
+		},
+
+		// Jekyll Build and run Ruby scripts
+
+
+		shell: {
+			jekyll: {
+				command: 'jekyll build --drafts'
+			},
+			archive: {
+				command: 'ruby archive/_page_generator.ruby'
+			}
+		},
+
+		// watch
+
+		watch: {
+			css: {
+				files: ['assets/css/*.scss'],
+				tasks: ['sass', 'autoprefixer', 'cssmin', 'copy:mincss']
+			},
+			js: {
+				files: ['assets/js/*.js', '!assets/js/*.min.js'],
+				tasks: ['import', 'uglify', 'copy:minjs']
+			},
+			jekyll: {
+				files: ['*.html', '*.md', '*.yml', '*.png', '*.icon', '*.xml', '_drafts/*', '_includes/**', '_layouts/*', '_posts/*', 'archive/*', 'assets/img/**', 'assets/lib/*', 'assets/svg/*'],
+				tasks: ['shell:jekyll', 'shell:archive', ]
+			}
+		},
+
+		// Serve
+
+		connect: {
+			server: {
+				options: {
+					livereload: true,
+					base: '_site/',
+					port: 4000
+				}
 			}
 		}
 
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-autoprefixer');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['sass','autoprefixer','cssmin','uglify']);
+	grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'import', 'uglify', 'jekyll']);
+	grunt.registerTask('serve', ['connect:server', 'watch']);
 
 };
