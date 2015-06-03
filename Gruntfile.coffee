@@ -1,5 +1,5 @@
 module.exports = (grunt) ->
-	require('load-grunt-tasks')(grunt);
+	require('load-grunt-tasks')(grunt)
 
 	grunt.initConfig
 
@@ -16,19 +16,18 @@ module.exports = (grunt) ->
 					dest: 'assets/css/'
 					ext: '.min.css'
 				]
-		autoprefixer:
+		postcss:
 			options:
-				browsers: ['> 0.5%']
-			mincss:
-				src: 'assets/css/*.css'
-		cssmin:
+				processors: [
+					require 'autoprefixer-core'
+					require 'csswring'
+				]
 			mincss:
 				files: [
 					expand: true
 					cwd: 'assets/css/'
-					src: ['*.css']
+					src: ['*.min.css']
 					dest: 'assets/css/'
-					ext: '.min.css'
 				]
 
 		# JS Processors
@@ -64,8 +63,10 @@ module.exports = (grunt) ->
 
 		# Jekyll Build and run Ruby scripts
 		shell:
-			jekyll:
+			jekyll_drafts:
 				command: 'jekyll build --drafts'
+			jekyll:
+				command: 'jekyll build'
 			archive:
 				command: 'ruby archive/_page_generator.ruby'
 
@@ -73,13 +74,13 @@ module.exports = (grunt) ->
 		watch:
 			css:
 				files: ['assets/css/*.scss']
-				tasks: ['sass', 'autoprefixer', 'cssmin', 'copy:mincss']
+				tasks: ['sass', 'postcss', 'copy:mincss']
 			js:
 				files: ['assets/js/*.js', '!assets/js/*.min.js']
 				tasks: ['import', 'uglify', 'copy:minjs']
 			jekyll:
-				files: ['*.html', '*.md', '*.yml', '*.png', '*.icon', '*.xml', '_drafts/*', '_includes/**', '_layouts/*', '_posts/*', 'archive/*', 'assets/img/**', 'assets/lib/*', 'assets/svg/*']
-				tasks: ['shell:jekyll', 'shell:archive', ]
+				files: ['*.html', '*.md', '*.yml', '*.png', '*.ico', '*.xml', '_drafts/*', '_includes/**', '_layouts/*', '_posts/*', 'archive/*', 'assets/img/**', 'assets/lib/*', 'assets/svg/*']
+				tasks: ['shell:jekyll_drafts', 'shell:archive', ]
 
 		# Serve
 		connect:
@@ -92,13 +93,12 @@ module.exports = (grunt) ->
 
 
 	# Register Tasks
-	grunt.registerTask 'default', [
+	grunt.registerTask 'build', [
 		'sass'
-		'autoprefixer'
-		'cssmin'
+		'postcss'
 		'import'
 		'uglify'
-		'jekyll'
+		'shell:jekyll'
 	]
 	grunt.registerTask 'serve', [
 		'connect:server'
