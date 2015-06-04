@@ -5,22 +5,22 @@
         color: $color0;
     }
 
-    .hll, .ni, .err, .l, .n, .x, .p, .ld, .nc, .nd, .ne, .nl, .nn, .py, .ow, .w, .na, .nx {
+    .hll, .ni, .err, .l, .n, .x, .p, .ld, .nc, .nd, .ne, .nl, .nn, .py, .ow, .w, .na, .nx, .nv {
         color: $background-color;
     }
-    .function, .nv, .vc, .vg, .vi, .nf, .cp, .si {
+    .function, .vc, .vg, .vi, .nf, .cp, .si {
         color: $color2;
     }
     .string, .s, .sb, .sc, .sd, .s2, .se, .gs, , .sh, .sx, .s1, .ss {
         color: $color3;
     }
-    .keyword, .k, .kc, .kd, .kn, .kp, .kr, .gh, .gu, .no, .o {
+    .keyword, .k, .kd, .kn, .kp, .kr, .gh, .gu, .no, .o {
         color: $color4;
         &.o {
             font-weight: bold;
         }
     }
-    .integer, .m, .mf, .mh, .mi, .mo, .il, .nb, .sr, .bp {
+    .integer, .m, .mf, .mh, .mi, .mo, .il, .nb, .sr, .bp, .kc {
         color: $color1;
     }
     .comment, .c, .cm, .c1, .cs {
