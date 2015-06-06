@@ -72,6 +72,8 @@ $(function(){
         kudo.save(null, {success: function(k) {
             updateScore(kudo.get("score"));
         }});
+
+        ga('send', 'event', 'kudos', 'like', title, {'nonInteraction': 1});
     });
 
     $(".kudo").bind("kudo:removed", function(e) {
@@ -83,5 +85,7 @@ $(function(){
         kudo.save(null, {success: function(k) {
             updateScore(kudo.get("score"));
         }});
+
+        ga('send', 'event', 'kudos', 'unlike', title, {'nonInteraction': 1});
     });
 });
