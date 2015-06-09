@@ -35,11 +35,11 @@ blogindex: true
                         {% if post.content contains site.excerpt_separator %}
                             {% capture excerpt %} {{ post.content | split: site.excerpt_separator | first | split: '</p>' }} {% endcapture %}
                             {% for paragraph in excerpt %}
-                                {% if forloop.last == true %}
+                                {% unless forloop.last != true or post.link  %}
                                     {{ paragraph | append: ' ...' }}
                                 {% else %}
                                     {{ paragraph }}
-                                {% endif %}
+                                {% endunless %}
                             {% endfor %}
                         {% else %}
                             {{ post.content | split:'</p>' | first | append: ' ...' }}

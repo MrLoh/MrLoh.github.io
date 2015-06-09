@@ -79,8 +79,8 @@ module.exports = (grunt) ->
 				files: ['assets/js/*.js', '!assets/js/*.min.js']
 				tasks: ['import', 'uglify', 'copy:minjs']
 			jekyll:
-				files: ['*.html', '*.md', '*.yml', '*.png', '*.ico', '*.xml', '_drafts/*', '_includes/**', '_layouts/*', '_posts/*', 'archive/*', 'assets/img/**', 'assets/lib/*', 'assets/svg/*']
-				tasks: ['shell:jekyll_drafts', 'shell:archive', ]
+				files: ['*.html', '*.md', '*.yml', '*.png', '*.ico', '*.xml', '_includes/**', '_layouts/*', '_posts/*', 'archive/*', 'assets/img/**', 'assets/lib/*', 'assets/svg/*']
+				tasks: ['shell:jekyll', 'shell:archive', ]
 
 		# Serve
 		connect:

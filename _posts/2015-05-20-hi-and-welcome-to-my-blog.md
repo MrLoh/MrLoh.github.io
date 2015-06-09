@@ -1,8 +1,7 @@
 ---
 title: 'Hi & Welcome to My Blog!'
 date: '2015-05-20-23:23'
-tags:
-  - Blogging
+tags: [Blogging]
 ---
 
 This is my new blog. I'll write here about ideas, work, and experiences. Some of it might be reviews of technology and camera equipment, some of it might be philosophical, some might be about communication and productivity, and most of it will probably be about coding.
