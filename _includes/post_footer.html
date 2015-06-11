@@ -10,7 +10,7 @@
         {% if page.tags %}
         <p class="tags">
             {% for tag in page.tags %}
-            <a href="{{ tag | downcase | replace: ' ', '-' | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a>
+            <a href="{{ tag | downcase | replace: ' ', '-' | prepend:'/tags/' | prepend: site.baseurl }}">{{ tag }}</a>
             {% endfor %}
         </p>
     </div>

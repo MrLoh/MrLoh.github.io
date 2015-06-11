@@ -4,7 +4,7 @@
         <p class="meta">List of All Tags</p>
         <p class="tags">
         {% for tag in site.tags %}
-            <a href="{{ tag[0] | downcase | replace: ' ', '-' | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
+            <a href="{{ tag[0] | downcase | replace: ' ', '-' | prepend:'/tags/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
         {% endfor %}
         </p>
     </li>
@@ -12,9 +12,9 @@
 
 {% for post in site.posts %}
     {% capture month %}{{ post.date | date: '%m%Y' }}{% endcapture %}
-    {% capture nmonth %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
+    {% capture next_month %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
 
-    {% if month != nmonth %}
+    {% if month != next_month %}
         {% if forloop.index != 1 %}
             </ul>
         {% endif %}

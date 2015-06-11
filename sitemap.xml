@@ -3,13 +3,60 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>{{ site.url }}</loc></url>
+    <!-- Pages -->
+    <url>
+        <loc>{{ site.url }}about</loc>
+        <priority>1</priority>
+    </url>
 
+    <!-- Blog Index -->
+    <url>
+        <loc>{{ site.url }}</loc>
+        <priority>0.75</priority>
+    </url>
+
+    <!-- Posts -->
     {% for post in site.posts %}
-        <url><loc>{{ site.url }}{{ post.url }}/</loc></url>
+        <url>
+            <loc>{{ site.url }}{{ post.url }}/</loc>
+            <priority>1</priority>
+            {% if post.updated %}<lastmod>{{ post.updated | date_to_xmlschema }}</lastmod>{% endif %}
+        </url>
     {% endfor %}
 
+    <!-- Archive -->
+    <url>
+        <loc>{{ site.url }}/archive</loc>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Month/Year Archive -->
+    {% for post in site.posts %}
+        {% capture month %}{{ post.date | date: '%m' }}{% endcapture %}
+        {% capture next_month %}{{ post.next.date | date: '%m' }}{% endcapture %}
+        {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+        {% capture next_year %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+
+        {% if year != next_year or forloop.index == 1 %}
+            <url>
+                <loc>{{ site.url }}{{ post.date | date: '/%Y/' }}</loc>
+                <priority>0</priority>
+            </url>
+        {% endif %}
+
+        {% if month != next_month or year != next_year or forloop.index == 1 %}
+            <url>
+                <loc>{{ site.url }}{{ post.date | date: '/%Y/%m/' }}</loc>
+                <priority>0.25</priority>
+            </url>
+        {% endif %}
+    {% endfor %}
+
+    <!-- Tag Archive -->
     {% for tag in site.tags %}
-        <url><loc>{{ site.url }}/tag/{{ tag[0] }}</loc></url>
+        <url>
+            <loc>{{ site.url }}/tag/{{ tag[0] }}/</loc>
+            <priority>0.75</priority>
+        </url>
     {% endfor %}
 </urlset>

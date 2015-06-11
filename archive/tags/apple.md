@@ -2,5 +2,6 @@
 layout: archive
 title: Apple
 tag: Apple
-permalink: tag/apple/
+permalink: tags/apple/
+redirect_from: archive/tags/apple/
 ---

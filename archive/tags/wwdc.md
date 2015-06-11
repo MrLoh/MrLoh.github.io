@@ -2,5 +2,6 @@
 layout: archive
 title: WWDC
 tag: WWDC
-permalink: tag/wwdc/
+permalink: tags/wwdc/
+redirect_from: archive/tags/wwdc/
 ---

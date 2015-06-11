@@ -80,7 +80,7 @@ module.exports = (grunt) ->
 				tasks: ['import', 'uglify', 'copy:minjs']
 			jekyll:
 				files: ['*.html', '*.md', '*.yml', '*.png', '*.ico', '*.xml', '_includes/**', '_layouts/*', '_posts/*', 'archive/*', 'assets/img/**', 'assets/lib/*', 'assets/svg/*']
-				tasks: ['shell:jekyll', 'shell:archive', ]
+				tasks: ['shell:archive', 'shell:jekyll']
 
 		# Serve
 		connect:
@@ -98,6 +98,7 @@ module.exports = (grunt) ->
 		'postcss'
 		'import'
 		'uglify'
+		'shell:archive'
 		'shell:jekyll'
 	]
 	grunt.registerTask 'serve', [

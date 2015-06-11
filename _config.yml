@@ -14,7 +14,12 @@ github_username:  MrLoh
 safe: true
 lsi: false
 source: "."
-exclude: [node_modules, Gruntfile.js, package.json, README.md]
+exclude: [node_modules, Gruntfile.coffee, package.json, README.md]
+
+gems:
+  - jekyll-redirect-from
+
+jekyll-redirect-from:
 
 markdown: redcarpet
 redcarpet:

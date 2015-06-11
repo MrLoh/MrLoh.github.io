@@ -3,8 +3,8 @@ require 'fileutils'
 # Read Tags into array
 tags = []
 taglist_path = File.expand_path("../../_site/archive/taglist.txt", __FILE__)
-File.open(taglist_path, 'r') do |f1|
-    while tag = f1.gets
+File.open(taglist_path, 'r') do |f|
+    while tag = f.gets
         tag = tag.strip
         unless tag == "" || tag == "\n"
             tags += [tag]
@@ -19,13 +19,14 @@ for tag in tags
     tagpage_path = File.expand_path("../tags/#{tagpath}.md", __FILE__)
     unless File.exists?(tagpage_path)
         FileUtils.mkdir_p(File.dirname(tagpage_path))
-        File.open(tagpage_path, 'w') do |f2|
-          f2.puts "---"
-          f2.puts "layout: archive"
-          f2.puts "title: #{tag}"
-          f2.puts "tag: #{tag}"
-          f2.puts "permalink: tag/#{tagpath}/"
-          f2.puts "---"
+        File.open(tagpage_path, 'w') do |f|
+          f.puts "---"
+          f.puts "layout: archive"
+          f.puts "title: #{tag}"
+          f.puts "tag: #{tag}"
+          f.puts "permalink: tags/#{tagpath}/"
+          f.puts "redirect_from: archive/tags/#{tagpath}/"
+          f.puts "---"
         end
         puts "created #{tag.downcase}.md"
     end
@@ -37,8 +38,8 @@ end
 # Read Dates into array
 dates = []
 datelist_path = File.expand_path("../../_site/archive/datelist.txt", __FILE__)
-File.open(datelist_path, 'r') do |f1|
-    while date = f1.gets
+File.open(datelist_path, 'r') do |f|
+    while date = f.gets
         date = date.strip
         unless date == "" || date == "\n"
             dates += [[date[0..3], date[5..6], date[8..9]]]
@@ -54,13 +55,14 @@ for date in dates
     yearpage_path = File.expand_path("../#{year}/index.md", __FILE__)
     unless File.exists?(yearpage_path)
         FileUtils.mkdir_p(File.dirname(yearpage_path))
-        File.open(yearpage_path, 'w') do |f2|
-          f2.puts "---"
-          f2.puts "layout: archive"
-          f2.puts "title: #{year}"
-          f2.puts "year: '#{year}'"
-          f2.puts "permalink: #{year}/"
-          f2.puts "---"
+        File.open(yearpage_path, 'w') do |f|
+          f.puts "---"
+          f.puts "layout: archive"
+          f.puts "title: #{year}"
+          f.puts "year: '#{year}'"
+          f.puts "permalink: #{year}/"
+          f.puts "redirect_from: archive/#{year}/"
+          f.puts "---"
         end
         puts "created #{tag.downcase}.md"
     end
@@ -69,14 +71,15 @@ for date in dates
     monthpage_path = File.expand_path("../#{year}/#{month}/index.md", __FILE__)
     unless File.exists?(monthpage_path)
         FileUtils.mkdir_p(File.dirname(monthpage_path))
-        File.open(monthpage_path, 'w') do |f3|
-          f3.puts "---"
-          f3.puts "layout: archive"
-          f3.puts "title: #{month_names[Integer(month)]} #{year}"
-          f3.puts "year: '#{year}'"
-          f3.puts "month: '#{month}'"
-          f3.puts "permalink: #{year}/#{month}/"
-          f3.puts "---"
+        File.open(monthpage_path, 'w') do |f|
+          f.puts "---"
+          f.puts "layout: archive"
+          f.puts "title: #{month_names[Integer(month)]} #{year}"
+          f.puts "year: '#{year}'"
+          f.puts "month: '#{month}'"
+          f.puts "permalink: #{year}/#{month}/"
+          f.puts "redirect_from: archive/#{year}/#{month}/"
+          f.puts "---"
         end
     end
 end

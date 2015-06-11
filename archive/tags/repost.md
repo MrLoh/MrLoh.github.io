@@ -2,5 +2,6 @@
 layout: archive
 title: Repost
 tag: Repost
-permalink: tag/repost/
+permalink: tags/repost/
+redirect_from: archive/tags/repost/
 ---

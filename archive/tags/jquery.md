@@ -2,5 +2,6 @@
 layout: archive
 title: jQuery
 tag: jQuery
-permalink: tag/jquery/
+permalink: tags/jquery/
+redirect_from: archive/tags/jquery/
 ---

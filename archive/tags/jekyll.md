@@ -2,5 +2,6 @@
 layout: archive
 title: Jekyll
 tag: Jekyll
-permalink: tag/jekyll/
+permalink: tags/jekyll/
+redirect_from: archive/tags/jekyll/
 ---

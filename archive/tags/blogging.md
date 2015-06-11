@@ -2,5 +2,6 @@
 layout: archive
 title: Blogging
 tag: Blogging
-permalink: tag/blogging/
+permalink: tags/blogging/
+redirect_from: archive/tags/blogging/
 ---

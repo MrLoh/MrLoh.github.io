@@ -2,5 +2,6 @@
 layout: archive
 title: HTML
 tag: HTML
-permalink: tag/html/
+permalink: tags/html/
+redirect_from: archive/tags/html/
 ---

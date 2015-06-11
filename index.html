@@ -17,7 +17,7 @@ blogindex: true
             <!-- <ul>
             {% for tag in site.tags %}
                 <li class="tag" style="display: inline-block">
-                    <a href="{{ tag[0] | downcase | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
+                    <a href="{{ tag[0] | downcase | prepend:'/tags/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
                 </li>
             {% endfor %} -->
         </aside>
@@ -47,7 +47,7 @@ blogindex: true
                     </div>
                     <div class="tags">
                         {% for tag in post.tags %}
-                        <a href="{{ tag | downcase | replace: ' ', '-' | prepend:'/tag/' | prepend: site.baseurl }}">{{ tag }}</a>
+                        <a href="{{ tag | downcase | replace: ' ', '-' | prepend:'/tags/' | prepend: site.baseurl }}">{{ tag }}</a>
                         {% endfor %}
                     </div>
                 </li>
