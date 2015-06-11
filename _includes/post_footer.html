@@ -5,7 +5,7 @@
     <div class="container">
         <p class="meta">
                 by <a href="{{ page.author-link }}">{{ page.author }}</a>
-                on <a href="{{ {{ page.date | date: '/%Y/%m/' | prepend: site.baseurl }} }}">{{ page.date | date: '%b %-d, %Y' }}</a>
+                on <a href="{{ page.date | date: '/%Y/%m/' | prepend: site.baseurl }}">{{ page.date | date: '%b %-d, %Y' }}</a>
         </p>
         {% if page.tags %}
         <p class="tags">
