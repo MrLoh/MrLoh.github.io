@@ -9,7 +9,7 @@ def write_file(path, link, title, options={})
             f.puts "redirect_from: archive/#{link}"
             f.puts "title: '#{title}'"
             options.each do |k, v|
-                f.puts "#{k}: #{v}"
+                f.puts "#{k}: '#{v}'"
             end
             f.puts "---"
         end
@@ -49,7 +49,7 @@ end
 for tag in tags
     tagpath = tag.include?(' ') ? tag.downcase.gsub!(' ','-') : tag.downcase
     tagpage_path = tags_folder_path + "/#{tagpath}.md"
-    write_file(tagpage_path, "tags/#{tagpath}/", tag, {tag: "'#{tag}'"})
+    write_file(tagpage_path, "tags/#{tagpath}/", tag, {tag: tag})
 end
 # Create template files for each year and month
 for date in dates
@@ -60,5 +60,5 @@ for date in dates
     month = date[1]
     monthpage_path = yearmonth_folder_path + "/#{year}-#{month}.md"
     month_name = "#{MONTH_NAMES[Integer(month)]} #{year}"
-    write_file(monthpage_path, "#{year}/#{month}/", month_name, {year: "#{year}", month: "#{month}"})
+    write_file(monthpage_path, "#{year}/#{month}/", month_name, {year: year, month: month})
 end
