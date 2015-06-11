@@ -39,7 +39,7 @@ header.article {
         font-size: 3*$base-font-size;
         line-height: 2.3*$unit;
         max-width: $article-width;
-        margin: 0 auto $unit/4 auto;
+        margin: $unit/4 auto;
 
         @include media($article-width) {
             font-size: 2.2*$base-font-size;
@@ -55,16 +55,16 @@ header.article {
         }
     }
 
-    .meta {
+    .meta, .description {
         margin: 0;
-        line-height: 1.1em;
 
         color: $gray-color;
 
         font-family: $font-sc;
         font-size: 1.1*$base-font-size;
-        font-weight: 600;
+        font-weight: 400;
         text-transform: lowercase;
+        line-height: 1.1;
 
         @include media(20*$unit) {
             font-size: 0.9*$base-font-size;
@@ -85,17 +85,24 @@ header.article {
             }
         }
 
-        span {
-            color: $gray-color;
-            font-weight: 400;
-        }
-
         a {
+            font-weight: 600;
             &:hover {
                 text-decoration: none;
                 color: lighten($alt-background-color, 15%);
             }
         }
+    }
+
+    .description {
+        max-width: $article-width;
+        margin: 0 auto;
+    }
+    hr.description {
+        margin-top: 1.25*$unit;
+        max-width: $article-width/1.75;
+        border: none;
+        border-bottom: solid 1px lighten($gray-color, 20%);
     }
 }
 
