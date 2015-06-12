@@ -2,7 +2,7 @@
 title: 'Hi & Welcome to My Blog!'
 date: '2015-05-20-23:23'
 tags: [Blogging]
-description: 'The beginning of my new blog'
+description: 'The beginning of my new blog about code and more'
 ---
 
 This is my new blog. I'll write here about ideas, work, and experiences. Some of it might be reviews of technology and camera equipment, some of it might be philosophical, some might be about communication and productivity, and most of it will probably be about coding.
@@ -13,7 +13,7 @@ The idea is to capture accomplishments that might be useful to someone else, but
 
 This blog is powered by [Jekyll](http://jekyll.com) --- the static blog generator --- and it's hosted on [GitHub Pages](https://pages.github.com/) for free. It should be really fast and still have a lot of nice features. The theme is completely hand coded with love and CSS3. The source-code lives on [GitHub](https://github.com/MrLoh/MrLoh.github.io), get inspired if you feel like it. I based the color scheme on this amazing photo from [Emmanuel Coupé](http://www.emmanuelcoupe.com/photo/is0779/), that I found on this amazing tumblr [natural pallets](http://palettes.co/post/75914098457/photo-by-emmanuel-coupe).
 
-![The inspiration for the color scheme of this blog](/assets/img/color-sheme.jpg)
+![The inspiration for the color scheme of this blog](/assets/img/2015-05-11-color-sheme.jpg)
 
 I'm gonna write more about some of the features of this blog and how they are set up. Some of the highlights include:
 

@@ -573,7 +573,7 @@ article {
         font-size: 0.9em;
     }
 
-    .codeblock, .highlighttable, .CodeRay, & > .highlight {
+    .codeblock, .highlighttable, .CodeRay, & .content > .highlight {
         $line-color: lighten($alt-background-color, 10%);
 
         overflow-x: scroll;
@@ -682,25 +682,48 @@ article {
     /********************************* FIGURE *********************************/
     figure {
         position: relative;
-        width: 100%;
+        width: $article-width + $unit;
+        margin-left: -$unit/2;
+        border-radius: $unit/8;
+
+        &.left {
+            float: left;
+            width: 17*$unit;
+            margin: $unit/2 $unit/4*3 $unit/2 -5*$unit;
+            @include media($article-width + 12*$unit) {
+                margin-left: -3*$unit;
+            }
+            @include media($article-width + 9*$unit) {
+                margin-left: -2*$unit;
+            }
+            @include media($article-width + 6*$unit) {
+                float: none;
+                width: 98%;
+                margin: $base-font-size/2 0;
+            }
+        }
 
         @include media($article-width) {
             margin: 0 -$padding-factor*$padding;
             margin-bottom: $unit;
-            margin-top: $unit;
+            margin-top: 0;
             width: $padding-factor*100%;
+            border-radius: 0;
         }
+
         overflow: hidden;
+
         img {
             position: relative;
-
+            border-radius: inherit;
             display: block;
-
             width: 100%;
         }
+
         figcaption {
             position: absolute;
             bottom:0;
+            border-radius: inherit;
 
             box-sizing: border-box;
             width: 100%;
@@ -719,6 +742,7 @@ article {
             font-weight: 400;
             letter-spacing: 0.05em;
         }
+
         &:hover, &:focus, &:active, &:active {
             figcaption {
                 transition: transform 0.4s, opacity 0.1s;
@@ -744,7 +768,9 @@ article {
 
         border-left: $border-width solid $border-color;
         background: $border-color-light;
-        margin: $unit 0 $unit/3*5 -2*$border-width;
+        width: $article-width + $unit;
+        box-sizing: border-box;
+        margin: $unit 0 $unit/3*5 -0.5*$unit;
         padding: $unit/2 $unit/2 $unit/3 $unit/2;
         border-radius: $border-width $border-width $border-width 0;
 
@@ -756,7 +782,7 @@ article {
             padding-left: 5%;
             padding-right: 5%;
             border-left: none;
-            border-top: 1px solid lighten($border-color, 15%);
+            border-top: 1px solid darken($border-color-light, 10%);
             border-radius: 0;
         }
 
@@ -770,21 +796,36 @@ article {
             position: relative;
             text-indent: 1.6*$unit;
             color: $border-color;
+            line-height: 1.35;
 
             a {
                 color: inherit;
             }
 
+            &:last-of-type::after, &:first-child::before {
+                font-family: $font-sc;
+                font-size: 3.5*$unit;
+                font-weight: 600;
+                color: $border-color;
+                display: inline-block;
+                width: 1.5em;
+            }
+
             &:first-child::before {
                 content: '\201C';
-                font-family: $alt-font;
-                font-size: 3.5*$unit;
-                font-style: italic;
                 position: absolute;
-                color: $border-color;
-                top: 0.3em;
-                left: -1.7*$unit;
-                width: 1.5em;
+                top: -1.05*$unit;
+                left: -2.1*$unit;
+            }
+
+            &:last-of-type::after {
+                content: '\201D';
+                font-size: 2.25*$unit;
+                color: lighten($border-color, 2%);
+                position: relative;
+                top: 0.3*$unit;
+                left: -1.85*$unit;
+                line-height: $unit/8;
             }
 
             a::before {

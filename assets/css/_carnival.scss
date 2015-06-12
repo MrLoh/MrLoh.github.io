@@ -1,5 +1,6 @@
 .carnival-comment-indicator {
 	z-index: 10000 !important;
+	right: -1.5*$unit !important;
 
 	svg path {
 		fill: lighten($action-color, 25%) !important;
