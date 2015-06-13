@@ -2,7 +2,7 @@
 title: 'A Keynote in a Minor Key'
 date: '2015-06-09-16:00'
 link: http://mashable.com/2015/06/08/wwdc-2015-a-keynote-in-a-minor-key/
-tags: [Repost, Apple, WWDC, Apple Watch, Swift]
+tags: [Repost, Opinion, Apple, WWDC, Apple Watch, Swift]
 ---
 
 Lance Ulanoff on Mashable pretty much expressed my thoughts on the WWDC 2015 Apple Keynote yesterday:

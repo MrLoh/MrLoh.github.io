@@ -1,0 +1,28 @@
+<ol class="breadcrumbs" vocab="http://schema.org/" typeof="BreadcrumbList" style="display: none">
+    <li property="itemListElement" typeof="ListItem">
+        <a property="item" typeof="WebPage" href="{{ site.url }}">
+            <span property="name">MrLoh Blog</span>
+        </a>
+        <meta property="position" content="1">
+    </li>
+    {% if page.layout == 'post' %}
+        <li property="itemListElement" typeof="ListItem">
+            <a property="item" typeof="WebPage" href="{{ page.date | date: '/%Y/' | prepend: site.url }}">
+                <span property="name">{{ page.date | date: '%Y' }}</span>
+            </a>
+            <meta property="position" content="2">
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            <a property="item" typeof="WebPage" href="{{ page.date | date: '/%Y/%m/' | prepend: site.url }}">
+                <span property="name">{{ page.date | date: '%B' }}</span>
+            </a>
+            <meta property="position" content="3">
+        </li>
+        <li property="itemListElement" typeof="ListItem">
+            <a property="item" typeof="WebPage" href="{{ page.url }}">
+                <span property="name">{{ page.title }}</span>
+            </a>
+            <meta property="position" content="4">
+        </li>
+    {% endif %}
+</ol>

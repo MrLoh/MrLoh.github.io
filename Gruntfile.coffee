@@ -98,6 +98,7 @@ module.exports = (grunt) ->
 		'postcss'
 		'import'
 		'uglify'
+		'shell:jekyll'
 		'shell:archive'
 		'shell:jekyll'
 	]
