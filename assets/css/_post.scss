@@ -393,7 +393,7 @@ article {
                 position: relative;
                 color: $text-color;
 
-                transition: color 0.3s 0.1s, text-shadow 0s 0.3s;
+                transition: color 0.2s 0.3s, text-shadow 0s 0.6s;
                 text-shadow: 1px 0 0 $background-color, -1px 0 0 $background-color;
 
                 &::before {
@@ -571,6 +571,7 @@ article {
         background-color: rgba($alt-background-color, 0.05);
 
         font-size: 0.9em;
+        line-height: 1;
     }
 
     .codeblock, .highlighttable, .CodeRay, & .content > .highlight {

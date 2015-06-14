@@ -1,12 +1,12 @@
 MONTH_NAMES = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "Oktober", "November", "December"]
 
-def write_file(path, link, title, options={})
+def write_template_file(path, permalink, title, options={})
     unless File.exists?(path)
         File.open(path, 'w') do |f|
             f.puts "---"
             f.puts "layout: archive"
-            f.puts "permalink: #{link}"
-            f.puts "redirect_from: archive/#{link}"
+            f.puts "permalink: '#{permalink}'"
+            f.puts "redirect_from: 'archive/#{permalink}'"
             f.puts "title: '#{title}'"
             options.each do |k, v|
                 f.puts "#{k}: '#{v}'"
@@ -21,8 +21,8 @@ end
 # Create containing folders
 tags_folder_path = File.expand_path("../tags/", __FILE__)
 Dir.mkdir(tags_folder_path) unless File.exists?(tags_folder_path)
-yearmonth_folder_path = File.expand_path("../months/", __FILE__)
-Dir.mkdir(yearmonth_folder_path) unless File.exists?(yearmonth_folder_path)
+dates_folder_path = File.expand_path("../dates/", __FILE__)
+Dir.mkdir(dates_folder_path) unless File.exists?(dates_folder_path)
 
 
 # Read Tags into array
@@ -40,7 +40,7 @@ datelist_path = File.expand_path("../../_site/archive/datelist.txt", __FILE__)
 File.open(datelist_path, 'r') do |f|
     while date = f.gets
         date = date.strip
-        dates += [[date[0..3], date[5..6], date[8..9]]] unless date == "" || date == "\n"
+        dates += [{year: date[0..3], month: date[5..6], day: date[8..9]}] unless date == "" || date == "\n"
     end
 end
 
@@ -49,16 +49,14 @@ end
 for tag in tags
     tagpath = tag.include?(' ') ? tag.downcase.gsub!(' ','-') : tag.downcase
     tagpage_path = tags_folder_path + "/#{tagpath}.md"
-    write_file(tagpage_path, "tags/#{tagpath}/", tag, {tag: tag})
+    write_template_file(tagpage_path, "tags/#{tagpath}/", tag, {tag: tag})
 end
 # Create template files for each year and month
 for date in dates
-    year = date[0]
-    yearpage_path = yearmonth_folder_path + "/#{year}.md"
-    write_file(yearpage_path, "#{year}/", year, {year:"#{year}"})
+    yearpage_path = dates_folder_path + "/#{date[:year]}.md"
+    write_template_file(yearpage_path, "#{date[:year]}/", date[:year], {year:"#{date[:year]}"})
 
-    month = date[1]
-    monthpage_path = yearmonth_folder_path + "/#{year}-#{month}.md"
-    month_name = "#{MONTH_NAMES[Integer(month)]} #{year}"
-    write_file(monthpage_path, "#{year}/#{month}/", month_name, {year: year, month: month})
+    monthpage_path = dates_folder_path + "/#{date[:year]}-#{date[:month]}.md"
+    month_name = "#{MONTH_NAMES[Integer(date[:month])]} #{date[:year]}"
+    write_template_file(monthpage_path, "#{date[:year]}/#{date[:month]}/", month_name, {year: date[:year], month: date[:month]})
 end

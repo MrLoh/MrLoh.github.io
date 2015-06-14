@@ -47,4 +47,9 @@ $(function() {
 	$('article a').not('[rel="footnote"], [rev="footnote"]').html(function(i, str) {
 		return str.replace(/ /g,'&nbsp;');
 	}).attr('target','_blank');
+
+	// make / in code blocks ine-breakable
+	$('article p code').html(function() {
+		return $(this).text().split('/').join('/<wbr>');
+	});
 });
