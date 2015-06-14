@@ -19,7 +19,7 @@ I'm gonna write more about some of the features of this blog and how they are se
 
 - Inline comments powered by [carnival](https://carnivalapp.io/)
 - [Kudos](http://amitu.com/2013/04/kudos-using-parse-for-jekyll/) that let you show your appreciation anonymously
-- Full year, month and tag archives (more about the set up soon)
+- Full year, month and tag archives (read more about the set up [here](http://MrLoh.se/2015/06/automatic-archives-for-jekyll-on-github-pages/))
 - Beautiful styles for
   - Codeblocks
   - Blockquotes

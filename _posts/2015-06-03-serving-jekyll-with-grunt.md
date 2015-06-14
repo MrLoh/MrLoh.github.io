@@ -103,7 +103,7 @@ copy:
         dest: '_site/assets/js/'
 ```
 
-If any other file (mainly `html` and `md` files) change, we will just trigger a `jekyll build` via the shell plugin, since that's what Jekyll is there fore after all. In production I usually want to compile with the `--drafts` flag, so I include one task for that here and I also have another ruby script that I run which generates my archive pages without any plugins --- I'll right more about that works another time. There also is a dedicated [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll) plugin, but that didn't work for me with drafts, is significantly slower, and not maintained well anymore, so the shell script seemed like the better option for now.
+If any other file (mainly `html` and `md` files) change, we will just trigger a `jekyll build` via the shell plugin, since that's what Jekyll is there fore after all. In production I usually want to compile with the `--drafts` flag, so I include one task for that here and I also have another ruby script that I run which generates my archive pages without any plugins --- read more about it in [this post](http://MrLoh.se/2015/06/automatic-archives-for-jekyll-on-github-pages/). There also is a dedicated [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll) plugin, but that didn't work for me with drafts, is significantly slower, and not maintained well anymore, so the shell script seemed like the better option for now.
 
 ```coffee
 shell:
