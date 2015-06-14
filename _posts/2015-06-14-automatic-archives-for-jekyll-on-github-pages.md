@@ -136,5 +136,3 @@ So that's it, now you have full blown year, month, and tag archive pages for you
 ## Another Idea for a Solution
 
 Of course there are other solutions. Another idea would be to handle all this on the front-end with a little JavaScript app --- probably using some [Backbone](http://backbonejs.org), [Angular](https://angularjs.org), or [Ember](http://emberjs.com) to handle the routing and so on. One could invoke the app from the 404 page and generate the archive in the front-end, using liquid-generated JSON file(s) as a databse-less API. Of course that shifts some of the (fairly light) lifting to the client device, but that's ok since the bottleneck in this case is more like to be the transfer-bandwidth than the computing power of the client device.
-
-There is also a chance that a [future](http://jekyllrb.com/docs/permalinks/index.html#extensionless-permalinks) Jekyll release will include archive page functionality, but who knows.
