@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
     {% include head.html %}
-    <body>
-        {% include nav.html %}
-
-        <section>
-            {{ content }}
-        </section>
-
-        {% include footer.html %}
+    {% if page.dark %}
+        <body class="index">
+    {% else %}
+        <body>
+    {% endif %}
+        {{ content }}
     </body>
 </html>

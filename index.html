@@ -1,70 +1,66 @@
 ---
+layout: default
+dark: true
 title: Blog
 blogindex: true
 description: 'Blog of Tobias Lohse about Programming, Technology, Philosophy, and more'
 ---
 
-<!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#">
-    {% include head.html %}
-    <body class="index">
-        <header>
-            <h1 title="MrLoh.se Thoughts &amp; Code">
-                {% include title.svg %}
-            </h1>
-        </header>
+<header>
+    <h1 title="MrLoh.se Thoughts &amp; Code">
+        {% include title.svg %}
+    </h1>
+</header>
 
-        <aside class="tags">
-            <!-- <ul>
-            {% for tag in site.tags %}
-                <li class="tag" style="display: inline-block">
-                    <a href="{{ tag[0] | downcase | prepend:'/tags/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
-                </li>
-            {% endfor %} -->
-        </aside>
+<aside class="tags">
+    <!-- <ul>
+    {% for tag in site.tags %}
+        <li class="tag" style="display: inline-block">
+            <a href="{{ tag[0] | downcase | prepend:'/tags/' | prepend: site.baseurl }}">{{ tag[0] }}</a>
+        </li>
+    {% endfor %} -->
+</aside>
 
-        <section>
-            <ul class="posts">
-            {% for post in site.posts %}
-                <li class="post">
-                    <div class="meta">
-                        by <a href="{{ post.author-link }}">{{ post.author }}</a>
-                        on <a href="{{ post.date | date: '/%Y/%m/' | prepend: site.baseurl }}"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %-d, %Y" }}</time></a>
-                    </div>
-                    <h3 class="hover-target"><a href="{% if post.link %} {{ post.link | append: '\" target=\"blank' }} {% else %} {{ post.url }} {% endif %}">{{ post.title }}</a></h3>
-                    <div class="excerpt">
-                        {% if post.content contains site.excerpt_separator %}
-                            {% capture excerpt %} {{ post.content | split: site.excerpt_separator | first | split: '</p>' }} {% endcapture %}
-                            {% for paragraph in excerpt %}
-                                {% unless forloop.last != true or post.link  %}
-                                    {{ paragraph | append: ' ...' }}
-                                {% else %}
-                                    {{ paragraph }}
-                                {% endunless %}
-                            {% endfor %}
+<section>
+    <ul class="posts">
+    {% for post in site.posts %}
+        <li class="post">
+            <div class="meta">
+                by <a href="{{ post.author-link }}">{{ post.author }}</a>
+                on <a href="{{ post.date | date: '/%Y/%m/' | prepend: site.baseurl }}"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %-d, %Y" }}</time></a>
+            </div>
+            <h3 class="hover-target"><a href="{% if post.link %} {{ post.link | append: '\" target=\"blank' }} {% else %} {{ post.url }} {% endif %}">{{ post.title }}</a></h3>
+            <div class="excerpt">
+                {% if post.content contains site.excerpt_separator %}
+                    {% capture excerpt %} {{ post.content | split: site.excerpt_separator | first | split: '</p>' }} {% endcapture %}
+                    {% for paragraph in excerpt %}
+                        {% unless forloop.last != true or post.link  %}
+                            {{ paragraph | append: ' ...' }}
                         {% else %}
-                            {{ post.content | split:'</p>' | first | append: ' ...' }}
-                        {% endif %}
-                    </div>
-                    <div class="tags">
-                        {% for tag in post.tags %}
-                        <a href="{{ tag | downcase | replace: ' ', '-' | prepend:'/tags/' | prepend: site.baseurl }}">{{ tag }}</a>
-                        {% endfor %}
-                    </div>
-                </li>
-            {% endfor %}
-            </ul>
-        </section>
+                            {{ paragraph }}
+                        {% endunless %}
+                    {% endfor %}
+                {% else %}
+                    {{ post.content | split:'</p>' | first | append: ' ...' }}
+                {% endif %}
+            </div>
+            <div class="tags">
+                {% for tag in post.tags %}
+                <a href="{{ tag | downcase | replace: ' ', '-' | prepend:'/tags/' | prepend: site.baseurl }}">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </li>
+    {% endfor %}
+    </ul>
+</section>
 
-        {% include site_scripts.html %}
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(".hover-target").mouseenter(function() {
-                    $(this).parent().addClass("hover").mouseleave(function() {
-                        $(this).removeClass("hover");
-                    });
-                });
+{% include site_scripts.html %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".hover-target").mouseenter(function() {
+            $(this).parent().addClass("hover").mouseleave(function() {
+                $(this).removeClass("hover");
             });
-        </script>
-    </body>
-</html>
+        });
+    });
+</script>

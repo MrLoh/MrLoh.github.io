@@ -1,30 +1,32 @@
-<!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#">
-    {% include head.html %}
-    <body class="archive">
-        <header class="archive">
-            {% include nav.html %}
-        </header>
-        <section class="archive">
-            {% if page.title == 'Archive' %}
-                <h1>{{ page.title }}</h1>
-                {% include archive_index.html %}
-            {% else %}
-                <h1>Archive: {{ page.title }}</h1>
-                <ul>
-                    {% if page.month %}
-                        {% include archive_month.html %}
-                    {% elsif page.year %}
-                        {% include archive_year.html %}
-                    {% elsif page.tag %}
-                        {% include archive_tag.html %}
-                    {% endif %}
-                </ul>
+---
+type: archive
+layout: default
+---
+
+<header class="archive">
+    {% include nav.html %}
+</header>
+
+<section class="archive">
+    {% if page.title == 'Archive' %}
+        <h1>{{ page.title }}</h1>
+        {% include archive_index.html %}
+    {% else %}
+        <h1>Archive: {{ page.title }}</h1>
+        <ul>
+            {% if page.month %}
+                {% include archive_month.html %}
+            {% elsif page.year %}
+                {% include archive_year.html %}
+            {% elsif page.tag %}
+                {% include archive_tag.html %}
             {% endif %}
-        </section>
+        </ul>
+    {% endif %}
+</section>
 
-        {% include footer.html %}
+<footer>
+    {% include footer.html %}
+</footer>
 
-        {% include site_scripts.html %}
-    </body>
-</html>
+{% include site_scripts.html %}

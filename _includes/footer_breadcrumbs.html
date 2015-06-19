@@ -5,7 +5,7 @@
         </a>
         <meta property="position" content="1">
     </li>
-    {% if page.layout == 'post' %}
+    {% if page.type == 'post' %}
         <li property="itemListElement" typeof="ListItem">
             <a property="item" typeof="WebPage" href="{{ page.date | date: '/%Y/' | prepend: site.url }}">
                 <span property="name">{{ page.date | date: '%Y' }}</span>
@@ -19,10 +19,47 @@
             <meta property="position" content="3">
         </li>
         <li property="itemListElement" typeof="ListItem">
-            <a property="item" typeof="WebPage" href="{{ page.url }}">
+            <a property="item" typeof="WebPage" href="{{ page.url | prepend: site.url }}">
                 <span property="name">{{ page.title }}</span>
             </a>
             <meta property="position" content="4">
+        </li>
+    {% elsif page.type == 'archive' %}
+        <li property="itemListElement" typeof="ListItem">
+            <a property="item" typeof="WebPage" href="{{ site.url | append: '/archive/' }}">
+                <span property="name">Archive</span>
+            </a>
+            <meta property="position" content="2">
+        </li>
+        {% if page.tag %}
+            <li property="itemListElement" typeof="ListItem">
+                <a property="item" typeof="WebPage" href="{{ page.url | prepend: site.url }}">
+                    <span property="name">{{ page.tag }}</span>
+                </a>
+                <meta property="position" content="3">
+            </li>
+        {% elsif page.year %}
+            <li property="itemListElement" typeof="ListItem">
+                <a property="item" typeof="WebPage" href="{{ page.year | prepend: '/' | prepend: site.url }}">
+                    <span property="name">{{ page.year }}</span>
+                </a>
+                <meta property="position" content="3">
+            </li>
+            {% if page.month %}
+                <li property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" href="{{ page.url | prepend: site.url }}">
+                        <span property="name">{% include helper/monthnames.html %}</span>
+                    </a>
+                    <meta property="position" content="4">
+                </li>
+            {% endif %}
+        {% endif %}
+    {% elsif page.type == 'page' %}
+        <li property="itemListElement" typeof="ListItem">
+            <a property="item" typeof="WebPage" href="{{ page.url | prepend: site.url }}">
+                <span property="name">{{ page.title }}</span>
+            </a>
+            <meta property="position" content="2">
         </li>
     {% endif %}
 </ol>
