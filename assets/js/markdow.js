@@ -2,7 +2,7 @@ $(function() {
 	// find {.class} instances and translate them
 	$('article .content > *').addClass(function() {
 		var classFound = $(this).text().trim().match(/\{\..*\}$/);
-		if(classFound) {
+		if ( classFound ) {
 			console.log(this);
 			$(this).html($(this).html().trim().split(classFound[0]).join(''));
 			classNames = classFound[0].trim().substring(1, classFound[0].length-1).split(/\W/g).join(" ").trim();
@@ -13,8 +13,8 @@ $(function() {
 	// create <figure> with caption from <p><img>
 	$('article p img').after(function() {
 		classes = $(this).parent().attr('class');
-		if($(this).parent().text().trim() === "") {
-			if(classes) {
+		if ( $(this).parent().text().trim() === "" ) {
+			if ( classes ) {
 				$(this).unwrap().wrap('<figure class="' + classes + '"></figure>');
 			} else {
 				$(this).unwrap().wrap('<figure></figure>');
