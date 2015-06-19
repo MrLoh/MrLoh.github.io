@@ -19,6 +19,29 @@ section.archive {
         list-style-type: none;
     }
 
+    article {
+        margin-bottom: 0;
+
+        p:first-child {
+            border-top: 1px solid lighten($alt-background-color, 10%);
+            padding-top: $unit;
+        }
+
+        h2 {
+            color: lighten($alt-background-color, 10%);
+            font-family: $font-sc;
+            font-size: 2*$base-font-size;
+            font-weight: 800;
+            text-transform: lowercase;
+            text-align: center;
+            height: auto;
+            margin: $unit 0 4*$unit 0;
+            padding-top: 2*$unit;
+            border-top: 1px solid lighten($alt-background-color, 10%);
+            // border-bottom: 3px solid lighten($alt-background-color, 10%);
+        }
+    }
+
     li.post {
         margin-bottom: 2*$unit;
 

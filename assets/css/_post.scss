@@ -4,17 +4,17 @@ $padding-factor: 1/0.8999;
 
 
 @include media($article-width+15*$unit) {
-    article, header.article, footer {
+    article.article, header.article, footer {
         padding-right: 2*$unit;
     }
 }
 @include media($article-width+12*$unit) {
-    article, header.article, footer {
+    article.article, header.article, footer {
         padding-right: 4*$unit;
     }
 }
 @include media($article-width+6*$unit) {
-    article, header.article, footer {
+    article.article, header.article, footer {
         padding-right: 0;
     }
 }

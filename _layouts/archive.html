@@ -13,6 +13,17 @@ layout: default
         {% include archive_index.html %}
     {% else %}
         <h1>Archive: {{ page.title }}</h1>
+    {% endif %}
+    {% if page.tag and content != '' %}
+    <article title="{{ page.title }}">
+        <div class="content" style="position: relative; left: 0px;">
+            {{ content }}
+
+            <h2>Blogposts about {{ page.title }}:</h2>
+        </div>
+    </article>
+    {% endif %}
+    {% unless page.title == 'Archive' %}
         <ul>
             {% if page.month %}
                 {% include archive_month.html %}
@@ -22,7 +33,7 @@ layout: default
                 {% include archive_tag.html %}
             {% endif %}
         </ul>
-    {% endif %}
+    {% endunless %}
 </section>
 
 <footer>
