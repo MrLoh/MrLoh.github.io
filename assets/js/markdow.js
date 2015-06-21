@@ -27,7 +27,7 @@ $(function() {
 
 	// add linenumbers to <pre>
 	var table = '<table class="highlighttable"><tbody><tr></tr></tbody></table>';
-	$('article .highlight').wrap(table).before(function() {
+	$('article .content > .highlight').wrap(table).before(function() {
 		var out = '<td class="linenos"><div class="linenodiv"><pre><code>';
 		var lines = $(this).text().split(/\n/).length;
 		for ( var i=1; i<lines; i++ ) {
@@ -50,6 +50,10 @@ $(function() {
 
 	// make / in code blocks ine-breakable
 	$('article p code').html(function() {
-		return $(this).text().split('/').join('/<wbr>');
+		var text = $(this).text();
+		text = text.split('/').join('/<wbr>');
+		text = text.split('=').join('=<wbr>');
+		text = text.split('&').join('<wbr>&');
+		return text;
 	});
 });
