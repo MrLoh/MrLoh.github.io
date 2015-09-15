@@ -19,7 +19,7 @@ body {
 
     font-family: $font;
     font-size: $base-font-size;
-    font-weight: 300;
+    font-weight: 400;
     line-height: $unit;
 
     -webkit-text-size-adjust: 100%;
@@ -90,7 +90,6 @@ a {
         text-decoration: underline;
     }
 }
-
 
 ::-moz-selection {
     background: lighten($action-color, 25%);

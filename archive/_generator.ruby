@@ -57,6 +57,6 @@ for date in dates
     write_template_file(yearpage_path, "#{date[:year]}/", date[:year], {year:"#{date[:year]}"})
 
     monthpage_path = dates_folder_path + "/#{date[:year]}-#{date[:month]}.md"
-    month_name = "#{MONTH_NAMES[Integer(date[:month])]} #{date[:year]}"
+    month_name = "#{MONTH_NAMES[date[:month].to_i]} #{date[:year]}"
     write_template_file(monthpage_path, "#{date[:year]}/#{date[:month]}/", month_name, {year: date[:year], month: date[:month]})
 end
