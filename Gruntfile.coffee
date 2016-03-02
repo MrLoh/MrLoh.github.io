@@ -68,7 +68,7 @@ module.exports = (grunt) ->
 			jekyll:
 				command: 'jekyll build'
 			archive:
-				command: 'ruby archive/_generator.ruby'
+				command: 'ruby archive/_generator.rb'
 
 		# Watch
 		watch:

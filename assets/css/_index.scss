@@ -65,6 +65,10 @@ ul.posts {
     list-style-type: none;
     margin: 0;
 
+    img {
+        display: none;
+    }
+
     li {
         margin: 0 0 $unit 0;
         padding: $unit;
