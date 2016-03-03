@@ -1,5 +1,5 @@
 ---
-title: Bending Markdown for Jekyll and GitHub Pages
+title: Bending Markdown for Jekyll & GitHub Pages
 date: 2015-05-26-15:45
 tags: [Jekyll, Markdown, GitHub Pages, Web Development, jQuery, HTML]
 description: 'jQuery Work-arounds for customizing Markdown conversion for figure tags and code-blocks with line numbers, using RedCarpet for Jekyll on GitHub Pages'

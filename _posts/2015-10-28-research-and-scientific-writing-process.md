@@ -1,5 +1,5 @@
 ---
-title: Research and Scientific Writing Process
+title: Research & Scientific Writing Process
 date: 2015-10-28-14:10
 updated: 2016-03-02-18:30
 tags: [Research, Writing, Science, Evernote, Pandoc, Markdown]
