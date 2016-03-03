@@ -27,7 +27,7 @@ $(function() {
 
 	// add linenumbers to <pre>
 	var table = '<table class="highlighttable"><tbody><tr></tr></tbody></table>';
-	$('article .content > .highlight').wrap(table).before(function() {
+	$('article .content > .highlight, article .content > .highlighter-rouge').wrap(table).before(function() {
 		var out = '<td class="linenos"><div class="linenodiv"><pre><code>';
 		var lines = $(this).text().split(/\n/).length;
 		for ( var i=1; i<lines; i++ ) {
@@ -44,9 +44,14 @@ $(function() {
 	}).children('a').wrap('<cite></cite>');
 
 	// make links in article open in new tab
-	$('article a').not('[rel="footnote"], [rev="footnote"]').html(function(i, str) {
+	$('article a').not('[rel="footnote"], [rev="footnote"], .footnote, .reversefootnote').html(function(i, str) {
 		return str.replace(/ /g,'&nbsp;');
 	}).attr('target','_blank');
+
+	// add ruler before footnotes
+	$('article .footnotes').children().first().not('hr').before(function() {
+		return '<hr>'
+	});
 
 	// make / in code blocks ine-breakable
 	$('article p code').html(function() {

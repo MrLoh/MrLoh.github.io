@@ -122,19 +122,20 @@ page.open(address, function (status) {
 
 What's still missing is a controller to put it all together. We will write an `img.php` file for that. This is the URL we call to get our images. If you remember from above it's called with a bunch of parameters like `img.php?imgurl=url_to_image.jpg&title=Some+Title&width=800&type=jpg&qual=80`. First we capture those and verify that the quality is an integer between 1 and 100 or set it to 70 by default.
 
-{% highlight php startinline linenos=table %}
+```php?start_inline=1
 $title = $_GET["title"];
 $image_url = $_GET["imgurl"];
 $width = $_GET["width"];
 $quality = intval($_GET["qual"]);
 $quality = (0 < $quality && $quality <= 100) ? $quality : 70;
-{% endhighlight %}
+```
 
 Since rendering the images with PhantomJS will take up quite some ressources we want to generate each image only once and then cache it so we don't have to regenerate it. For that we will simply calculate the unique MD5-Hash from the path to the SVG that we render plus the quality value and use that as the filename for the output image. We will save all generated images with their MD5 `$filename` in a `cache` folder. Then we can simply try to get the file from this folder with `@imagecreatefromjpeg($filename)` and if it doesn't exist we will run the PhantomJS rasterize script to create it and save it in the cache. Lastly we will serve the image from the cache on this very page by specifying to PHP that this is a JPG file with `header("Content-type: image/jpeg")` and then simply outputting it with `imagejpeg($image)`.
 
-{% highlight php startinline linenos=table %}
+```php?start_inline=1
 // filename from unique hash
-$path = "http://kijani.co/imagerenderer/svg.php?img={$image_url}&title={$title}&width={$width}";
+$path = "http://kijani.co/imagerenderer/svg.php?
+                img={$image_url}&title={$title}&width={$width}";
 $filename = 'cache/' . hash("md5", $path.$quality) . '.jpg';
 
 // create image from svg, if needed
@@ -147,7 +148,7 @@ if ( !$image ) {
 // output image
 header("Content-type: image/jpeg");
 imagejpeg($image);
-{% endhighlight %}
+```
 
 So that's it. You can find the full code in [this](https://github.com/KijaniNGO/kijanify-imagerenderer) GitHub repository, it includes PNG rendering as well and some more error handling and making sure that special characters are encoded correctly for URLs and as HTML entities.
 

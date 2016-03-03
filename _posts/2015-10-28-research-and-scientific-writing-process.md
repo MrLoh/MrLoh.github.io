@@ -58,7 +58,7 @@ So that's it: my whole workflow from research to print.
 
 Here is a litte Markdown example from my thesis:
 
-```
+```md
 ### Interpretability as the essence of Intelligence
 
 What we have discussed so far depends on accepting Turing's
@@ -96,7 +96,7 @@ for example is *not* a sufficient condition for Davidson.
 
 And this is some of the Corresponding BibTeX:
 
-```
+```tex
 @incollection{Davidson:1990tt,
 	author = {Davidson, Donald},
 	title = {Turing's Test},

@@ -387,7 +387,7 @@ article {
         }
 
         & > p, & > ul, & > ol {
-            a:not([rel="footnote"]) {
+            a:not([rel="footnote"], .footnote) {
                 $link-color: lighten($action-color, 15%);
 
                 position: relative;
@@ -526,7 +526,7 @@ article {
             margin: 3*$unit 15% $unit/2 -15%;
         }
 
-        [rev="footnote"] {
+        [rev="footnote"], .reversefootnote {
             display: inline-block;
             position: relative;
             top: -1px;
@@ -589,7 +589,7 @@ article {
         white-space: nowrap;
     }
 
-    .codeblock, .highlighttable, .CodeRay, & .content > .highlight {
+    .codeblock, .highlighttable, .CodeRay, & .content > .highlight, .content > .highlighter-rouge {
         $line-color: lighten($alt-background-color, 10%);
 
         overflow-x: scroll;
@@ -649,7 +649,7 @@ article {
                 padding-left: $base-font-size/2;
             }
 
-            .highlight {
+            .highlight, .highlighter-rouge {
                 position: relative;
                 margin: 0;
             }
