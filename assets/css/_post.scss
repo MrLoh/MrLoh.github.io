@@ -387,7 +387,7 @@ article {
         }
 
         & > p, & > ul, & > ol {
-            a:not([rel="footnote"], .footnote) {
+            a:not(.footnote) {
                 $link-color: lighten($action-color, 15%);
 
                 position: relative;
@@ -589,7 +589,7 @@ article {
         white-space: nowrap;
     }
 
-    .codeblock, .highlighttable, .CodeRay, & .content > .highlight, .content > .highlighter-rouge {
+    .codeblock, .highlighttable, .CodeRay, & .content > .highlight, & .content > .highlighter-rouge {
         $line-color: lighten($alt-background-color, 10%);
 
         overflow-x: scroll;
@@ -612,7 +612,7 @@ article {
             max-width: $article-width !important;
         }
 
-        tbody, & > pre {
+        & > tbody, & > pre, & > .highlight {
             display: block;
 
             max-width: $article-width + 3*$base-font-size;
@@ -630,7 +630,7 @@ article {
                 padding: $unit/3*2 0;
             }
 
-            td.linenos, td.line-numbers {
+            td.linenos, td.line-numbers, td.gl {
                 min-width: 2*$base-font-size;
                 padding-right: $base-font-size/2;
 
@@ -638,7 +638,7 @@ article {
 
                 border-right: 2px solid $line-color;
 
-                code, pre a, pre a:hover {
+                code, pre, pre a, pre a:hover {
                     text-decoration: none;
                     color: $line-color;
                 }
@@ -672,7 +672,7 @@ article {
             margin-top: $unit;
             width: $padding-factor*100%;
 
-            tbody, & > pre {
+            & > tbody, & > pre, & > .highlight {
                 width: 100%;
                 margin: 0;
 
@@ -680,7 +680,7 @@ article {
                     margin-left: 0;
                 }
 
-                td.linenos, td.line-numbers {
+                td.linenos, td.line-numbers, td.gl {
                     min-width: $base-font-size;
                 }
 

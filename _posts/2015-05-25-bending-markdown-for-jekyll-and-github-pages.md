@@ -1,6 +1,7 @@
 ---
 title: Bending Markdown for Jekyll & GitHub Pages
 date: 2015-05-26-15:45
+updated: 2016-03-06-17:17
 tags: [Jekyll, Markdown, GitHub Pages, Web Development, jQuery, HTML]
 description: 'jQuery Work-arounds for customizing Markdown conversion for figure tags and code-blocks with line numbers, using RedCarpet for Jekyll on GitHub Pages'
 ---
@@ -49,7 +50,7 @@ $('article .highlight').wrap(table).before(function() {
 }).wrap('<td class="code"></td>');
 ```
 
-And while we're at it, why not make sure that links only have non-breaking whitespace `&nbsp;` --- mainly because that breaks my link-hover animation, but also because those are often names. And make sure those external links open in a new tab by default with `target='_blank'`, but only if they are not footnote links of course.
+And while we're at it, why not make sure that links only have non-breaking whitespace `&nbsp ;` --- mainly because that breaks my link-hover animation, but also because those are often names. And make sure those external links open in a new tab by default with `target='_blank'`, but only if they are not footnote links of course.
 
 ```js
 // prevent line-breaks in links and make open in new tab
@@ -67,6 +68,21 @@ This solution is of course a little dirty, because it doesn't compile the final 
 > [Vicent Marti on GitHub](https://github.com/github/pages-gem/pull/79)
 
 However, in the end the jQuery solution is pretty fast, it's easy enough to handle fallbacks and it's certainly very flexible. So I'm happy with it for now.
+
+
+## Update March 2016 GitHub Pages enforcing Kramdown and Rouge
+
+Starting in May 2016 GitHub Pages will [enforce](https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0) the usage of [Kramdown](http://kramdown.gettalong.org/converter/html.html) and [Rouge](https://github.com/jneen/rouge) with Jekyll 3. Luckily Kramdown and Rouge together work great in there latest releases. Even line numbers for fenced code blocks are easily accessible via rouge, so no need for hacking that with jQuery anymore. You just need to add the following to your `_config.yml`: 
+
+```yml
+markdown: kramdown
+kramdown:
+    highlighter: rouge
+    syntax_highlighter_opts:
+        block:
+            line_numbers: true
+```
+The only remaining issue I had was a problem with rouge codeblock parapmeters like ```` ```php?start_inline=1````, but that is [being fixed](https://github.com/github/pages-gem/issues/205) and kramdown 1.10. will soon be merged I hope.
 
 
 [^1]: You know, the ones marked with ```` ```js ```` for example.

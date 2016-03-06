@@ -22,11 +22,11 @@ gems:
 jekyll-redirect-from:
 
 markdown: kramdown
-# switch to kramdown as soon as https://github.com/github/pages-gem/issues/205 is fixed
-markdown: redcarpet
-redcarpet:
-  extensions: ["smart", "tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks", "footnotes"]
-highlighter: rouge
+kramdown:
+    highlighter: rouge
+    syntax_highlighter_opts:
+        block:
+            line_numbers: true
 excerpt_separator: <!--/-->
 
 sass:
