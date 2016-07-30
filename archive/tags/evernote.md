@@ -1,7 +1,8 @@
 ---
+title: Evernote
+permalink: tags/evernote/
 layout: archive
-permalink: 'tags/evernote/'
-redirect_from: 'archive/tags/evernote/'
-title: 'Evernote'
-tag: 'Evernote'
+redirect_from: archive/tags/evernote/
+tag: Evernote
 ---
+

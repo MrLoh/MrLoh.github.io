@@ -1,7 +1,8 @@
 ---
+title: Web Development
+permalink: tags/web-development/
 layout: archive
-permalink: 'tags/web-development/'
-redirect_from: 'archive/tags/web-development/'
-title: 'Web Development'
-tag: 'Web Development'
+redirect_from: archive/tags/web-development/
+tag: Web Development
 ---
+

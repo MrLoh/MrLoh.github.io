@@ -1,7 +1,8 @@
 ---
+title: Pandoc
+permalink: tags/pandoc/
 layout: archive
-permalink: 'tags/pandoc/'
-redirect_from: 'archive/tags/pandoc/'
-title: 'Pandoc'
-tag: 'Pandoc'
+redirect_from: archive/tags/pandoc/
+tag: Pandoc
 ---
+

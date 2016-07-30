@@ -1,7 +1,8 @@
 ---
+title: Web
+permalink: tags/web/
 layout: archive
-permalink: 'tags/web/'
-redirect_from: 'archive/tags/web/'
-title: 'Web'
-tag: 'Web'
+redirect_from: archive/tags/web/
+tag: Web
 ---
+

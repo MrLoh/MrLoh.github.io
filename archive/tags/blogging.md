@@ -1,7 +1,8 @@
 ---
+title: Blogging
+permalink: tags/blogging/
 layout: archive
-permalink: 'tags/blogging/'
-redirect_from: 'archive/tags/blogging/'
-title: 'Blogging'
-tag: 'Blogging'
+redirect_from: archive/tags/blogging/
+tag: Blogging
 ---
+

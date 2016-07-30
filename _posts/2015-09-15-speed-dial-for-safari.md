@@ -1,8 +1,12 @@
 ---
 title: Speed Dial for Safari
-date: 2015-09-15-14:10
-tags: [Web Development, JavaScript, Safari, Mac OS X]
-description: 'Set up speed dial new tabs page and custom search engines in Safari'
+date: 2015-09-15 14:10:00 Z
+tags:
+- Web Development
+- JavaScript
+- Safari
+- Mac OS X
+description: Set up speed dial new tabs page and custom search engines in Safari
 ---
 
 I have to admit that I am a Safari user. Mainly because of [battery life](http://www.theverge.com/2015/4/10/8381447/chrome-macbook-battery-life) and because I don't like Firefox's design. I have also never experienced any of the [Safari is the new IE](http://nolanlawson.com/2015/06/30/safari-is-the-new-ie/) issues everyone seems to be complaining about these days in any Development work I've done. But while I am usually quite happy with Safari, there is one big annoyance: the new window/tabs page. You can either use topsites, or favorites, but both look very unclean and certainly don't make it easy to recognize websites. Favorites only displays icons for a few sites and they are not visually coherent. Topsites displays a preview of the site, which end up as login screen for most sites --- there are some [workarounds](http://forums.macrumors.com/threads/custom-thumbnails-for-safari-top-sites.1454943/) for that at least. None of this is really any good.

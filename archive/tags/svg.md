@@ -1,7 +1,8 @@
 ---
+title: SVG
+permalink: tags/svg/
 layout: archive
-permalink: 'tags/svg/'
-redirect_from: 'archive/tags/svg/'
-title: 'SVG'
-tag: 'SVG'
+redirect_from: archive/tags/svg/
+tag: SVG
 ---
+

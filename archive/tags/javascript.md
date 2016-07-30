@@ -1,7 +1,8 @@
 ---
+title: JavaScript
+permalink: tags/javascript/
 layout: archive
-permalink: 'tags/javascript/'
-redirect_from: 'archive/tags/javascript/'
-title: 'JavaScript'
-tag: 'JavaScript'
+redirect_from: archive/tags/javascript/
+tag: JavaScript
 ---
+

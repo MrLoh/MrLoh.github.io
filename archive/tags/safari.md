@@ -1,7 +1,8 @@
 ---
+title: Safari
+permalink: tags/safari/
 layout: archive
-permalink: 'tags/safari/'
-redirect_from: 'archive/tags/safari/'
-title: 'Safari'
-tag: 'Safari'
+redirect_from: archive/tags/safari/
+tag: Safari
 ---
+

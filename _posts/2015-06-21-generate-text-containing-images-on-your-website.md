@@ -1,8 +1,13 @@
 ---
 title: Generate Text-Containing Images on your Website
-date: 2015-06-21-15:30
-tags: [Web Development, PHP, SVG, PhantomJS]
-description: 'How to generate images with text overlays for social media automatically using only PHP, SVG, and PhantomJS compatible with most shared hosting'
+date: 2015-06-21 15:30:00 Z
+tags:
+- Web Development
+- PHP
+- SVG
+- PhantomJS
+description: How to generate images with text overlays for social media automatically
+  using only PHP, SVG, and PhantomJS compatible with most shared hosting
 ---
 
 If there has been one constant in social media marketing in the last years, it's that [images rule](https://designschool.canva.com/blog/blog-traffic/). So instead of sharing text content it is often a good idea to typeset the text as an overlay inside an image and share that to draw attention. But creating text image overlays in accordance with your corporate design if you don't have photoshop installed can be a bit of a hassle. But it is relatively easy to style images on the web using SVG filters and to create text overlays. Only how to transform those into JPG files that can be used on social media sites and mailinglists? It's actually pretty easy with  [PhantomJS](http://phantomjs.org) and can be done on basically any shared hosting, with a little coding in PHP and SVG.

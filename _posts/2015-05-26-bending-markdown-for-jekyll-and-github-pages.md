@@ -1,9 +1,16 @@
 ---
 title: Bending Markdown for Jekyll & GitHub Pages
-date: 2015-05-26-15:45
+date: 2015-05-26 15:45:00 Z
+tags:
+- Jekyll
+- Markdown
+- GitHub Pages
+- Web Development
+- jQuery
+- HTML
 updated: 2016-03-06-17:17
-tags: [Jekyll, Markdown, GitHub Pages, Web Development, jQuery, HTML]
-description: 'jQuery Work-arounds for customizing Markdown conversion for figure tags and code-blocks with line numbers, using RedCarpet for Jekyll on GitHub Pages'
+description: jQuery Work-arounds for customizing Markdown conversion for figure tags
+  and code-blocks with line numbers, using RedCarpet for Jekyll on GitHub Pages
 ---
 
 If you are using [Jekyll](http://jekyllrb.com) you probably love writing in [Markdown](http://daringfireball.net/projects/markdown/syntax). So do I and over time I've really gotten used to so called GitHub flavored markdown ([GFM](https://help.github.com/articles/github-flavored-markdown/)). This adds some nice features to Markdown, most notably: strike-through, checkmarks, tables, **and** fenced code blocks [^1]. One might think that when using Jekyll on [GitHub Pages](https://pages.github.com/) it would be standard to have GFM, but it's not that simple.

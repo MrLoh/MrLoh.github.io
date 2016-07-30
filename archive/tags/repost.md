@@ -1,7 +1,8 @@
 ---
+title: Repost
+permalink: tags/repost/
 layout: archive
-permalink: 'tags/repost/'
-redirect_from: 'archive/tags/repost/'
-title: 'Repost'
-tag: 'Repost'
+redirect_from: archive/tags/repost/
+tag: Repost
 ---
+

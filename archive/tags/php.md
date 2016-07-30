@@ -1,7 +1,8 @@
 ---
+title: PHP
+permalink: tags/php/
 layout: archive
-permalink: 'tags/php/'
-redirect_from: 'archive/tags/php/'
-title: 'PHP'
-tag: 'PHP'
+redirect_from: archive/tags/php/
+tag: PHP
 ---
+

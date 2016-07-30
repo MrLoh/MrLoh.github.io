@@ -1,7 +1,8 @@
 ---
-title: 'A Simple Traceroute in C'
+title: A Simple Traceroute in C
+date: 2016-07-30 12:13:50.481000000 Z
 tags:
-    - C
+- C
 ---
 
 Traceroute

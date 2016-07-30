@@ -1,7 +1,8 @@
 ---
+title: Parenting
+permalink: tags/parenting/
 layout: archive
-permalink: 'tags/parenting/'
-redirect_from: 'archive/tags/parenting/'
-title: 'Parenting'
-tag: 'Parenting'
+redirect_from: archive/tags/parenting/
+tag: Parenting
 ---
+

@@ -1,7 +1,8 @@
 ---
+title: Grunt
+permalink: tags/grunt/
 layout: archive
-permalink: 'tags/grunt/'
-redirect_from: 'archive/tags/grunt/'
-title: 'Grunt'
-tag: 'Grunt'
+redirect_from: archive/tags/grunt/
+tag: Grunt
 ---
+

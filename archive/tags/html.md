@@ -1,7 +1,8 @@
 ---
+title: HTML
+permalink: tags/html/
 layout: archive
-permalink: 'tags/html/'
-redirect_from: 'archive/tags/html/'
-title: 'HTML'
-tag: 'HTML'
+redirect_from: archive/tags/html/
+tag: HTML
 ---
+

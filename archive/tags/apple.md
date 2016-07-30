@@ -1,7 +1,8 @@
 ---
+title: Apple
+permalink: tags/apple/
 layout: archive
-permalink: 'tags/apple/'
-redirect_from: 'archive/tags/apple/'
-title: 'Apple'
-tag: 'Apple'
+redirect_from: archive/tags/apple/
+tag: Apple
 ---
+

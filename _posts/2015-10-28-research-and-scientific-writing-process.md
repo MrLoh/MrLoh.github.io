@@ -1,9 +1,16 @@
 ---
 title: Research & Scientific Writing Process
-date: 2015-10-28-14:10
+date: 2015-10-28 14:10:00 Z
+tags:
+- Research
+- Writing
+- Science
+- Evernote
+- Pandoc
+- Markdown
 updated: 2016-03-02-18:30
-tags: [Research, Writing, Science, Evernote, Pandoc, Markdown]
-description: 'How to research effectively and systematically with Evernote and write scientific papers from digital notecards.'
+description: How to research effectively and systematically with Evernote and write
+  scientific papers from digital notecards.
 ---
 
 While the human brain excells at establishing connections between different ideas,

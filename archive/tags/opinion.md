@@ -1,7 +1,8 @@
 ---
+title: Opinion
+permalink: tags/opinion/
 layout: archive
-permalink: 'tags/opinion/'
-redirect_from: 'archive/tags/opinion/'
-title: 'Opinion'
-tag: 'Opinion'
+redirect_from: archive/tags/opinion/
+tag: Opinion
 ---
+

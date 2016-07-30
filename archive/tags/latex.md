@@ -1,7 +1,8 @@
 ---
+title: LaTeX
+permalink: tags/latex/
 layout: archive
-permalink: 'tags/latex/'
-redirect_from: 'archive/tags/latex/'
-title: 'LaTeX'
-tag: 'LaTeX'
+redirect_from: archive/tags/latex/
+tag: LaTeX
 ---
+

@@ -1,7 +1,8 @@
 ---
+title: Science
+permalink: tags/science/
 layout: archive
-permalink: 'tags/science/'
-redirect_from: 'archive/tags/science/'
-title: 'Science'
-tag: 'Science'
+redirect_from: archive/tags/science/
+tag: Science
 ---
+

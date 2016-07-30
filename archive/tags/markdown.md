@@ -1,7 +1,8 @@
 ---
+title: Markdown
+permalink: tags/markdown/
 layout: archive
-permalink: 'tags/markdown/'
-redirect_from: 'archive/tags/markdown/'
-title: 'Markdown'
-tag: 'Markdown'
+redirect_from: archive/tags/markdown/
+tag: Markdown
 ---
+

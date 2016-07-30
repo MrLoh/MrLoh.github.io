@@ -1,8 +1,13 @@
 ---
 title: Automatic Archives for Jekyll on GitHub Pages
-date: 2015-06-14-17:00
-tags: [Jekyll, Web Development, GitHub Pages, Ruby]
-description: 'How to automatically generate month and tag archives for Jekyll blogs without the need for any GitHub Pages incompatible plugins'
+date: 2015-06-14 17:00:00 Z
+tags:
+- Jekyll
+- Web Development
+- GitHub Pages
+- Ruby
+description: How to automatically generate month and tag archives for Jekyll blogs
+  without the need for any GitHub Pages incompatible plugins
 ---
 
 Static sites are pretty cool. Not just, because they're so fast, but also because they are pretty intuitive. After all it's just a bunch of files in a folder structure --- just like you know it from your local filesystem. But while they are cool, they also have some drawbacks when compared to database driven sites. One is that it's hard(er) to generate query driven sites like archive pages by month, year and day or by things like tags and categories. There are a bunch of plugins for that task, but those don't work well with [GitHub Pages](https://pages.github.com). But there are other ways to solve the issue, after all we just need to generate some files.

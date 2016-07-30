@@ -1,7 +1,8 @@
 ---
+title: Research
+permalink: tags/research/
 layout: archive
-permalink: 'tags/research/'
-redirect_from: 'archive/tags/research/'
-title: 'Research'
-tag: 'Research'
+redirect_from: archive/tags/research/
+tag: Research
 ---
+
